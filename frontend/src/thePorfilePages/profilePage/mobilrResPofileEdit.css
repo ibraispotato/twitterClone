@@ -1,0 +1,65 @@
+@media(max-width:540px){
+   
+}
+@media(max-width:375px){
+
+}
+@media(max-width:320px){
+
+}
+@media(max-width:549px){
+
+}
+@media(min-width:700px){
+    
+    .iconX {
+        display: flex;
+        align-items: flex-start;
+        width: 0%;
+    }
+    .twitterIcon {
+        display: flex;
+        align-items: flex-start;
+        width: 0%;
+        font-size: 2rem;
+    }    
+    .allIcons {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        margin-top: 5px;
+        justify-content: space-around;
+    }
+    .profileNames {
+        font-size: 20px;
+        /* width: 50%; */
+    }
+    .bioProfile{
+        width: 10px;
+
+    }
+}
+@media(min-width:900px){
+
+}
+@media(min-width:1024px){
+
+}
+@media(min-width:1280px){
+
+}
+/* @media(min-width:1366px){
+
+} */
+@media(min-width:1440px){
+
+}
+@media(min-width:1716px){
+
+}
+@media(min-width:1920px){
+
+}
+@media(min-width:2560px){
+    
+}

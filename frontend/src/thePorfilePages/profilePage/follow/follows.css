@@ -1,0 +1,38 @@
+.userNameProfileFollows{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+}
+.UserNameProfile{
+    color: rgba(255, 255, 255, 0.705);
+
+}
+.UserBioProfile{
+    font-size: 14px;
+    font-weight: 700;
+}
+.nameProfileFollow{
+  font-size: 17px;
+  border-bottom: 1px solid black;
+  font-weight: 700;
+    color: white;
+}
+.nameProfileFollow:hover{
+border-bottom: 1px solid white;
+}
+.motherProfileo {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: flex-start;
+    /* gap: 10%; */
+}
+.s{
+    display: block;
+}
+
+.userTweet.followin{
+    /* width: 450px; */
+}

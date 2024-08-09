@@ -1,0 +1,401 @@
+
+@media(max-width:549px){
+    .allRegister {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        flex-direction: column;
+        align-content: center;
+        gap: 100px;
+    }
+    .registerIcon {
+        font-size: 2rem;
+    }
+    .regtext {
+        font-size: 3rem;
+    }
+    .googleBtn {
+        padding: 10px;
+        width: 100%;
+        
+    }
+    .AccBtn{
+        padding: 10px;
+        width: 100%;
+        
+    }
+    .signinBtn {
+        padding: 10px;
+        width: 100%;
+        
+    }
+    .border {
+        border: 0.1px solid #cccccc69;
+        width: 125%;
+    }
+    .allLoginDiv{
+        width: 100%;
+        gap: 0px;
+    }
+    .loginDiv {
+        height: auto;
+        width: 70%;
+        gap: 40px;
+       
+    }
+    .backGroundRegister {
+        background-color: #6464641e;
+    }
+    .err{
+        width: 300px;
+        transform: translate(-40%,-30%);
+    }
+}
+@media(max-width:425px){
+    .loginDiv {
+        min-height: 100%;
+        min-width: 100%;
+        gap: 40px;
+    }
+    .err{
+        min-width: 300px;
+        transform: translate(-20%,-30%);
+    }
+    .regtext{
+        font-size: 2rem;
+    }
+    .reganothertext{
+        font-size: 2rem;
+    }
+}
+@media(max-width:375px){
+    .err{
+        min-width: 300px;
+        transform: translate(-10%,-30%);
+    }
+}
+@media(max-width:320px){
+    .err{
+        min-width: 300px;
+        transform: translate(-2%,-30%);
+    }
+}
+@media(min-width:700px){
+    .registerIcon {
+        font-size: 17rem;
+    }
+    .regtext {
+        font-size: 2rem;
+    }
+    .reganothertext{
+        font-size: 1.5rem;
+    }
+    .googleBtn {
+        width: 98%;
+    }
+    .border {
+        border: 0.1px solid #cccccc69;
+        width: 55%;
+    }
+    .AccBtn {
+        padding: 15px;
+        width: 98%;
+    }
+    .signinBtn{
+        width: 98%;
+    }
+    .loginDiv {
+        height: auto;
+        width: 60%;
+        padding: 15px;
+    }
+    .allLoginDiv{
+        width: 100%;
+        gap: 0px;
+    }
+    .err{
+        width: 300px;
+        font-size: 19px;
+        transform: translate(-80%,-30%);
+    }
+}
+@media(min-width:900px){
+    .registerIcon {
+        font-size: 20rem;
+    }
+    .regtext {
+        font-size: 2rem;
+    }
+    .reganothertext{
+        font-size: 1.5rem;
+    }
+    .googleBtn {
+        width: 98%;
+    }
+    .border {
+        border: 0.1px solid #cccccc69;
+        width: 55%;
+    }
+    .AccBtn {
+        padding: 15px;
+        width: 98%;
+    }
+    .signinBtn{
+        width: 98%;
+    }
+    .loginDiv {
+        height: auto;
+        width: 60%;
+        padding: 15px;
+    }
+    .allLoginDiv{
+        width: 100%;
+        gap: 0px;
+    }
+    .err{
+        width: 300px;
+        transform: translate(-100%,-30%);
+        font-size: 25px;
+        padding: 10px;
+    }
+}
+@media(min-width:1024px){
+.regtext{
+    font-size: 3rem;
+}
+.registerIcon{
+    font-size: 15rem;
+}
+.googleBtn {
+    width: 64%;
+}
+.borderAndText {
+    gap: 30px;
+}
+.border {
+    width: 20%;
+}
+.AccBtn{
+    width: 64%;
+    padding: 15px;
+}
+.signinBtn{
+    width: 64%;
+
+}
+.allLoginDiv{
+    /* width: 130vh; */
+    gap: 0px;
+
+}
+.loginDiv {
+    height: auto;
+    width: 50%;
+    padding: 15px;
+}
+.inputsAndBtnSignUp{
+    margin-bottom: 50px;
+}
+.err {
+    width: 300px;
+    transform: translate(-110%, -120%);
+    font-size: 25px;
+    padding: 10px;
+}
+.inputsAndBtnNpSignUp{
+    margin-bottom: 10px;
+}
+.inputsAndBtn {
+    margin-bottom: 0px;
+}
+.inputsAndBtnNp {
+    margin-bottom: 0px;
+}
+.EmailInputs {
+    padding: 18px 24px;
+    font-size: 20px;
+}
+.EmailInput{
+    padding: 18px 24px;
+    font-size: 20px;
+}
+.createAccText{
+    font-size: 28px;
+}
+.divIconX{
+    font-size: 27px;
+}
+.twitterIcon{
+    font-size: 39px;
+}
+}
+@media(min-width:1280px){
+    .EmailInput{
+        
+            padding: 15px 20px;
+            font-size: 15px;
+        
+    }    
+    .EmailInputs {
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+    .divIconX {
+        font-size: 1.5rem;
+    }
+    .twitterIcon {
+        font-size: 2rem;
+    }
+    .allLoginDiv {
+        width: 100%;
+    }
+    .err{
+        width: 300px;
+        transform: translate(-155%,-30%);
+        font-size: 17px;
+        padding: 5px;
+    }
+    .inputsAndBtn {
+        margin-bottom: 50px;
+    }
+    .inputsAndBtnNp {
+        margin-bottom: 50px;
+    }
+    .registerIcon {
+        font-size: 20rem;
+    }
+    
+}
+@media(min-width:1366px){
+    .err{
+        width: 300px;
+        transform: translate(-175%,-30%);
+    }
+}
+@media(min-width:1440px){
+    .err{
+        width: 300px;
+        transform: translate(-186%,-30%);
+    }
+    .registerIcon {
+        font-size: 30rem;
+    }
+    .loginDiv {
+        width: 40%;
+    }
+}
+@media(min-width:1716px){
+    .registerIcon {
+        font-size: 30rem;
+    }
+    .loginDiv{
+        gap: 0px;
+    }
+    .inputsAndBtnSignUp {
+        margin-bottom: 80px;
+    }
+    .loginDiv {
+        width: 40%;
+    }
+    .inputsAndBtnNpSignUp {
+        margin-bottom: 89px;
+    }
+    .inputsAndBtnNp {
+        margin-bottom: 80px;
+    }
+    .err{
+        width: 300px;
+        transform: translate(-235%,-30%);
+    }
+
+}
+@media(min-width:1920px){
+    .iconX{
+        font-size: 1.4rem;
+    }
+    .err{
+        width: 300px;
+        transform: translate(-255%,-30%);
+    }
+    .loginDiv {
+        width: 30%;
+    }
+
+}
+@media(min-width:2560px){
+    .divIconX.signUp {
+        font-size: 1.5rem!important;
+    }
+    .createAccTexts{
+        font-size: 26px;
+    }
+    .EmailInputs.login {
+        padding: 20px 25px!important;
+        font-size: 23px!important;
+    }
+    .regtext {
+        font-size: 4rem;
+    }
+    .reganothertext {
+        font-size: 3.5rem;
+    }
+    .googleBtn {
+        padding: 15px;
+    }
+    .registerIcon {
+        font-size: 40rem;
+    }
+    .loginDiv{
+        /* height: 65%; */
+        gap: 50px;
+    }
+    .twitterIcon {
+        font-size: 3rem;
+    }
+    .iconX{
+        font-size: 1.5rem;
+    }
+    .createAccText{
+        font-size: 2rem;
+    }
+    .EmailInput{
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+    .EmailInputs{
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+    .BtnNext{
+        padding: 15px;
+        font-size: 20px;
+    }
+    .forgotPasswordBtn{
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+    .dontHaveAccText{
+        font-size: 20px;
+    }
+    .AccBtn{
+        padding: 15px;
+        font-size: 18px;
+        font-weight: 800;
+    }
+    .alreadyHaveAcc{
+        font-size: 18px;
+
+    }
+    .signinBtn{
+        font-size: 18px;
+    }
+    .err{
+        padding: 10px;
+        font-size: 23px;
+        font-weight: 400;
+        transform: translate(-245%,-30%);
+
+        width: 416px;
+    }
+}

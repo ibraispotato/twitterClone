@@ -1,0 +1,17 @@
+WE MAKE ALL THE CHEKCS
+
+todays tasks!!!!
+
+
+<!-- <div>
+                    {noText?"" :!loding ?
+                            <div className='moonLoader'>
+                              <MoonLoader color="#01b3ff" size={30}/>
+                              </div>
+                            :maps?.filter((res) => res!==null)?.map((res, idx) => (
+                                <LikesPage res={res} idx={idx} myLikes={myLikes} GetMyLikes={GetMyLikes}
+                                GETREPLYFROMPOST={GETREPLYFROMPOST} myLikes2={myLikes2} maps={maps}
+                                    /> 
+                    ))}
+                
+            </div> -->

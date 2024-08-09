@@ -1,0 +1,65 @@
+.arrowInsidePost{
+    padding: 10px;
+    color: white;
+}
+
+.theNavInsidePost {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    gap: 30px;
+    background-color: rgb(0, 0, 0);
+    padding: 5px;
+    width: 99%;
+    align-content: center;
+}
+.containerCenter.insidePost{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.theNav.navInsidePosts{
+    width: 32%;
+
+}
+.twitterPhoto.PostPhoto{
+    width: 80%;
+    /* height: 90%; */
+    border: 1px solid white;
+}
+.TextOfThePost{
+    width: 90%;
+    margin-bottom: 10px;
+}
+.thePost{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+}
+.PhotoTweetPost{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.borderInsidePost{
+
+    border: 1px solid rgba(255, 255, 255, 0.37);
+    /* height: 55vh; */
+    /* width: 90%; */
+    display: flex;
+    align-content: center;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.dateOfTextOfThePost{
+    margin-bottom: 10px;
+}
+.moonLoader.insideThePost{
+    transform: translate(0%, 950%);
+}

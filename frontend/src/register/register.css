@@ -1,0 +1,249 @@
+.allRegister{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    /* color: rgba(255, 255, 255, 0.705); */
+}
+.registerIcon{
+    font-size: 25rem;
+}
+.regtext{
+    font-size: 5rem;
+  }
+  .reganothertext{
+    font-size: 2.5rem;
+  }
+  .borderAndText{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    /* justify-content: center; */
+  }
+  .border{
+    border: 0.1px solid #cccccc69;
+    width: 15%;
+    
+  }
+  .AccBtn{
+    padding: 10px;
+    width: 38%;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: rgb(0, 132, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .googleBtn{
+    padding: 10px;
+    width: 38%;
+
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+  }
+  .orText{
+    font-size: 1.3em;
+  }
+  .signinBtn{
+    padding: 15px;
+    width: 40%;
+    
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 183, 255);
+    border: 1px solid rgba(255, 255, 255, 0.288);
+    cursor: pointer;
+  }
+  
+
+
+  .loginDiv{
+    position: fixed;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 70%;
+    width: 30%;
+    /* gap: 40px; */
+    border-radius: 10px;
+    /* margin-bottom: 20px; */
+  }
+  .thediv{
+    margin-bottom: 20px;
+
+  }
+
+  .inputsAndBtnSignUp{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 250px;
+  }
+  .inputsAndBtn{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 207px;
+  }
+  
+  .inputsAndBtnNp{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 200px;
+  }
+  .inputFile{
+  position: fixed;
+  transform: translate(0%,900%);
+  padding: 10px;
+  }
+.inputFile::-webkit-file-upload-button{
+  display: none;
+}
+  
+  .faUpload{
+
+  }
+.inputsAndBtnNpSignUp{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 105px;
+}
+  .EmailInputs{
+    padding: 15px 20px;
+    
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    outline: none;
+    color: white;
+    font-size: 15px;
+ }
+ .EmailInputs:focus{
+    border: 2px solid rgb(0, 119, 255);
+    
+
+ }
+ a{
+    color: rgb(0, 119, 255);
+    text-decoration: none;
+ }
+ .EmailInputs:focus::placeholder{
+    color:  rgb(0, 132, 255);
+ }
+  .err{
+    
+        z-index: 10;
+        background-color: #0066ff;
+        /* padding: 0px 4px; */
+        display: flex;
+        align-items: center;
+        position: fixed;
+        justify-content: center;
+        text-align: center;
+        width: 326px;
+        gap: 0px;
+        height: 55px;
+        /* top: 0; */
+        bottom: 0;
+        transform: translate(-240%,-50%);
+        left: 1;
+        right: 0;
+        animation: show_slide 1s ease forwards;
+    
+   
+  }
+  .EmailInputs.done{
+    cursor:no-drop;
+  }
+  .EmailInputs.done:focus{
+    border: 2px solid rgba(255, 255, 255, 0.39);
+
+  }
+  .allLoginDiv{
+    position: fixed;
+    width: 210vh;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    justify-content: center;
+    height: 100vh;
+  }
+  .backGroundRegister{
+    background-color: #6464641e;
+  }
+ .upRegister{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* gap: 100px; */
+    width: 90%;
+    /* margin-bottom: 150px; */
+ }
+ .iconX{
+    display: flex;
+    align-items: flex-start;
+    width: 90%;
+    
+
+ }
+ .twitterIcon{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 2rem;
+ }
+ .theIconX{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.705);
+   
+ }
+
+ .EmailInput{
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    outline: none;
+    color: white;
+    font-size: 15px;
+ }
+ .EmailInput:focus{
+    border: 2px solid rgb(0, 119, 255);
+    
+
+ }
+ .EmailInput:focus::placeholder{
+    color:  rgb(0, 132, 255);
+ }
+ .BtnNext{
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 800;
+
+ }
+ .forgotPasswordBtn{
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 800;
+ }

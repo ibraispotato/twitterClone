@@ -1,0 +1,211 @@
+/* .homePageAll{
+    display: flex;
+    justify-content: space-evenly;
+} */
+
+.homePageAll {
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+}
+.ThreeDots{
+    font-size: 15px;
+    padding: 10px;
+
+}
+.threeDotsBtn{
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+.threeDotsBtn:hover {
+    color: rgb(0, 119, 255);
+    transition: 0.5s ease;
+}
+.iconThreeDots{
+    padding: 10px;
+    /* cursor: pointer; */
+    /* background-color: rgba(0, 162, 255, 0.233); */
+    border-radius: 60%;
+    width: 10px;
+    height: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* font-size: 10px; */
+    transition: 0.5s ease;
+}
+.iconThreeDots:hover{
+    background-color: rgba(0, 162, 255, 0.233);
+
+}
+
+.InputGetUser{
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+}
+
+.iconInput{
+    color: red;
+}
+.motherIconInput{
+    position: fixed;
+    transform: translate(5%,35%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1px 10px;
+    z-index: 0;
+}
+input[type=text] {
+    width: 19%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+    /* border-radius: 4px; */
+    font-size: 16px;
+    /* border: 2px solid rgb(0, 0, 0); */
+    background-color: rgba(94, 94, 94, 0.295);
+    background-image: url("./8666693_search_icon\ \(1\).png");
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    border-radius: 50px;
+    color: white;
+  }
+  input:focus{
+    border: 1px solid rgb(0, 195, 255);
+    
+  }
+.iconInput.remove{
+    display: none;
+}
+.p{
+    color: red;
+}
+.right{
+    align-items: stretch;
+    background-color: rgba(0, 0, 0, 0.00);
+    border: 0 solid black;
+    box-sizing: border-box;
+    display: flex;
+    flex-basis: auto;
+    flex-direction: column;
+    flex-shrink: 0;
+    list-style: none;
+    margin: 0px;
+    min-height: 0px;
+    min-width: 0px;
+    padding: 0px;
+    /* position: fixed; */
+    /* margin-top: 19px; */
+    width: 206px;
+
+}
+.xRight{
+    /* position: fixed; */
+    /* transform: translate(2000%, 50%); */
+background-color: rgb(0, 174, 255);
+    padding: 4px 8px;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+.xRightMother{
+    position: fixed;
+    transform: translate(1220%, -160%);
+    /* padding: 10px; */
+/* background-color: aqua; */
+}
+.userTweet.accounts{
+    width: 300px;
+}
+.allOfTheTextTweet.accounts{
+    width: 300px;
+
+}
+.linkSearchProfile{
+    display: flex;
+    width: 99%;
+}
+.motherOfTheProfile{
+    background-color: rgb(0, 0, 0);
+    height: 750px;
+    box-shadow: rgba(183, 191, 199, 0.2) 0px 8px 24px;
+    /* width: 350px; */
+    border-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 19%;
+}
+.motherOfTheProfile::-webkit-scrollbar {
+    width: 14px;
+    background-color: #3b4b5556;
+    border-radius: 10px;
+    
+}
+  .motherOfTheProfile::-webkit-scrollbar-thumb {
+    background-color: #5a5a5a56;
+  }
+
+.ProfileSearch{
+    cursor: pointer;
+}
+.ProfileSearch:hover{
+    background-color: rgba(105, 105, 105, 0.295);
+
+}
+.searchForName{
+    padding: 20px;
+}
+.searchForName:hover{
+    background-color: rgba(105, 105, 105, 0.295);
+
+}
+.borderProfileSearch{
+    border: 1px solid rgba(105, 105, 105, 0.822);
+}
+.imgprofileSearch{
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+
+}
+.userTweet.profileSearch{
+display: flex;
+flex-direction: row;
+gap: 10px;
+}
+.userNameProfileSearch{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    /* gap: 5px; */
+
+}
+.allOfTheTextTweetProfileSearch{
+    padding: 0px 10px;
+    /* gap: 10px; */
+    flex-direction: column;
+    display: flex;
+    font-weight: 600;
+    color: white;
+
+}
+.motherProfileo.search{
+    display: flex;
+    justify-content: space-between;
+    /* padding: 10px; */
+    align-items: center;
+    /* gap: 10%; */
+
+}

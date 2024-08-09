@@ -1,0 +1,1567 @@
+@media(max-width:540px){
+    .iconX.signUp{
+        width: 90%;
+    }
+    .twitterIcon.signUp{
+        width: 100%;
+    }
+    .postPage.comments {
+        gap: 50px;
+    }
+    input[type=text]{
+        width: 100%;
+    }
+    .allCenterDivSettings.urnameSettings{
+        display: none;
+    }
+    .allCenterDivSettings.youracc{
+        display: none;
+    }
+    .inputPassword.email{
+        margin-left: 10px;
+    }
+    .YourAccNav.YourAccNav{
+        width: auto;
+    }
+    .InputPasswords.changePassword{
+        width: 100%;
+    }
+    .YourAccNav.accountInfo{
+        width: 200px;
+    }
+    .borderDele{
+        width: auto;
+    }
+    .YourAccNav.accountInfo{
+        width: 200px;
+    }
+    .YourAccNav.settings{
+        width: 200px;
+    }
+    .InputPassword {
+        padding: 10px;
+        margin-left: 0px;
+        gap: 10px;
+    }
+    
+    .inputPassword{
+        width: auto;
+    }
+    .btnConfirm{
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+    .allCenterDivSettings.mainSettings{
+        height: 100vh;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.219);
+    }
+    .alldivInfoAcc.mainSettings{
+        height: 100vh;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.219);
+        /* display: none; */
+    }
+   
+    .allDeleteDiv {
+        /* padding: 10px; */
+        font-size: 18px;
+    }
+    .allCenterDivSettings{
+        height: 100%;
+        border-bottom: none;
+    }
+    .alldivInfoAcc{
+        height: 100%;
+        border-bottom: none;
+    }
+    .allCenterDivSettings{
+        width: 100%;
+        /* display: none; */
+    }
+    .allCenterDivSettings.accountInfo{
+        display: none;
+    }
+    .accinfo {
+        gap: 10px;
+    }
+    .alldivInfoAcc{
+        width: 100%;
+    }
+    .ope{
+        transform: translate(-70%, 20%);
+    }
+    .imgComment {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+    .motherOfPostPage{
+        width: 100%;
+        height: 100%;
+        margin-top: 0%;
+    }
+    .yourCommentRetweet.noPhoto {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10%;
+    }
+    .postPage {
+        background-color: black;
+        width: 100%;
+        border-radius: 10px;
+        height: 100%;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 5%;
+        box-shadow: rgba(149, 157, 165, 0.123) 0px 8px 24px;
+    }
+    .topRetweet {
+        padding: 10px;
+        /* cursor: pointer; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .textAreaRetweet {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        align-items: flex-start;
+        align-content: flex-start;
+        width: 100%;
+        height: auto;
+        justify-content: flex-start;
+    }
+    .photoComment {
+        display: flex;
+        justify-content: center;
+        /* margin-right: -10px; */
+        align-content: flex-start;
+        width: 100%;
+        align-items: flex-start;
+    }
+    .realPhotoComment {
+        width: 100%;
+        /* width: auto; */
+        height: 100%;
+        border-radius: 10px;
+    }
+    .yourCommentRetweet {
+        width: 100%;
+        height: 700px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .videoEdit {
+        width: 100%;
+        height: 360px;
+    }
+    .theNav.follow{
+        position: relative;
+    }
+    .theNav.com{
+        position: relative;
+    }
+    .nameAndPostPro {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    h3{
+        display: none;
+    }
+    .postBtn{
+        display: none;
+    }
+    .names{
+        display: none;
+    }
+    .leftBtn{
+        display: none;
+    }
+    .right {
+        display: none;
+    }
+    .containerCenter {
+        width: auto;
+        border: none;
+    }
+    .img {
+        width: 40px;
+        border-radius: 50%;
+        height: 40px;
+    }
+    .PostBtn {
+        width: 18%;
+    }
+    .allNav{
+        font-size: 17px;
+    }
+    .navCenterm {
+        width: 100%;
+    }
+    .homePageAll {
+        display: flex;
+        justify-content: center;
+        gap: 4%;
+        flex-direction: column;
+    }
+    #container {
+        display: flex;
+        min-height: auto;
+        flex-direction: row;
+        align-content: flex-end;
+        /* height: 100%; */
+        align-items: center;
+        width: 100%;
+    }
+    .now {
+        display: flex;
+        gap: 0px;
+        margin-top: 0px;
+        position: fixed;
+        width: 100%;
+        flex-direction: row;
+        align-content: flex-end;
+        bottom: 0;
+        background-color: black;
+        gap: 0%;
+        border-top: 0.5px solid white;
+        transition: opacity 1s ease, transform 0.5s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .now.app{
+        opacity: 1;
+  transform: translateY(0);
+    }
+    .now.diss{
+        opacity: 0;
+    transform: translateY(50px);
+        /* z-index: ; */
+    }
+    .iconAndText.more {
+        padding: 2px 22px;
+    }
+    .settingsBtn {
+        position: absolute;
+        background-color: black;
+        display: flex;
+        /* align-items: center; */
+        flex-direction: column;
+        justify-content: center;
+        gap: 1px;
+        border: rgba(255, 255, 255, 0.212) 0.2px solid;
+        /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+        /* height: 60%; */
+        width: 50%;
+        border-radius: 15px;
+        transform: translate(70%, -120%);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    .logoutBtn {
+        position: absolute;
+        background-color: black;
+        display: flex;
+        /* align-items: center; */
+        flex-direction: column;
+        justify-content: center;
+        gap: 1px;
+        border: rgba(255, 255, 255, 0.212) 0.2px solid;
+        /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+        /* height: 60%; */
+        width: 100%;
+        border-radius: 15px;
+        transform: translate(0, -100%);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    .down {
+        display: flex;
+        flex-direction: row;
+        /* background-color: rgba(255, 255, 255, 0.103); */
+        align-items: center;
+        justify-content: center;
+        /* width: 0px;
+        height: 0px; */
+        cursor: pointer;
+        border-radius: 100px;
+        align-items: center;
+        justify-content: space-around;
+        /* gap: 50px; */
+        transition: 0.5s;
+    }
+    .up {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .allLeft {
+        align-items: stretch;
+        background-color: rgba(0, 0, 0, 0.00);
+        border: 0 solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-basis: auto;
+        flex-direction: column;
+        flex-shrink: 0;
+        list-style: none;
+        margin: 0px;
+        min-height: 0px;
+        min-width: 0px;
+        padding: 0px;
+        position: fixed;
+        /* margin-top: 19px; */
+        /* width: 206px; */
+    }
+    .AllComp {
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        /* width: 100%; */
+        gap: 4%;
+        flex-direction: column;
+    }
+    h3 {
+        font-size: 15px;
+    }
+    .font {
+        font-size: 20px;
+        color: white;
+    }
+    .postBtn {
+        display: none;
+    }
+    
+    .inputSearchPage[type=text] {
+        width: 100%;
+    }
+    .theNavOfSearch {
+        gap: 1%;
+        width: auto;
+    }
+    .xRightMother.searchPage {
+        display: none;
+    }
+}
+
+@media(max-width:375px){
+    .InputPassword {
+        padding: 10px;
+        margin-left: 0px;
+        gap: 10px;
+    }
+    
+    .YourAccountText{
+        font-size: 16px;
+    }
+    .allDeleteDiv {
+        /* padding: 10px; */
+        font-size: 15px;
+    }
+    /* .containerCenter {
+        width: auto;
+    }
+    .navCenterm {
+        width: auto;
+    } */
+    .PostBtn {
+        width: 22%;
+    }
+    /* .up {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: flex-start;
+    } */
+    .up {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .center{
+        width: 100%;
+
+    }
+        .containerCenter {
+            width: auto;
+        }
+        .so{
+            width: auto;
+        }
+        .xRightMother.searchPage {
+            transform: translate(800%, -160%);
+        }
+}
+@media(max-width:320px){
+    .YourAccNav.settings {
+        width: auto;
+    }
+    .inputPassword{
+        font-size: 12px;
+    }
+    .InputPassword {
+        padding: 10px;
+        margin-left: 0px;
+        gap: 10px;
+    }
+    .YourAccountText{
+        font-size: 14px;
+    }
+    .font {
+        font-size: 18px;
+        color: white;
+    }
+    .img {
+        width: 30px;
+        border-radius: 50%;
+        height: 30px;
+    }
+    .up {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        align-items: flex-start;
+    }
+    .now {
+        gap: 10px;
+    }
+    .xRightMother.searchPage {
+        transform: translate(750%, -160%);
+    }
+    .btnSetProfile {
+        padding: 12px;
+        font-size: 14px;
+    }
+       
+    .btnSetProfile.follow{
+        font-size: 13px;
+    }
+}
+
+@media(min-width:549px){
+    input[type=text]{
+        width: 100%;
+    }
+    .InputPassword {
+        padding: 10px;
+        margin-left: 0px;
+        gap: 10px;
+    }
+    .YourAccNav{
+        width: 200px;
+    }
+    .TheLeft.settings{
+        width: 50%;
+    }
+    .allCenterDivSettings{
+        width: 100%;
+    }
+    .alldivInfoAcc{
+        width: 100%;
+    }
+    .yourCommentRetweet{
+        height: 600px;
+    }
+    .theNav {
+        display: flex;
+        align-items: center;
+        /* justify-content: space-around; */
+        gap: 30px;
+        background-color: rgb(0, 0, 0);
+        padding: 10px;
+        position: relative;
+        /* width: 28.99%; */
+    }
+    .settingsBtn{
+        transform: translate(0, 200%);
+            /* border: rgba(255, 255, 255, 0.212) 2px solid; */
+        width: 20vh;
+        /* height: 100px; */
+    }
+
+    #container {
+        margin-top: 0px;
+
+    }
+    .now {
+        margin-top: 0px;
+        gap: 0px;
+        height: 94vh;
+        justify-content: space-between;
+    }
+    .allLeft {
+        margin-top: 0px;
+    }
+    .homePageAll {
+        display: flex;
+        justify-content: space-around;
+        gap: 60px;
+    }
+    .AllComp {
+        display: flex;
+        justify-content: space-around;
+        /* gap: 0px; */
+    }
+    .TheRight{
+        display: none;
+    }
+    .allLeft {
+        width: 0px;
+    }
+    .containerCenter {
+        width: 59vh;
+    }
+    .navCenterm {
+        width: 59vh;
+    }
+    .inputSearchPage[type=text] {
+        width: 45vh;
+    }
+    .PostBtn {
+        width: 20%;
+        font-size: 12px;
+    }
+    .right {
+        display: none;
+    }
+    h3{
+        display: none;
+    }
+    .postBtn{
+        display: none;
+    }
+    .names{
+        display: none;
+    }
+    .leftBtn{
+        display: none;
+    }
+    .logoutBtn {
+        width: 300px;
+    }
+    .down {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: 0px;
+        cursor: pointer;
+        border-radius: 100px;
+        align-items: center;
+        justify-content: space-around;
+        transition: 0.5s;
+    }
+    .font{
+        font-size: 20px;
+    }
+    .up {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        align-items: flex-start;
+    }
+    .img {
+        width: 40px;
+        border-radius: 50%;
+        height: 40px;
+    }
+}
+@media(min-width:700px){
+    .iconX.signUp{
+        width: 90%;
+    }
+    .twitterIcon.signUp{
+        width: 100%;
+    }
+    .InputPasswords {
+        margin-left: 10px;
+    }
+    input[type=text] {
+        width: 100%;
+    }
+    .borderDele{
+        width: auto;
+    }
+    .se{
+        width: 0%;
+    }
+    .YourAccNav{
+        width: 200px;
+    }
+    .TheLeft.settings{
+        width: 50%;
+    }
+    .allCenterDivSettings{
+        width: 100%;
+    }
+    .alldivInfoAcc{
+        width: 100%;
+    }
+    .yourCommentRetweet {
+        height: 600px;
+    }
+    .motherOfPostPage{
+        margin-top: 6%;
+    }
+    .bioProfileSearch{
+        width: 400px;
+    }
+    .profilPicAndBtn {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 50%;
+        position: relative;
+        transform: translate(0%, -30%);
+    }
+    .bioProfile{
+        width: 70%;
+
+    }
+    .homePageAll {
+        display: flex;
+        gap: 55px;
+        justify-content: center;
+    }
+    .settingsBtn{
+        transform: translate(0, 280%);
+            /* border: rgba(255, 255, 255, 0.212) 2px solid; */
+        width: 150px;
+        /* height: 100px; */
+    }
+    .xRightMother.searchPage {
+        display: none;
+    }
+    #container {
+        margin-top: 0px;
+    }
+    .now {
+        margin-top: 0px;
+        gap: 0px;
+        height: 100vh;
+        justify-content: space-between;
+    }
+    .allLeft {
+        margin-top: 0px;
+    }
+    .AllComp {
+        display: flex;
+        justify-content: space-around;
+        /* gap: 0px; */
+    }
+    .TheRight{
+        display: none;
+    }
+    .allLeft {
+        width: 0px;
+    }
+    /* //// */
+    .containerCenter {
+        width: auto;
+        min-width: 78vh;
+    }
+    /* //// */
+    .navCenterm {
+        width: 100%;
+    }
+    .navCenterm {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        /* width: 34%; */
+        background-color: rgba(0, 0, 0, 0.712);
+        /* filter: blur(4px); */
+        align-content: center;
+        align-items: flex-start;
+    }
+    .allNav {
+        height: auto;
+    }
+    .inputSearchPage[type=text] {
+        width: 60vh;
+    }
+    .PostBtn {
+        width: 20%;
+        font-size: 12px;
+    }
+    .right {
+        display: none;
+    }
+    h3{
+        display: none;
+    }
+    .postBtn{
+        display: none;
+    }
+    .names{
+        display: none;
+    }
+    .leftBtn{
+        display: none;
+    }
+    .logoutBtn {
+        width: 200px;
+    }
+    .down {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: 80px;
+        cursor: pointer;
+        border-radius: 100px;
+        align-items: center;
+        justify-content: space-around;
+        transition: 0.5s;
+    }
+    .font{
+        font-size: 30px;
+    }
+    .up {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .img {
+        width: 40px;
+        border-radius: 50%;
+        height: 40px;
+    }
+    .nameOfTheTweet {
+        color: white;
+        font-size: 18px;
+    }
+    .userNameText{
+        font-size: 18px;
+    }
+    .dotBTn{
+        font-size: 18px;
+    }
+    .dateHomeText{
+        font-size: 18px;
+    }
+    .SpanReTweet{
+        font-size: 18px;
+    }
+}
+/* @media(min-width:768px){
+    .homePageAll {
+        display: flex;
+        gap: 0px;
+        justify-content: space-around;
+    }
+} */
+@media(min-width:900px){
+    .homePageAll {
+        display: flex;
+        justify-content: space-evenly;
+        gap: auto;
+    }
+    .AllComp {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 0px;
+    }
+    .btnSetProfile.follow{
+        font-size: 15px;
+    }
+}
+@media(min-width:1024px){
+    .divIconX.signUp{
+        font-size: 20px;
+    }
+    .EmailInputs.login{
+        padding: 15px 20px;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.39);
+        outline: none;
+        color: white;
+        font-size: 15px;
+    
+    }
+    .inputPassword.email{
+        margin-left: 10px;
+    }
+    /* .postPage {
+        height: 700px;
+    } */
+    .motherOfPostPage.post{
+        margin-top: 2%;
+    }
+    .motherOfPostPage{
+        margin-top: 2%;
+    }
+    .profileNames {
+        max-width: 600px;
+    }
+    .img {
+        width: 50px;
+        border-radius: 50%;
+        height: 50px;
+    }
+    .nameOfTheTweet {
+        color: white;
+        font-size: 20px;
+    }
+    .userNameText{
+        font-size: 20px;
+    }
+    .dotBTn{
+        font-size: 20px;
+    }
+    .dateHomeText{
+        font-size: 20px;
+    }
+    .SpanReTweet{
+        font-size: 18px;
+    }
+    .nameProfileFollow{
+        font-size: 20px;
+    }
+    
+    
+    .PostBtn {
+        width: 20%;
+        font-size: 15px;
+    }
+    .SpanHeart {
+        display: flex;
+        align-items: center;
+        /* justify-content: space-around; */
+        /* gap: 4px; */
+        /* cursor: pointer; */
+        transition: 0.5s;
+        font-size: 18px;
+    }
+    .inputSearchPage[type=text] {
+        padding: 12px 20px 12px 50px;
+        font-size: 20px;
+    }
+    .homePageAll {
+        display: flex;
+        gap: 0%;
+        align-content: center;
+    }
+
+    .AllComp {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+    .right {
+        align-items: stretch;
+        background-color: rgba(0, 0, 0, 0.00);
+        border: 0 solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-basis: auto;
+        flex-direction: column;
+        flex-shrink: 0;
+        list-style: none;
+        margin: 0px;
+        min-height: 0px;
+        min-width: 0px;
+        padding: 0px;
+        /* position: fixed; */
+        /* margin-top: 19px; */
+        width: 206px;
+    }
+    .sk{
+        position: relative;
+    }
+    #container {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        width: 100px;
+        align-items: center;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .font {
+        font-size: 30px;
+        color: white;
+    }
+    input[type=text] {
+        width: 100%;
+    }
+    .InputGetUser {
+        padding: 10px;
+        position: fixed;
+        width: auto;
+    }
+    .containerCenter {
+        width: auto;
+    }
+    .motherOfTheProfile {
+        width: auto;
+    }
+    .xRightMother {
+        display: none;
+    }
+    .navCenterm {
+        width: 100%;
+    }
+    .navCenterm {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        /* width: 34%; */
+        background-color: rgba(0, 0, 0, 0.712);
+        /* filter: blur(4px); */
+        align-content: center;
+        align-items: flex-start;
+    }
+    .AllComp {
+        display: flex;
+        gap: auto;
+        justify-content: center;
+    }
+    .allNav{
+        height: auto;
+    }
+    #container {
+        margin-top: 0px;
+        position: relative;
+    }
+    .now {
+        margin-top: 0px;
+    }
+    .TheRight {
+        display: none;
+    }
+}
+@media(min-width:1280px){
+    
+    .AllComp {
+        display: flex;
+        gap: auto;
+        justify-content: space-evenly;
+    }
+    .right{
+        display: none;
+    }
+    .SpanHeart {
+        font-size: 17px;
+    }
+    .nameOfTheTweet {
+        color: white;
+        font-size: 17px;
+    }
+    .userNameText{
+        font-size: 17px;
+    }
+    .dotBTn{
+        font-size: 17px;
+    }
+    .dateHomeText{
+        font-size: 17px;
+    }
+    .SpanReTweet{
+        font-size: 17px;
+    }
+    .nameProfileFollow{
+        font-size: 17px;
+    }
+    .btnSetProfile.follow{
+        font-size: 17px;
+    }
+    .btnSetProfile{
+        font-size: 17px;
+    }
+    .PostBtn {
+        width: 20%;
+        font-size: 15px;
+    }
+    .homePageAll {
+        display: flex;
+        gap: auto;
+        justify-content: center;
+    }
+    .sk {
+        position: relative;
+        width: 100%;
+    }
+    .allLeft.z{
+        width: 100px;
+    }
+    #container {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        width: 20%;
+        align-items: center;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .allLeft {
+        align-items: stretch;
+        background-color: rgba(0, 0, 0, 0.00);
+        border: 0 solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-basis: auto;
+        flex-direction: column;
+        flex-shrink: 0;
+        list-style: none;
+        margin: 0px;
+        min-height: 0px;
+        min-width: 0px;
+        padding: 0px;
+        /* position: fixed; */
+        margin-top: 19px;
+        width: 20%;
+    }
+    .settingsBtn{
+        transform: translate(0, 280%);
+            /* border: rgba(255, 255, 255, 0.212) 2px solid; */
+        width: 30vh;
+        /* height: 100px; */
+    }
+    
+    .up {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        align-items: flex-start;
+    }
+
+    .xRightMother {
+        transform: translate(1060%, -160%);
+    }
+    .xRightMother.searchPage {
+        transform: translate(1700%, -160%);
+    }
+    .right{
+        display: flex;
+    }
+
+    .allNav{
+        font-size: 18px;
+    }
+   
+    .TheRight {
+        display: none;
+    }
+    h3{
+        display: flex;
+    }
+    .postBtn{
+        display: flex;
+    }
+    .names{
+        display: flex;
+    }
+    .leftBtn{
+        display: flex;
+    }
+}
+
+@media(min-width:1440px){
+    .bioProfileSearch{
+        width: 500px;
+    }
+    .TheTextAreaPost {
+        font-size: 20px;
+    }
+    .img {
+        width: 50px;
+        border-radius: 50%;
+        height: 50px;
+    }
+    .nameOfTheTweet{
+        font-size: 18px;
+    }
+    .userNameText{
+        font-size: 18px;
+
+
+    
+    }
+    .dotBTn{
+        font-size: 18px;
+    }
+    .dateHomeText{
+        font-size: 18px;
+    } 
+    .ThreeDots {
+        font-size: 18px;
+    }
+    .iconAndTextRepost.delete{
+        padding: 10px;
+    }
+    .btnRetweets.delete{
+        font-size: 13px;
+    }
+    .down {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 240px;
+        height: 80px;
+        cursor: pointer;
+        border-radius: 100px;
+        align-items: center;
+        justify-content: space-around;
+        transition: 0.5s;
+    }
+
+    .xRightMother {
+        transform: translate(1170%, -160%);
+    }
+   .inputSearchPage[type=text]{
+    width: 65vh;
+   }
+   .xRightMother.searchPage {
+    transform: translate(1800%, -160%);
+}
+}
+@media(min-width:1716px){
+    .motherOfPostPage.post {
+        margin-top: 3%;
+    }
+    #container {
+        width: 15%;
+    }
+
+    .AllComp {
+        display: flex;
+        gap: 0px;
+        justify-content: space-evenly;
+    }
+    .InputGetUser {
+        width: 55vh;
+    }
+}
+@media(min-width:1920px){
+    .motherOfPostPage{
+        margin-top: 2%;
+    }
+    .profileNames {
+        max-width: 700px;
+    }
+    .settingsBtn{
+        transform: translate(0, 370%);
+            /* border: rgba(255, 255, 255, 0.212) 2px solid; */
+        width: 30vh;
+        /* height: 100px; */
+    }
+    .up {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    
+    
+    .xRightMother {
+        transform: translate(1490%, -160%);
+    }
+    .AllComp {
+        display: flex;
+        gap: 15%;
+        justify-content: center;
+    }
+    
+}
+@media(min-width:2560px){
+    .userName{
+        font-size: 20px;
+    }
+    .paraInfoAcc{
+        font-size: 20px;
+    }
+    .yourAccountBtn {
+        font-size: 24px;
+    }
+    .inputPassword.email{
+        margin-left: 20px;
+    }
+    .textMargin{
+        font-size: 23px;
+    }
+    .confirmText {
+        font-size: 23px;
+    }
+    .btnConfirm{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .ConfirmPasswordCheck {
+        margin-left: -70px;
+    }
+    .fo{
+        font-size: 23px;
+    }
+    .inputPassword{
+        font-size: 23px;
+    }
+    .confirmPassword {
+        font-size: 23px;
+    }
+    .textDele.FixBtn{
+        font-size: 23px;
+    }
+    .allDeleteDiv {
+        /* padding: 10px; */
+        font-size: 23px;
+    }
+    .settingsText {
+        font-size: 23px;
+    }
+    .YourAccountText{
+        font-size: 23px;
+    }
+    .paratext{
+        font-size: 23px;
+
+    }
+    .motherOfPostPage.post {
+        margin-top: 3%;
+    }
+    .postPage {
+        height: 100%;
+    }
+    .imgComment {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+    .textAreaRetweet {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        align-items: center;
+        align-content: flex-start;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+    }
+    .photoComment {
+        display: flex;
+        justify-content: center;
+        /* margin-right: -10px; */
+        align-content: flex-start;
+        width: 100%;
+        align-items: flex-start;
+    }
+    .realPhotoComment {
+        width: 100%;
+        /* width: auto; */
+        height: 100%;
+        border-radius: 10px;
+    }
+    .yourCommentRetweet {
+        width: 100%;
+        height: 700px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .videoEdit {
+        width: 100%;
+        height: 360px;
+    }
+    .TheTextAreaPost.retweet{
+        font-size: 24px;
+    }
+    .img.profileComment {
+        width: 55px;
+        height: 55px;
+    }
+    .img.retweet {
+        width: 50px;
+        height: 50px;
+    }
+    .commentReplyied{
+        font-size: 20px;
+    }
+    .topRetweet {
+        font-size: 20px;
+    }
+    .replyingTextWithUserName{
+        font-size: 20px;
+    }
+    .profileComments{
+        font-size: 23px;
+    }
+    .postPage {
+        width: 700px;
+    }
+    .yourCommentRetweet {
+        width: 700px;
+        height: 900px;
+    }
+    .numberOfFollow {
+        font-size: 23px;
+        
+    }
+    .textOfFollow {
+        font-size: 23px;
+        
+    }
+    .bioProfileSearch{
+        width: 700px;
+        
+    }
+    .UserBioProfile{
+        font-size: 20px;
+    }
+    .imgProfile {
+        width: 150px;
+        height: 150px;
+    }
+    .profileNames {
+        max-width: 900px;
+    }
+    .nameProfile {
+        font-size: 25px;
+    }
+    .nameAndPostPro{
+        font-size: 23px;
+    }
+    .userNameProfile{
+        font-size: 23px;
+    }
+    .bioProfile{
+        font-size: 20px;
+    }
+    #container {
+        width: 10%;
+    }
+    .AllComp {
+        display: flex;
+        gap: 10%;
+        justify-content: center;
+    }
+    .settingsBtn{
+        transform: translate(0, 300%);
+            /* border: rgba(255, 255, 255, 0.212) 2px solid; */
+        width: 30vh;
+        /* height: 100px; */
+    }
+    .containerCenter {
+    width: auto;
+}
+.img {
+    width: 60px;
+    border-radius: 50%;
+    height: 60px;
+}
+.nameOfTheTweet{
+    font-size: 22px;
+}
+.userNameText{
+    font-size: 22px;
+
+}
+.dotBTn{
+    font-size: 22px;
+}
+.dateHomeText{
+    font-size: 22px;
+}
+.TheTextAreaPost{
+    font-size: 25px;
+}
+.ThreeDots {
+    font-size: 22px;
+}
+.btnRetweets {
+    font-size: 17px;
+}
+.iconAndTextRepost.delete{
+    transform: translate(-60%);
+}
+.SpanReTweet{
+    font-size: 20px;
+}
+.SpanHeart{
+    font-size: 20px;
+
+}
+.SpanReTweet.myTweet{
+    font-size: 20px;
+
+}
+
+.names {
+    font-size: 22px;
+}
+
+.leftBtn{
+    font-size: 20px;
+}
+.btnLogout {
+    font-size: 20px;
+    padding: 20px;
+}
+.logoutBtn {
+    width: 130%;
+}
+.up {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+}
+.xRightMother {
+    transform: translate(1700%, -160%);
+}
+.searchForName {
+    padding: 25px;
+    font-size: 18px;
+}
+.imgprofileSearch {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+}
+.nameProfileFollow{
+    font-size: 20px;
+}
+.userNameProfileSearch{
+    font-size: 20px;
+}
+.inputSearchPage[type=text]{
+    width: 800px;
+    padding: 12px 30px 12px 50px;
+    font-size: 20px;
+}
+
+.allNav {
+    font-size: 23px;
+}
+.font {
+    font-size: 40px;
+    color: white;
+}
+h3 {
+    font-size: 30px;
+}
+.xRightMother.searchPage {
+    transform: translate(2900%, -160%);
+}
+.linkUrProfile{
+    font-size: 20px;
+}
+.imgIcon {
+    font-size: 22px;
+}
+.btnSetProfile {
+    padding: 12px;
+    font-size: 17px;
+}
+   
+.btnSetProfile.follow{
+    font-size: 22px;
+}
+.btnProfile {
+    font-size: 23px;
+    font-weight: 800;
+    cursor: pointer;
+}
+.down {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: space-around;
+    transition: 0.5s;
+}
+}
+
+
+
+
+
+
+
+
+
+@media(max-height:500px){
+    .settingsBtn {
+        transform: translate(0, 280%);
+    }
+}
+@media(min-height:400px){
+    .yourCommentRetweet.noPhoto {
+        height: 200px;
+        
+    }
+    .yourCommentRetweet {
+        height: 200px;
+    }
+}
+@media(min-height:500px){
+    .yourCommentRetweet.noPhoto {
+        height: 300px;
+        
+    }
+    .yourCommentRetweet {
+        height: 300px;
+    }
+}
+@media(min-height:600px){
+    .yourCommentRetweet.noPhoto {
+        
+        height: 400px;
+
+        
+    }
+    .yourCommentRetweet {
+        height: 400px;
+    }
+}
+@media(min-height:700px){
+    .yourCommentRetweet.noPhoto {
+        
+        height: 500px;
+
+        
+    }
+    .yourCommentRetweet {
+        height: 500px;
+    }
+}
+@media(min-height:800px){
+    .yourCommentRetweet.noPhoto {
+        
+        height: 600px;
+
+        
+    }
+    .yourCommentRetweet {
+        
+        height: 600px;
+    }
+}
+@media(min-height:900px){
+    .yourCommentRetweet.noPhoto {
+        
+        height: 700px;
+
+        
+    }
+    .yourCommentRetweet {
+        height: 700px;
+    }
+}

@@ -1,0 +1,78 @@
+.theNavOfSearch{
+      display: flex;
+align-items:baseline;
+/* justify-content: space-around; */
+gap: 30px;
+background-color: rgb(0, 0, 0);
+padding: 10px;
+/* position: fixed; */
+width: 32.7%;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.219); */
+
+}
+.InputGetUser.searchPage{
+
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.inputSearchPage[type=text] {
+    width: 450px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(94, 94, 94, 0.295);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABVElEQVRIid2UTUoDQRCFW1xqJtkouPdnmUTRnQqa3CrRa5jkBqJHEIPiRlwZSHIFlSgyLgP6HnnNDC56aibEhQUfA82rej3VXe3cf48m6IEx+BIj0AWNeQpvgzvwnUEfbOUtfgzeVeAFtEANrIi61l6lofbQWnwHfCjxEpQC2ghcSTtxxj/xbWHxJYOemmvl3GaJmy5pS2jnv6PsknadhoQ9iVo5ivs4U24nJBpLVC1gUFfuKCSKJVotYFBSbmwxyNN/H5FyP0Mi36JaAYNd5Q5Doq5E7QIG58q9CIkaEvHKRTmKV8Cbck+yxH0JOaGWQVsGD8q5seyG4z5JmZQD2kqq+BQcWAwYRykT/jrPhIfI68sbtudmg+XbMtV3ANatJptu9rZkPddsyz54dsmgbVhNGHxbOP68frEYai19oGvzmFiD7RnI5HERBt7kCdwvyuDv4wdJoG+dEu3f1QAAAABJRU5ErkJggg==);
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    border-radius: 50px;
+    color: white;
+}
+.xRightMother.searchPage{
+
+    transform: translate(1600%, -160%);
+
+
+}
+.motherOfTheProfile.searchPage{
+width: 450px;
+position: fixed;
+z-index: 1;
+
+}
+.inputAndArrowSearchProfile{
+    display: flex;
+    align-items: center;
+    /* gap: 10%; */
+}
+.motherOfNavSearchPage{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.219);
+
+}
+.navCenterm.searchPage{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.712);
+    /* filter: blur(4px); */
+    align-items: flex-end;
+
+}
+.allNav.searchPage{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.randomePeople{
+    padding: 10px;
+}

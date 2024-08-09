@@ -1,0 +1,206 @@
+.parentProfileEdit{
+   background-color: rgba(91, 112, 131, 0.4);
+
+
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        /* z-index: -1; */
+        height: 100vh;
+        align-content: center;
+        justify-content: center;
+        width: 104%;
+    
+}
+.childrenProdileEditDiv {
+    /* position: fixed; */
+    background-color: black;
+    /* height: 200%; */
+    width: 130%;
+    height: 70vh;
+    border-radius: 10px;
+}
+.editFormProfile{
+    /* position: fixed; */
+    display: flex;
+
+    flex-direction: column;
+}
+.ote{
+    position: relative;
+    z-index: -1;
+    filter: blur(5px);
+   overflow: hidden;
+   height: 100vh;
+}
+.allIcons{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 5px;
+
+}
+.editProfileText{
+    text-align: center;
+    font-weight: 800;
+}
+.inputProfilEdit{
+padding: 15px 10px;
+    
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 40%;
+}
+
+ .inputProfilEdit:focus{
+    border: 2px solid rgb(0, 119, 255);
+    
+
+ }
+ .inputProfilEdit:focus::placeholder{
+    color:  rgb(0, 132, 255);
+ }
+ .formDivProfileEdit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ .SubmitBtn{
+     padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 800;
+    width: 45%;
+ }
+   
+ .ResetPassword{
+   
+    padding: 10px 80px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 800;
+    /* width: 200%; */
+    background-color: rgba(253, 253, 253, 0.137);
+    color: white;
+ }
+ .saveBtn{
+    padding: 10px;
+    border-radius: 13px;
+    font-size: 16px;
+    /* font-weight: 700; */
+    border: none;
+    cursor: pointer;
+    color: black;
+    margin-right: 10px;
+ }
+ .length{
+    position: fixed;
+    display: flex;
+    transform: translate(-20%);
+ }
+ .inputProfileName{
+    padding: 15px 10px;
+    
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 50vh;
+    border-radius: 6px;
+ }
+ .inputProfileName:focus{
+    border: 2px solid rgb(0, 119, 255);
+    
+
+ }
+ .inputProfileName:focus::placeholder{
+    color:  rgb(0, 132, 255);
+ }
+ .NameDiv{
+   
+    display: flex;
+    justify-content: flex-end;
+
+    align-items: flex-start;
+    /* align-content: flex-end; */
+    flex-direction: row;
+    /* position: relative; */
+    
+ }
+ .inputProfilEditBio{
+    padding: 15px 10px;
+    
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 50vh;
+    border-radius: 6px;
+    resize: none;
+ }
+ .inputProfilEditBio:focus{
+    border: 2px solid rgb(0, 119, 255);
+    
+
+ }
+ .inputProfilEditBio:focus::placeholder{
+    color:  rgb(0, 132, 255);
+ }
+ .profileImgEdit{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+ }
+ .imgAndInputDiv{
+    display: flex;
+    align-items: center;
+    transform: translate(10%,0%);
+
+ }
+ .FileBtn{
+    position: fixed;
+    /* transform: translate(0%,150%); */
+    visibility: hidden;
+    display: block;
+ }
+ 
+
+ input[type=file]{
+    width:100px;
+    color:transparent;
+    /* visibility: hidden; */
+
+}
+.btnCamera{
+    position: fixed;
+    transform: translate(120%,-20%);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.589);
+    padding: 15px;
+    border-radius: 20px;
+}
+.allTheImgAndInputs{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 50%;
+}
+/* .ote{
+   background-color: rgba(255, 255, 255, 0.103);
+   height: 100vh;
+} */

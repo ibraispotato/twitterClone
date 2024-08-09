@@ -1,0 +1,380 @@
+.settingbtn{
+       
+    position: absolute;
+
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    /* gap: 12px; */
+    border: rgba(255, 255, 255, 0.212) 0.2px solid;
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+    /* height: 100%; */
+    width: 100%;
+    border-radius: 15px;
+    transform: translate(0,270%);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+/* .settingbtn:hover{
+    background-color: rgba(255, 255, 255, 0.048);
+} */
+
+.iconAndText.more:hover{
+    background-color: rgba(255, 255, 255, 0.103);
+}
+.allCenterDivSettings{
+    /* margin-top: 39px; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    gap: 20px;
+    /* border-left: 1px solid white; */
+
+        width: 20%;
+        border-left: 1px solid rgba(255, 255, 255, 0.219);
+        border-right: 1px solid rgba(255, 255, 255, 0.219);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.219);
+        height: 100vh;
+    
+}
+.settingsText {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+/* .YourAccountText{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+} */
+.accinfo{
+display: flex;
+flex-direction: column;
+}
+.paraInfoAcc{
+    font-size: 14px;
+}
+.ag {
+    display: flex;
+    gap: 50px;
+    /* width: 70%; */
+    align-items: center;
+    justify-content: space-between;
+}
+.allCenterDivSettingss {
+    /* margin-top: 39px; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    gap: 20px;
+    /* border-left: 1px solid white; */
+    /* width: 20%; */
+    /* border-left: 1px solid rgba(255, 255, 255, 0.219);
+    border-right: 1px solid rgba(255, 255, 255, 0.219);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.219); */
+    height: 100vh;
+}
+    .yourAccountBtn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* gap: 90px; */
+        /* gap: 100px; */
+        /* background-color: black; */
+        padding: 13px;
+        cursor: pointer;
+        transform: 0.5s;
+        font-size: 18px;
+        font-weight: 800;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+.allAccountBtn{
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: space-between;
+}
+.yourAccountBtn .delete{
+  color: rgba(255, 0, 0, 0.548);
+  font-weight: 500;
+
+}
+.yourAccountBtn:hover{
+    background-color: rgba(255, 255, 255, 0.103);
+
+}
+.yourAccountBtn.delete:hover{
+    background-color: rgba(255, 0, 0, 0.192);
+
+}
+.settingsA{
+    color: rgba(255, 255, 255, 0.705);
+
+}
+.iconArrow{
+    color: rgba(255, 255, 255, 0.705);
+
+}
+.YourAccNav{
+
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    gap: 30px;
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
+    width: 93%;
+}
+.se{
+    
+        display: flex;
+        align-items: center;
+        /* justify-content: space-around; */
+        gap: 30px;
+        background-color: rgb(0, 0, 0);
+        padding: 20px;
+        width: 89%;
+    
+}
+.alldivInfoAcc{
+    width: 30%;
+    border-left: 1px solid rgba(255, 255, 255, 0.219);
+    border-right: 1px solid rgba(255, 255, 255, 0.219);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.219);
+    height: 100vh;
+}
+.paratext{
+    padding: 10px;
+}
+.bordercolor{
+    border:1px solid rgb(29, 155, 240);
+    /* transform: translate(700%); */
+    /* right: 1; */
+    /* position: relative; */
+}
+.iconAndBorder{
+    display: flex;
+    justify-content: space-around;
+    /* gap: 90px; */
+}
+.accountDele{
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgba(255, 255, 255, 0.103); */
+    align-items: center;
+    justify-content: flex-start;
+    /* padding-left: 10px; */
+    width: 100%;
+    height: 70px;
+    cursor: pointer;
+    /* border-radius: 100px; */
+    align-items: center;
+    /* justify-content: space-around; */
+    /* gap: 50px; */
+    transition: 0.5s;
+}
+.accountDele:hover{
+    background-color: rgba(255, 255, 255, 0.103);
+
+}
+.allimgandtext.dele{
+    padding-left: 10px;
+
+}
+.bordercolor.dele{
+    border: 1px solid rgba(255, 0, 0, 0.932);
+    /* transform: translate(700%); */
+    /* position: relative; */
+}
+.name{
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+.allDeleteDiv{
+    /* padding: 10px; */
+}
+.spanTitle{
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.884);
+    font-weight: 800;
+}
+.deletRed{
+    color: #c90000;
+}
+.borderDele{
+    border: 1px solid rgba(255, 255, 255, 0.432);
+    width: 100%;
+}
+.insideDiv{
+    padding: 10px;
+}
+.textDivDele{
+    padding-left: 10px;
+    /* font-size: 16px; */
+}
+.DeleBtn{
+    color: rgb(255, 0, 0);
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.DeleBtn:hover{
+    background-color: rgba(255, 0, 0, 0.192);
+
+}
+.textDele{
+    font-size: 17px;
+    font-weight: 500;
+}
+.confirmPassword{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* width: 100%; */
+    margin-left: 20px;
+}
+.borderWidth{
+    border: 1px solid rgba(255, 255, 255, 0.342);
+}
+.confirmText{
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+}
+.InputPassword{
+    display: flex;
+    margin-left: 20px;
+
+    flex-direction: column;
+}
+.inputProfileName {
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    outline: none;
+    color: white;
+    font-size: 15px;
+    
+    /* width: 80%; */
+    border-radius: 6px;
+}
+.inputPassword {
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 90%;
+    border-radius: 6px;
+}
+.inputPassword:focus::placeholder{
+    color: rgb(0, 132, 255);
+ }
+ .inputPassword:focus{
+    border: 2px solid rgb(0, 119, 255);
+    
+
+ }
+ .ConfirmPasswordCheck{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: -10px;
+    /* cursor: pointer; */
+ }
+ .btnConfirm{
+    cursor: pointer;
+    padding: 15px 25px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    background-color: rgb(0, 119, 255);
+    /* border: 1px solid rgba(255, 255, 255, 0.473); */
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+font-weight: 800;
+
+ }
+ .InputPasswords {
+    display: flex;
+    /* margin-left: 20px; */
+    flex-direction: column;
+    gap: 20px;
+}
+.textErrAccInfo{
+    /* text-align: center; */
+    /* width: 100%; */
+    /* font-size: 20px; */
+    color: rgb(244, 33, 46);
+    font-weight: 800;
+}
+.fo{
+    display: flex;
+    flex-direction: column;
+}
+.inputPassworderr {
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid rgb(244, 33, 46);
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 90%;
+    border-radius: 6px;
+}
+.inputPassworderr:focus::placeholder{
+    color: rgb(244, 33, 46);
+ }
+ .inputPassworderr:focus{
+    border: 2px solid rgb(244, 33, 46);
+    
+
+ }
+ .inputPassworderr.email {
+    margin-left: 20px;
+}
+ .allRightDivSettingss {
+    /* margin-top: 39px; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    /* gap: 20px; */
+    /* border-left: 1px solid white; */
+    /* width: 20%; */
+    height: 100vh;
+}
+.userNameDiv{
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.863);
+}
+.userName{
+    font-size: 15px;
+    /* font-weight: 500; */
+    color: rgba(255, 255, 255, 0.479);
+
+}
+.btnConfirm.disable{
+    background-color: rgba(0, 119, 255, 0.521);
+    color: #929292;
+font-weight: 800;
+}
+.textErrAccInfo.email{
+    margin-left: 20px;
+}
