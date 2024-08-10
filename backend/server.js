@@ -28,7 +28,7 @@ app.use("/clone/texts/",textRout)
 app.use("/clone/replying",replyingRout)
 // app.use("/uploads", express.static("uploads"))
 mongoose.connect(process.env.MONGOURI).then(() => {
-    app.listen(process.env.PORT, () => {
-        console.log('listening on '+process.env.PORT)
+    app.listen(process.env.PORT||4000, () => {
+        console.log('listening on '+process.env.PORT||4000)
     })
 }).catch((err) => console.error(err))
