@@ -28,7 +28,6 @@ const YourProfile = () => {
     const [names, setSearch] = useState("")
     const imageLists = images.keys().map(image => images(image))
 
-
 const searchMotherFunction = async (e) => {
   const formdata = new FormData()
   
