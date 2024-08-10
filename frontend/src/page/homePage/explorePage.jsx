@@ -30,7 +30,6 @@ const YourProfile = () => {
 
 
 const searchMotherFunction = async (e) => {
-    
   const formdata = new FormData()
   
   formdata.append('names', names)

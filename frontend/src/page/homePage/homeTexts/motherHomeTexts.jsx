@@ -15,7 +15,7 @@ const API = process.env.REACT_APP_APi_LINK
     if (!user) {
       return 
     }
-      const response = await fetch(`${API}/clone/texts`)
+      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts`)
       const json = await response.json()
      
       if (response.ok) {
@@ -33,7 +33,7 @@ const API = process.env.REACT_APP_APi_LINK
         if (!user) {
           return 
         }
-      const oks = await texts?.map(ress => `${API}/clone/getuserers/${ress?.idText}`)
+      const oks = await texts?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
       
       const fetchPromises = await oks?.map(url => fetch(url));
       await Promise.all(fetchPromises)
