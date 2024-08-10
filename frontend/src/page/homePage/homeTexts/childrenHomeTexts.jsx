@@ -7,6 +7,7 @@ import { faComment,faRetweet,faHeart,faEllipsis,faQuoteLeft,faArrowUpFromBracket
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player';
+
 const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin }) => {
     const { user } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
@@ -20,7 +21,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
 
   const DeleteLikes = async (e) => {
     e.preventDefault()
-    const TextDeleteResponse = await fetch(`http://localhost:4000/clone/texts/delete/${res?._id}`, {
+    const TextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/delete/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -35,7 +36,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
     funLogin()
     }
     
-    const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyLikes/${res?._id}`, {
+    const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyLikes/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -56,7 +57,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
   const AddLikes = async (e) => {
     e.preventDefault()
     ///////////////////////////////////TEXT LIKES//////////////////////////////////////////////////////////////////////////////
-    const TextLikesResponse = await fetch((`http://localhost:4000/clone/texts/${res?._id}`)
+    const TextLikesResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/texts/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -71,7 +72,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
       funLogin()
     }
     //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-    const myLikesTextResponse = await fetch((`http://localhost:4000/clone/updateMyLikes/${res?._id}`)
+    const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyLikes/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -92,7 +93,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
   const UpdateReTweet = async (e) => {
     e.preventDefault()
     ///////////////////////////////////TEXT ReTweet//////////////////////////////////////////////////////////////////////////////
-    const TextLikesResponse = await fetch((`http://localhost:4000/clone/texts/updateReTweet/${res?._id}`)
+    const TextLikesResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/texts/updateReTweet/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -110,7 +111,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
     
     }
     //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-    const myLikesTextResponse = await fetch((`http://localhost:4000/clone/updateMyTweet/${res?._id}`)
+    const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyTweet/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -132,7 +133,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
   }//update Retweet
   const DeleteReTweet = async (e) => {
     e.preventDefault()
-    const TextDeleteResponses = await fetch(`http://localhost:4000/clone/texts/deleteReTweet/${res?._id}`, {
+    const TextDeleteResponses = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/deleteReTweet/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -148,7 +149,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
     
     }
     
-    const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyTweet/${res?._id}`, {
+    const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyTweet/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -168,7 +169,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
   }//delete Retweet
   const deleteTexts = async (e) => {
     e.preventDefault()
-  const response = await fetch(`http://localhost:4000/clone/texts/deteText/${res?._id}`,{
+  const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/deteText/${res?._id}`,{
     method: 'DELETE',
       headers: {
         // 'Content-Type': 'application/json',
@@ -182,7 +183,7 @@ if (response.ok) {
   setMessegeDelete("Post Has Been Deleted")
   dispatchs({ type: "DELETE", payload: json })
 }
-const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyPost/${res?._id}`, {
+const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyPost/${res?._id}`, {
   headers: {
     // 'Content-Type': 'application/json',
     'Authorization': `Bearer ${user.token}`
@@ -222,7 +223,7 @@ useEffect(() => {
             <div className='photoUser'>
             <Link key={theIndex} to={`profile/${resProfiles?._id}`}>
                       <img loading='lazy' key={theIndex} className='img' src={imageList[0] === resProfiles?.photo ? imageList[0] :
-                        `http://localhost:4000/${resProfiles?.photo}`} />
+                        `${process.env.REACT_APP_APi_LINK}/${resProfiles?.photo}`} />
             </Link>
                   </div>
                   <Link className='linkUser' to={`profile/${resProfiles?._id}`}>
@@ -280,7 +281,7 @@ useEffect(() => {
       <div className='divOfTwitterPhoto'>
               <div className='anotherdivOfTwitterPhoto'>
         <div className='anothers'>
-              {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`http://localhost:4000/${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`http://localhost:4000/${res?.photo}`} />}              
+              {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}              
         </div>
       </div>
       </div>

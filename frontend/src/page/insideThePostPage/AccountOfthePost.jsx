@@ -16,18 +16,18 @@ const AccountOfthePost = ({id}) => {
     const [theProfilePost, setTheProfile] = useState(null)
     const [unfollow, setUnfollow] = useState(false)
     const GetText = async () => {
-        const response = await fetch(`http://localhost:4000/clone/texts/GetOneText/${id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${id}`)
         const json = await response.json()
         if (response.ok) {
             setThePost(json)
             
         }
-        const responseReply = await fetch(`http://localhost:4000/clone/replying/getreplyingComments/${id}`)
+        const responseReply = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
         const jsonReply = await responseReply.json()
         if (responseReply.ok) {
             setThePostReply(jsonReply)
         }
-        const accountOfThePost = await fetch(`http://localhost:4000/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
+        const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
         const accountOfThePostJson = await accountOfThePost.json()
         if (accountOfThePost.ok) {
             setTheProfile(accountOfThePostJson)
@@ -43,7 +43,7 @@ const AccountOfthePost = ({id}) => {
         
     }, [])
     const funLogin = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idLocal)?._id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idLocal)?._id}`)
         const json = await response.json()
         setProfile(json)
         }//egt an account
@@ -55,7 +55,7 @@ const AccountOfthePost = ({id}) => {
         }, [])
     const followUpdate = async (e) => {
         e.preventDefault()
-        const followersResponse = await fetch((`http://localhost:4000/clone/followersUpdate/${update}`)
+        const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${update}`)
         , {
         headers: {
             // 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const AccountOfthePost = ({id}) => {
             funLogin()
             GetText()
     }
-        const followingtResponse = await fetch((`http://localhost:4000/clone/followingUpdate/${update}`)
+        const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingUpdate/${update}`)
         , {
         headers: {
             // 'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const AccountOfthePost = ({id}) => {
 
     const followDelete = async (e) => {
     e.preventDefault()
-    const followersResponse = await fetch((`http://localhost:4000/clone/followersDelete/${dele}`)
+    const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${dele}`)
     , {
         headers: {
         // 'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ const AccountOfthePost = ({id}) => {
         funLogin()
         GetText()
 }
-    const followingtResponse = await fetch((`http://localhost:4000/clone/followingDelete/${dele}`)
+    const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingDelete/${dele}`)
     , {
         headers: {
         // 'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ const AccountOfthePost = ({id}) => {
                         <Link to={`/profile/${theProfilePost?._id}`}>
                         <div className='userTweet followin'>
                                     <img loading='lazy' className='img' src={imageList[0] === theProfilePost?.photo ? imageList[0] :
-                                    `http://localhost:4000/${theProfilePost?.photo}`} />
+                                    `${process.env.REACT_APP_APi_LINK}/${theProfilePost?.photo}`} />
                             <div className='userNameProfileFollows'>
                             <div className='nameProfileFollow'>
                             <span className='nameProfileFollow'>{theProfilePost?.name}</span>

@@ -34,7 +34,7 @@ const searchMotherFunction = async (e) => {
   const formdata = new FormData()
   
   formdata.append('names', names)
-  const response = await fetch(`http://localhost:4000/clone/getUserByName`, {
+  const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getUserByName`, {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({names})
@@ -61,7 +61,7 @@ searchMotherFunction()
 
 
 const funLogin = async () => {
-    const response = await fetch(`http://localhost:4000/clone/getAllUsers`)
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getAllUsers`)
     const json = await response.json()
     setProfile(json)
     }//get all users
@@ -76,7 +76,7 @@ const funLogin = async () => {
     
     const followUpdate = async (e) => {
       e.preventDefault()
-      const followersResponse = await fetch((`http://localhost:4000/clone/followersUpdate/${update}`)
+      const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${update}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const funLogin = async () => {
         searchMotherFunction()
           funLogin()
   }
-      const followingtResponse = await fetch((`http://localhost:4000/clone/followingUpdate/${update}`)
+      const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingUpdate/${update}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const funLogin = async () => {
 
   const followDelete = async (e,s) => {
     e.preventDefault()
-    const followersResponse = await fetch((`http://localhost:4000/clone/followersDelete/${dele}`)
+    const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${dele}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ const funLogin = async () => {
       searchMotherFunction()
         funLogin()
 }
-    const followingtResponse = await fetch((`http://localhost:4000/clone/followingDelete/${dele}`)
+    const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingDelete/${dele}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -201,10 +201,10 @@ return (
                                 <div className='motherProfileo' >
                                   <Link className='linkHomePageRetweet' to={`/profile/${res._id}`}>
                                   <div className='userTweet followin'>
-                                  {/* <img loading='lazy' key={index} className='img' src={imageList[0] === res?.photo ? imageList[0] : `http://localhost:4000/${res.photo}`} /> */}
+                                  {/* <img loading='lazy' key={index} className='img' src={imageList[0] === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} /> */}
                                   <div className='photoExplore'>
                                   <img loading='lazy' className='img' src={imageList[0] === res?.photo ? imageList[0] :
-                        `http://localhost:4000/${res?.photo}`} />       
+                        `${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />       
                                               </div>
                                     <div className='userNameProfileFollows'>
                                       <div className='nameProfileFollow'>

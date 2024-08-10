@@ -53,17 +53,15 @@ const PostPage = () => {
     }
   };
   const GetOneText = async () => {
-    const response1 = await fetch(`http://localhost:4000/clone/texts/GetOneText/${id}`)
+    const response1 = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${id}`)
        const json1 = await response1.json()
        if (response1.ok) {
-        console.log(json1)
        setOneText(json1)
     }
-    const response2 = await fetch(`http://localhost:4000/clone/replying/getreplyingComments/${id}`)
+    const response2 = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
        const json2 = await response2.json()
    
        if (response2.ok) {
-        console.log(json2)
        setOneText2(json2)
     }
     
@@ -81,7 +79,7 @@ const PostPage = () => {
     formdata.append('retweetComments', retweetQouteText)
     formdata.append('photo', videoFile)
     // const work = {Text}
-    const response = await fetch(`http://localhost:4000/clone/replying/replyingComments/${oneText?._id||oneText2?._id}`, {
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/replyingComments/${oneText?._id||oneText2?._id}`, {
       method: 'POST',
       body: formdata,
       headers: {
@@ -100,7 +98,7 @@ const PostPage = () => {
     navigate(-1)
     }
     // console.log(json._id)
-    const mycommentsResponses = await fetch((`http://localhost:4000/clone/updateMyComments/${json._id}`)
+    const mycommentsResponses = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyComments/${json._id}`)
       
     , {
       headers: {
@@ -112,7 +110,7 @@ const PostPage = () => {
     })
     const myLikesJsons = await mycommentsResponses.json()
     // console.log(myLikesJsons)
-    const myLikesTextResponse = await fetch((oneText2===null?`http://localhost:4000/clone/texts/updateQouteReTweet/${oneText?._id}/${json._id}`:`http://localhost:4000/clone/replying/updateQouteReTweetComment/${oneText2?._id}/${json._id}`)
+    const myLikesTextResponse = await fetch((oneText2===null?`${process.env.REACT_APP_APi_LINK}/clone/texts/updateQouteReTweet/${oneText?._id}/${json._id}`:`${process.env.REACT_APP_APi_LINK}/clone/replying/updateQouteReTweetComment/${oneText2?._id}/${json._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -129,7 +127,7 @@ const PostPage = () => {
 
 
     const funLogin = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idProfile)?._id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idProfile)?._id}`)
         const json = await response.json()
         if (response.ok) {
             // setError(null)
@@ -149,7 +147,7 @@ const PostPage = () => {
         }, [dispatched])
 
     const textProfile = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${idTextProfile}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${idTextProfile}`)
         const json = await response.json()
         if (response.ok) {
         setProfileText(json)
@@ -182,7 +180,7 @@ const PostPage = () => {
                 
             <div className={`${operators===undefined&&videoFile===null?"yourCommentRetweet noPhoto":"yourCommentRetweet"}`}>
             <div className='imgRetweet'>
-                <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`http://localhost:4000/${Urprofile?.photo}`} />
+                <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
 
             </div>
             <div className='textAreaRetweet'>
@@ -204,7 +202,7 @@ const PostPage = () => {
               <div className='motherTweets' >
                   <div className='RetweetText'>
                       <img loading='lazy' className='img profileRetweet' src={imageList[0] === profileText?.photo ? imageList[0]
-                        : `http://localhost:4000/${profileText?.photo}`} />
+                        : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
                   <span className='nameOfTheTweet'>{profileText?.name}</span>
                 <span className='userNameReetwetText'>@{profileText?.userName}</span>
                 </div>
@@ -218,9 +216,9 @@ const PostPage = () => {
                   <div>
                     {/* if there's nothin in the oneText and OneText2 we get nothin if theres a photo we make sure it is "mp4" and make VIDEO compounent if it's not a "mp4" we make a PHOTO  compounent*/}
                       {!oneText2?.photo&&!oneText?.photo ? '' :
-                          oneText2?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} width={"96%"} url={`http://localhost:4000/${oneText?.photo||oneText2?.photo}`} controls={true} />:
-                          oneText?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} width={"96%"} url={`http://localhost:4000/${oneText?.photo||oneText2?.photo}`} controls={true} />: 
-                          <img loading='lazy' className='twitterPhoto'src={`http://localhost:4000/${oneText?.photo||oneText2?.photo}`} />}
+                          oneText2?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} width={"96%"} url={`${process.env.REACT_APP_APi_LINK}/${oneText?.photo||oneText2?.photo}`} controls={true} />:
+                          oneText?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} width={"96%"} url={`${process.env.REACT_APP_APi_LINK}/${oneText?.photo||oneText2?.photo}`} controls={true} />: 
+                          <img loading='lazy' className='twitterPhoto'src={`${process.env.REACT_APP_APi_LINK}/${oneText?.photo||oneText2?.photo}`} />}
                   </div>
                   
             </div>

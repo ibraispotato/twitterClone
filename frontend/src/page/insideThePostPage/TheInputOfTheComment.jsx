@@ -39,7 +39,7 @@ const TheInputOfTheComment = ({Urprofile,usersOfTheFollwoingFunction,GetText,the
         const formdata = new FormData()
         formdata.append('retweetComments', retweetComments)
         formdata.append('photo', videoFile)
-        const response = await fetch(`http://localhost:4000/clone/replying/replyingComments/${id}`, {
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/replyingComments/${id}`, {
           method: 'POST',
           body: formdata,
           headers: {
@@ -60,7 +60,7 @@ const TheInputOfTheComment = ({Urprofile,usersOfTheFollwoingFunction,GetText,the
         GetText()
         }
         // console.log(json._id)
-        const mycommentsResponses = await fetch((theProfilePostReply===null?`http://localhost:4000/clone/texts/updateComments/${id}/${json._id}`:`http://localhost:4000/clone/replying/updateReqplyinComments/${id}/${json._id}`)
+        const mycommentsResponses = await fetch((theProfilePostReply===null?`${process.env.REACT_APP_APi_LINK}/clone/texts/updateComments/${id}/${json._id}`:`${process.env.REACT_APP_APi_LINK}/clone/replying/updateReqplyinComments/${id}/${json._id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const TheInputOfTheComment = ({Urprofile,usersOfTheFollwoingFunction,GetText,the
         GetText()
       }
         // console.log(myLikesJsons)
-        const myCommentTextResponse = await fetch((`http://localhost:4000/clone/updateMyComments/${json?._id}`)
+        const myCommentTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyComments/${json?._id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ const TheInputOfTheComment = ({Urprofile,usersOfTheFollwoingFunction,GetText,the
                         
               <div className='imgProfileAndText'>
                   
-                                <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`http://localhost:4000/${Urprofile?.photo}`} />
+                                <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
                                     <textarea rows="2" value={retweetComments} ref={TextArRef} onChange={(e) => setRetweetText(e.target.value)}
                                         placeholder='Post your reply' className='TheTextAreaPost retweet' maxLength={280} />
                                             </div>

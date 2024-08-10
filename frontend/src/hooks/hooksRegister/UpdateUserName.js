@@ -11,7 +11,7 @@ export const UserFun = () => {
     console.log(user)
     const UserName = async (userName) => {
          
-         const response = await fetch(`http://localhost:4000/clone/userName/${user?.token}`, {
+         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/userName/${user?.token}`, {
              method: "POST",
              headers: {
                 "Content-Type": "application/json"

@@ -21,7 +21,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
     const [MessegeLikes,setMessegeLiked] = useState(null)
   const DeleteLikes = async (e) => {
     e.preventDefault()
-    const TextDeleteResponse = await fetch(`http://localhost:4000/clone/texts/delete/${res?._id}`, {
+    const TextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/delete/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -39,7 +39,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
     funLogin()
     }
     
-    const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyLikes/${res?._id}`, {
+    const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyLikes/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -61,7 +61,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   const UpdateLikes = async (e) => {
     e.preventDefault()
     ///////////////////////////////////TEXT LIKES//////////////////////////////////////////////////////////////////////////////
-    const TextLikesResponse = await fetch((`http://localhost:4000/clone/texts/${res?._id}`)
+    const TextLikesResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/texts/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
       funLogin()
     }
     //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-    const myLikesTextResponse = await fetch((`http://localhost:4000/clone/updateMyLikes/${res?._id}`)
+    const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyLikes/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   const UpdateReTweet = async (e) => {
     e.preventDefault()
     ///////////////////////////////////TEXT ReTweet//////////////////////////////////////////////////////////////////////////////
-    const TextLikesResponse = await fetch((`http://localhost:4000/clone/texts/updateReTweet/${res?._id}`)
+    const TextLikesResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/texts/updateReTweet/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
     
     }
     //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-    const myLikesTextResponse = await fetch((`http://localhost:4000/clone/updateMyTweet/${res?._id}`)
+    const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyTweet/${res?._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   }
   const DeleteReTweet = async (e) => {
     e.preventDefault()
-    const TextDeleteResponses = await fetch(`http://localhost:4000/clone/texts/deleteReTweet/${res?._id}`, {
+    const TextDeleteResponses = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/deleteReTweet/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -170,7 +170,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
     
     }
     
-    const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyTweet/${res?._id}`, {
+    const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyTweet/${res?._id}`, {
       headers: {
         // 'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -194,7 +194,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   }
   const deleteAcutalText = async (e) => {
     e.preventDefault()
-  const response = await fetch(`http://localhost:4000/clone/texts/deteText/${res?._id}`,{
+  const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/deteText/${res?._id}`,{
     method: 'DELETE',
       headers: {
         // 'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ if (response.ok) {
 
   dispatchs({ type: "DELETE", payload: json })
 }
-const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyPost/${res?._id}`, {
+const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyPost/${res?._id}`, {
   headers: {
     // 'Content-Type': 'application/json',
     'Authorization': `Bearer ${user.token}`
@@ -264,7 +264,7 @@ useEffect(() => {
             <Link key={theIndex} to={`/profile/${resProfiles?._id}`}>
               {/* {console.log(theIndex)} */}
                       <img loading='lazy' key={theIndex} className='img' src={imageList[0] === resProfiles?.photo ? imageList[0] :
-                        `http://localhost:4000/${resProfiles?.photo}`} />
+                        `${process.env.REACT_APP_APi_LINK}/${resProfiles?.photo}`} />
             </Link>
                   </div>
                   <Link className='linkUser' to={`profile/${resProfiles?._id}`}>
@@ -319,7 +319,7 @@ useEffect(() => {
       <div className='divOfTwitterPhoto'>
               <div className='anotherdivOfTwitterPhoto'>
         <div className='anothers'>
-        {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`http://localhost:4000/${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`http://localhost:4000/${res?.photo}`} />}
+        {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}
         </div>
       </div>
       </div>

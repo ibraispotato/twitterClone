@@ -48,7 +48,7 @@ const Replying = () => {
       }
     };//submit the photo/video and push it in State
     const GetOneText = async () => {
-        const response = await fetch(`http://localhost:4000/clone/replying/getreplyingComments/${id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
            const json = await response.json()
     
            if (response.ok) {
@@ -67,7 +67,7 @@ const Replying = () => {
     const formdata = new FormData()
     formdata.append('retweetComments', retweetComments)
     formdata.append('photo', videoFile)
-    const response = await fetch(`http://localhost:4000/clone/replying/replyingComments/${oneText._id}`, {
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/replyingComments/${oneText._id}`, {
       method: 'POST',
       body: formdata,
       headers: {
@@ -84,7 +84,7 @@ const Replying = () => {
     setVideoPreview(null)
     navigate(-1)
     }
-    const myCommentTextResponse = await fetch((`http://localhost:4000/clone/updateMyComments/${json?._id}`)
+    const myCommentTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyComments/${json?._id}`)
     , {
       method: 'POST',
     headers: {
@@ -94,7 +94,7 @@ const Replying = () => {
   })
     await myCommentTextResponse.json()
 
-    const mycommentsResponses = await fetch((`http://localhost:4000/clone/replying/updateReqplyinComments/${oneText?._id}/${json._id}`)
+    const mycommentsResponses = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/replying/updateReqplyinComments/${oneText?._id}/${json._id}`)
       , {
         method: 'POST',
       headers: {
@@ -110,7 +110,7 @@ const Replying = () => {
   }//create a reply post and put the id in the account and the reply comment that created the comment
 
     const funLogin = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idProfile)?._id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idProfile)?._id}`)
         const json = await response.json()
         if (response.ok) {
             setProfiles(json)
@@ -126,7 +126,7 @@ const Replying = () => {
         }, [dispatched])
 
     const textProfile = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${idTextProfile}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${idTextProfile}`)
         const json = await response.json()
         if (response.ok) {
         setProfileText(json)
@@ -164,7 +164,7 @@ const Replying = () => {
                   <div className='RetweetText comments'>
                     <div className='ProfilephotoComment'>
                       <img loading='lazy' className='img profileComment' src={imageList[0] === profileText?.photo ? imageList[0]
-                      : `http://localhost:4000/${profileText?.photo}`} />
+                      : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
                 <div className='borderline'></div>
                     </div>
                   
@@ -195,7 +195,7 @@ const Replying = () => {
             <div>
                 <div className='imgComment'>
                   <div className='imgProfileAndText'>
-                    <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`http://localhost:4000/${Urprofile?.photo}`} />
+                    <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
                 <textarea rows="2" value={retweetComments} ref={TextArRef} onChange={(e) => setRetweetText(e.target.value)}
                 placeholder='Add a comment' className='TheTextAreaPost retweet' maxLength={280} />
                   </div>

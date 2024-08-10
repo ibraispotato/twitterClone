@@ -3,8 +3,9 @@ import {useTextContext} from "../../../hooks/textContext"
 import {Hooksregisters} from "../../../hooks/hooksRegister/hooksregister"
 import ChildrenHomeTexts from './childrenHomeTexts'
 import { MoonLoader} from "react-spinners";
-
+import process from 'process';
 const MotherHomeTexts = () => {
+const API = process.env.REACT_APP_APi_LINK
   const { user } = Hooksregisters()
   const { dispatchs, texts } = useTextContext()
     const [Urprofiles, setProfiles] = useState([])
@@ -14,7 +15,7 @@ const MotherHomeTexts = () => {
     if (!user) {
       return 
     }
-      const response = await fetch("http://localhost:4000/clone/texts")
+      const response = await fetch(`${API}/clone/texts`)
       const json = await response.json()
      
       if (response.ok) {
@@ -32,7 +33,7 @@ const MotherHomeTexts = () => {
         if (!user) {
           return 
         }
-      const oks = await texts?.map(ress => `http://localhost:4000/clone/getuserers/${ress?.idText}`)
+      const oks = await texts?.map(ress => `${API}/clone/getuserers/${ress?.idText}`)
       
       const fetchPromises = await oks?.map(url => fetch(url));
       await Promise.all(fetchPromises)
@@ -68,7 +69,6 @@ const MotherHomeTexts = () => {
         
   
 ))}
-      
     </div>
     )
   

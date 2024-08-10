@@ -29,7 +29,7 @@ const YourProfile = () => {
 const [noText, setNoText] = useState(false)
 
 const funLogins = async () => {
-    const response = await fetch(`http://localhost:4000/clone/getuser/${id}`)
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
     setProfile(json)
 
@@ -48,7 +48,7 @@ const funLogins = async () => {
   //       if (!user) {
   //         return 
   //       }
-  //       const oks = await Urprofile?.myComments?.toReversed()?.map(ress =>`http://localhost:4000/clone/replying/getreplyingComments/${ress}`)
+  //       const oks = await Urprofile?.myComments?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress}`)
         
   //     const fetchTodo = async (url) => {
   //       const res = await fetch(url);
@@ -75,34 +75,34 @@ const funLogins = async () => {
           return
         }
         /////////////////////////we get the users from the id paramas//////////////////////////////////////////////////////////////////////
-        const response = await fetch(`http://localhost:4000/clone/getuser/${id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
     setProfile(json)
     ///////////////////////////////we get the comment of the account from the user account////////////////////////////////////////////////////////////////////
-        const okse = await json?.myComments?.toReversed()?.map(ress =>`http://localhost:4000/clone/replying/getreplyingComments/${ress}`)
+        const okse = await json?.myComments?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress}`)
         const promisidz = okse?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
         setReplyComments(fetcPromisidz)
         ////////////////////////////////////////GET COMMENTS FROM REPLY/////////////////////////////////////////////////////////////////
-        const oks = await fetcPromisidz.map(ress => fetch(`http://localhost:4000/clone/texts/getReplies/${ress?.idText}`).then(response => response.json()));
+        const oks = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress?.idText}`).then(response => response.json()));
         const GetReplyPromis = await Promise?.all(oks).catch((err) => console.log(err))
         const getReplyFetcPromis = await Promise.all(GetReplyPromis)
         setGetCommentsFromPost(getReplyFetcPromis)
         console.log(getReplyFetcPromis)
         ////////////////////////////////////////GET reply FROM comments/////////////////////////////////////////////////////////////////
-        const oko = await fetcPromisidz.map(ress => fetch(`http://localhost:4000/clone/replying/getreplyingComments/${ress?.idText}`).then(response => response.json()));
+        const oko = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress?.idText}`).then(response => response.json()));
         const fetchPromises = await Promise.all(oko).catch((err) => console.log(err))
         const promis = await Promise.all(fetchPromises);
         setGetCommentsFromComments(promis)
         console.log(promis)
         ////////////////////////////////////////GET users FROM comments/////////////////////////////////////////////////////////////////
-        const oksz = await fetcPromisidz.map(ress => fetch(`http://localhost:4000/clone/getuserers/${ress?.idOfTheReplyer}`).then(response => response.json()));
+        const oksz = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idOfTheReplyer}`).then(response => response.json()));
         const fetchPromisesz = await Promise.all(oksz).catch((err) => console.log(err))
         const pro = await Promise.all(fetchPromisesz);
             // Process the data
             setProfiles(pro?.flat())        
         ///////////////////////////////////////get user from the comments//////////////////////////////////////////////////////////////////////////////
-        const promisid = await getReplyFetcPromis?.map(((res, index) => res === null ? promis?.[index] : res))?.map(ress => `http://localhost:4000/clone/getuserers/${ress?.idOfTheReplyer || ress?.idText}`)
+        const promisid = await getReplyFetcPromis?.map(((res, index) => res === null ? promis?.[index] : res))?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idOfTheReplyer || ress?.idText}`)
         const ah = promisid.map(ress => fetch(ress).then(response => response.json()));
         const fetcPromisid = await Promise.all(ah).catch((err) => console.log(err))
         const proz = await Promise.all(fetcPromisid);
@@ -121,7 +121,7 @@ const funLogins = async () => {
       }, [])
       const followUpdate = async (e) => {
         e.preventDefault()
-        const followersResponse = await fetch((`http://localhost:4000/clone/followersUpdate/${id}`)
+        const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const funLogins = async () => {
         if (followersResponse.ok) {
           funLogins()
     }
-        const followingtResponse = await fetch((`http://localhost:4000/clone/followingUpdate/${id}`)
+        const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingUpdate/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ const funLogins = async () => {
     }//follow user
     const followDelete = async (e) => {
         e.preventDefault()
-        const followersResponse = await fetch((`http://localhost:4000/clone/followersDelete/${id}`)
+        const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -166,7 +166,7 @@ const funLogins = async () => {
         if (followersResponse.ok) {
           funLogins()
     }
-        const followingtResponse = await fetch((`http://localhost:4000/clone/followingDelete/${id}`)
+        const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingDelete/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',

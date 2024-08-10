@@ -54,7 +54,7 @@ const Replying = () => {
     formdata.append('retweetComments', retweetComments)
     formdata.append('photo', videoFile)
     // const work = {Text}
-    const response = await fetch(`http://localhost:4000/clone/replying/replyingComments/${oneText?._id||oneText2?._id}`, {
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/replyingComments/${oneText?._id||oneText2?._id}`, {
       method: 'POST',
       body: formdata,
       headers: {
@@ -73,7 +73,7 @@ const Replying = () => {
     navigate(-1)
     }
     // console.log(json._id)
-    const mycommentsResponses = await fetch((`http://localhost:4000/clone/updateMyComments/${json._id}`)
+    const mycommentsResponses = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyComments/${json._id}`)
       
     , {
       headers: {
@@ -85,7 +85,7 @@ const Replying = () => {
     })
     const myLikesJsons = await mycommentsResponses.json()
     console.log(myLikesJsons)
-    const myLikesTextResponse = await fetch((oneText2===null?`http://localhost:4000/clone/texts/updateComments/${oneText?._id}/${json._id}`:`http://localhost:4000/clone/replying/updateReqplyinComments/${oneText2?._id}/${json._id}`)
+    const myLikesTextResponse = await fetch((oneText2===null?`${process.env.REACT_APP_APi_LINK}/clone/texts/updateComments/${oneText?._id}/${json._id}`:`${process.env.REACT_APP_APi_LINK}/clone/replying/updateReqplyinComments/${oneText2?._id}/${json._id}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const Replying = () => {
   }// 1:we create a reply comment , 2:we push an id of the post reply on the account on comment section, 3: if theres a post we push a id reply on the post or if theres no post we push id of the reply on the comment
 
     const funLogin = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idProfile)?._id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idProfile)?._id}`)
         const json = await response.json()
         if (response.ok) {
             // setError(null)
@@ -119,19 +119,19 @@ const Replying = () => {
             
         }, [dispatched])
    const GetOneText = async () => {
-     const response1 = await fetch(`http://localhost:4000/clone/texts/GetOneText/${id}`)
+     const response1 = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${id}`)
         const json1 = await response1.json()
     
         if (response1.ok) {
         setOneText(json1)
      }
-     const response2 = await fetch(`http://localhost:4000/clone/replying/getreplyingComments/${id}`)
+     const response2 = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
         const json2 = await response2.json()
     
         if (response2.ok) {
         setOneText2(json2)
      }
-     const accountOfThePost = await fetch(`http://localhost:4000/clone/getuser/${json1!==null?json1.idText:json2.idOfTheReplyer}`)
+     const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json1!==null?json1.idText:json2.idOfTheReplyer}`)
         const accountOfThePostJson = await accountOfThePost.json()
         setProfileText(accountOfThePostJson)
     }// 1: if the id includes the post we get the post, 2: if the id includes the comment we get the comment, 3: if the json1 is null we get the id of the replies of the comments if json1 is not null we get the id of the post 
@@ -165,7 +165,7 @@ useEffect(() => {
                   <div className='RetweetText comments'>
                     <div className='ProfilephotoComment'>
                       <img loading='lazy' className='img profileComment' src={imageList[0] === profileText?.photo ? imageList[0]
-                      : `http://localhost:4000/${profileText?.photo}`} />
+                      : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
                 <div className='borderline'></div>
                     </div>
                   
@@ -196,7 +196,7 @@ useEffect(() => {
             <div>
                 <div className='imgComment'>
                   <div className='imgProfileAndText'>
-                    <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`http://localhost:4000/${Urprofile?.photo}`} />
+                    <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
                 <textarea rows="2" value={retweetComments} ref={TextArRef} onChange={(e) => setRetweetText(e.target.value)}
                 placeholder='Add a comment' className='TheTextAreaPost retweet' maxLength={280} />
                   </div>

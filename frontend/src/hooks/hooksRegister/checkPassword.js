@@ -9,7 +9,7 @@ export const AuthFun = () => {
     const { dispatch } = Hooksregisters()
     const Auth = async (password) => {
          
-         const response = await fetch("http://localhost:4000/clone/Auth", {
+         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/Auth`, {
              method: "POST",
              headers: {
                 "Content-Type": "application/json"

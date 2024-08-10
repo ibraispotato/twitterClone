@@ -33,7 +33,8 @@ import "./thePorfilePages/mobileResProfile.css"
 import "./thePorfilePages/settings/mobileResSettings.css"
 function App() {
   const { user } = Hooksregisters()
-
+  // const API = process.env.REACT_APP_APi
+  // console.log(process.env.REACT_APP_APi_LINK)
   return (
     <div>
       <Router>

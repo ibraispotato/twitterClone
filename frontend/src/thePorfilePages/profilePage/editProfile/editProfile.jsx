@@ -23,7 +23,7 @@ import "./editProfileCss.css"
         // theres a file for the update user
         const { epdateProfile,error,setError } = UpdateProfile()
         const funLogin = async () => {
-            const response = await fetch(`http://localhost:4000/clone/getuser/${id}`)
+            const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
             const json = await response.json()
             if (response.ok) {
                 setError(null)

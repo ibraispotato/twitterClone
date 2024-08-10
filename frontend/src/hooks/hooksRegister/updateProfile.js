@@ -15,7 +15,7 @@ export const UpdateProfile = () => {
         formdata.append('photo', photo)
         formdata.append('bio', bio)
         // console.log(photo)
-        const response = await fetch(`http://localhost:4000/clone/updateprofile/${id}`, {
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/updateprofile/${id}`, {
             
         method: "PATCH",
             // headers: {"content-Type": "application/json",

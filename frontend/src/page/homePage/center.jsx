@@ -7,7 +7,10 @@ import { faImage } from '@fortawesome/free-solid-svg-icons'
 import { useTextContext } from "../../hooks/textContext"
 import MotherHomeTexts from "./homeTexts/motherHomeTexts"
 import ReactPlayer from 'react-player';
+// require('dotenv').config();
+
 const Center = () => {
+
   const { user, dispatch:dispatched } = Hooksregisters()
   const [Urprofile, setProfiles] = useState(null)
   const TextArRef = useRef(null)
@@ -43,7 +46,7 @@ const Center = () => {
     if (!user) {
       return 
     }
-    const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idProfile)?._id}`)
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/getuser/${JSON.parse(idProfile)?._id}`)
     const json = await response.json()
     if (response.ok) {
         dispatched({ type: "LOGIN", payload: json })
@@ -65,7 +68,7 @@ const Center = () => {
     formdata.append('Text', Text)
     formdata.append('photo', videoFile)
     // const work = {Text}
-    const response = await fetch("http://localhost:4000/clone/texts", {
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts`, {
       method: 'POST',
       body: formdata,
       headers: {
@@ -85,7 +88,7 @@ const Center = () => {
     setVideoFile(null)
       dispatchs({ type: "CREATE", payload: json })
     }
-    const rsponseUpdatePost = await fetch(`http://localhost:4000/clone/updateMyPosts/${json._id}`, {
+    const rsponseUpdatePost = await fetch(`${process.env.REACT_APP_APi_LINK}/updateMyPosts/${json._id}`, {
       method:"POST",
       headers: {
         // 'Content-Type': 'application/json',

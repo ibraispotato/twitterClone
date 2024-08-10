@@ -18,7 +18,7 @@ const TextOfThePost = () => {
     const playerRef = useRef(null);
     const [MessegeLikes,setMessegeLiked] = useState(null)
     const funLogin = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idLocal)?._id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idLocal)?._id}`)
         const json = await response.json()
         setProfile(json)
         }///get your account
@@ -29,20 +29,20 @@ const TextOfThePost = () => {
             
         }, [])
     const GetText = async () => {
-        const response = await fetch(`http://localhost:4000/clone/texts/GetOneText/${id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${id}`)
         const json = await response.json()
         if (response.ok) {
             setThePost(json)
             
         }
         
-        const responseReply = await fetch(`http://localhost:4000/clone/replying/getreplyingComments/${id}`)
+        const responseReply = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
         const jsonReply = await responseReply.json()
         if (responseReply.ok) {
             setThePostReply(jsonReply)
         }
         
-        const accountOfThePost = await fetch(`http://localhost:4000/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
+        const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
         const accountOfThePostJson = await accountOfThePost.json()
         if (accountOfThePost.ok) {
             setTheProfile(accountOfThePostJson)
@@ -60,7 +60,7 @@ const TextOfThePost = () => {
 
     const DeleteLikes = async (e) => {
         e.preventDefault()
-        const TextDeleteResponse = await fetch(theProfilePostReply===null?`http://localhost:4000/clone/texts/delete/${id}`:`http://localhost:4000/clone/replying/deleteLikesComment/${id}`, {
+        const TextDeleteResponse = await fetch(theProfilePostReply===null?`${process.env.REACT_APP_APi_LINK}/clone/texts/delete/${id}`:`${process.env.REACT_APP_APi_LINK}/clone/replying/deleteLikesComment/${id}`, {
           headers: {
             // 'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
@@ -76,7 +76,7 @@ const TextOfThePost = () => {
         funLogin()
         }
         
-        const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyLikes/${id}`, {
+        const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyLikes/${id}`, {
           headers: {
             // 'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
@@ -97,7 +97,7 @@ const TextOfThePost = () => {
     const AddLikes = async (e) => {
         e.preventDefault()
         ///////////////////////////////////TEXT LIKES//////////////////////////////////////////////////////////////////////////////
-        const TextLikesResponse = await fetch((theProfilePostReply===null?`http://localhost:4000/clone/texts/${id}`:`http://localhost:4000/clone/replying/updateLikesComment/${id}`)
+        const TextLikesResponse = await fetch((theProfilePostReply===null?`${process.env.REACT_APP_APi_LINK}/clone/texts/${id}`:`${process.env.REACT_APP_APi_LINK}/clone/replying/updateLikesComment/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const TextOfThePost = () => {
           funLogin()
         }
         //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-        const myLikesTextResponse = await fetch((`http://localhost:4000/clone/updateMyLikes/${id}`)
+        const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyLikes/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ const TextOfThePost = () => {
     const UpdateReTweet = async (e) => {
         e.preventDefault()
         ///////////////////////////////////TEXT ReTweet//////////////////////////////////////////////////////////////////////////////
-        const TextLikesResponse = await fetch((theProfilePostReply===null?`http://localhost:4000/clone/texts/updateReTweet/${id}`:`http://localhost:4000/clone/replying/updateReTweetComment/${id}`)
+        const TextLikesResponse = await fetch((theProfilePostReply===null?`${process.env.REACT_APP_APi_LINK}/clone/texts/updateReTweet/${id}`:`${process.env.REACT_APP_APi_LINK}/clone/replying/updateReTweetComment/${id}`)
         , {
         headers: {
             // 'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ const TextOfThePost = () => {
         setClickRetweet(false)
         }
         //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-        const myLikesTextResponse = await fetch((`http://localhost:4000/clone/updateMyTweet/${id}`)
+        const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyTweet/${id}`)
         , {
         headers: {
             // 'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ const TextOfThePost = () => {
     }// add Retweet
     const DeleteReTweet = async (e) => {
         e.preventDefault()
-        const TextDeleteResponses = await fetch(theProfilePostReply===null?`http://localhost:4000/clone/texts/deleteReTweet/${id}`:`http://localhost:4000/clone/replying/deleteReplyReTweet/${id}`, {
+        const TextDeleteResponses = await fetch(theProfilePostReply===null?`${process.env.REACT_APP_APi_LINK}/clone/texts/deleteReTweet/${id}`:`${process.env.REACT_APP_APi_LINK}/clone/replying/deleteReplyReTweet/${id}`, {
         headers: {
             // 'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
@@ -192,7 +192,7 @@ const TextOfThePost = () => {
         
         }
         
-        const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyTweet/${id}`, {
+        const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyTweet/${id}`, {
         headers: {
             // 'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
@@ -225,9 +225,9 @@ return (
                                     </div>
                                     <div className='PhotoTweetPost'>
                                         {!thePost?.photo&&!theProfilePostReply?.photo ? '' :
-                                        thePost?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`http://localhost:4000/${thePost?.photo||theProfilePostReply?.photo}`} controls={true} />:
-                                        theProfilePostReply?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`http://localhost:4000/${thePost?.photo||theProfilePostReply?.photo}`} controls={true} />: 
-                                        <img loading='lazy' className='twitterPhoto PostPhoto'src={`http://localhost:4000/${thePost?.photo||theProfilePostReply?.photo}`} />}
+                                        thePost?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${thePost?.photo||theProfilePostReply?.photo}`} controls={true} />:
+                                        theProfilePostReply?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${thePost?.photo||theProfilePostReply?.photo}`} controls={true} />: 
+                                        <img loading='lazy' className='twitterPhoto PostPhoto'src={`${process.env.REACT_APP_APi_LINK}/${thePost?.photo||theProfilePostReply?.photo}`} />}
                                     </div>
                                     <div className='dateOfTextOfThePost'>
                 {(thePost === null ?theProfilePostReply === null ? <span></span> : <span>Posted {formatDistanceToNow(new Date(theProfilePostReply?.createdAt))}</span>:

@@ -25,12 +25,11 @@ const Thereplies = ({ res, Thecomments, index, indx, GetText,usersOfTheFollwoing
   const [threeDotsBtn, setThreeDotsBtn] = useState(false)
   const [messegeDelete,setMessegeDelete] = useState(null)
   const [MessegeLikes,setMessegeLiked] = useState(null)
-console.log(Thecomments)
   const GetAllText = async () => {
     if (!user) {
       return 
     }
-      const response = await fetch("http://localhost:4000/clone/texts")
+      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts`)
       const json = await response.json()
      
       if (response.ok) {
@@ -45,7 +44,7 @@ console.log(Thecomments)
     }
       }, [dispatchs])
     const ProfileOfTheFollwoingFunction = async (e) => {
-        const oks = await Thecomments?.map(res=>`http://localhost:4000/clone/getuserers/${res?.idOfTheReplyer}`)
+        const oks = await Thecomments?.map(res=>`${process.env.REACT_APP_APi_LINK}/clone/getuserers/${res?.idOfTheReplyer}`)
         const fetchTodo = async (url) => {
         const res = await fetch(url);
         if (!res.ok) {
@@ -69,7 +68,7 @@ console.log(Thecomments)
     }, [])
     const deleteLikes = async (e) => {
       e.preventDefault()
-      const TextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyLikes/${res?._id}`, {
+      const TextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyLikes/${res?._id}`, {
         headers: {
           // 'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
@@ -86,7 +85,7 @@ console.log(Thecomments)
       GetText()
       }
       
-      const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/replying/deleteLikesComment/${res?._id}`, {
+      const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/deleteLikesComment/${res?._id}`, {
         
         headers: {
           // 'Content-Type': 'application/json',
@@ -109,7 +108,7 @@ console.log(Thecomments)
     const AddLikes = async (e) => {
       e.preventDefault()
       ///////////////////////////////////TEXT LIKES//////////////////////////////////////////////////////////////////////////////
-      const TextLikesResponse = await fetch((`http://localhost:4000/clone/updateMyLikes/${res?._id}`)
+      const TextLikesResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyLikes/${res?._id}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -126,7 +125,7 @@ console.log(Thecomments)
         GetText()
       }
       //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-      const myLikesTextResponse = await fetch((`http://localhost:4000/clone/replying/updateLikesComment/${res?._id}`)
+      const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/replying/updateLikesComment/${res?._id}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -148,7 +147,7 @@ console.log(Thecomments)
     const UpdateReTweet = async (e) => {
       e.preventDefault()
       ///////////////////////////////////TEXT ReTweet//////////////////////////////////////////////////////////////////////////////
-      const TextLikesResponse = await fetch((`http://localhost:4000/clone/updateMyTweet/${res?._id}`)
+      const TextLikesResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyTweet/${res?._id}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -166,7 +165,7 @@ console.log(Thecomments)
         setClickRetweet(false)
       }
       //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
-      const myLikesTextResponse = await fetch((`http://localhost:4000/clone/replying/updateReTweetComment/${res?._id}`)
+      const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/replying/updateReTweetComment/${res?._id}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -188,7 +187,7 @@ console.log(Thecomments)
     }//updateRetweet
     const DeleteReTweet = async (e) => {
       e.preventDefault()
-      const TextDeleteResponses = await fetch(`http://localhost:4000/clone/deleteMyTweet/${res?._id}`, {
+      const TextDeleteResponses = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyTweet/${res?._id}`, {
         headers: {
           // 'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
@@ -205,7 +204,7 @@ console.log(Thecomments)
       GetText()
       }
       
-      const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/replying/deleteReplyReTweet/${res?._id}`, {
+      const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/deleteReplyReTweet/${res?._id}`, {
         headers: {
           // 'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
@@ -226,7 +225,7 @@ console.log(Thecomments)
     }//deleteRetweet
     const deleteAcutalText = async (e) => {
       e.preventDefault()
-    const response = await fetch(`http://localhost:4000/clone/replying/deleteText/${res?._id}`,{
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/deleteText/${res?._id}`,{
       method: 'DELETE',
         headers: {
           // 'Content-Type': 'application/json',
@@ -243,7 +242,7 @@ console.log(Thecomments)
     setThreeDotsBtn(false)
     dispatchs({ type: "DELETE", payload: json })
   }
-  const MyTextDeleteResponse = await fetch(`http://localhost:4000/clone/deleteMyPost/${res?._id}`, {
+  const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyPost/${res?._id}`, {
     headers: {
       // 'Content-Type': 'application/json',
       'Authorization': `Bearer ${user.token}`
@@ -298,7 +297,7 @@ console.log(Thecomments)
             <Link key={indexo} to={`/profile/${reses?._id}`} preventScrollReset={true}>
               
                       <img key={indexo} loading='lazy' className='img' src={imageList[0] === reses?.photo ? imageList[0] :
-                        `http://localhost:4000/${reses.photo}`} />
+                        `${process.env.REACT_APP_APi_LINK}/${reses.photo}`} />
             </Link>
                   </div>
                   {/* <Link className='linkUser' to={`/profile/${reses?._id}`}> */}
@@ -354,7 +353,7 @@ console.log(Thecomments)
       <div className='divOfTwitterPhoto'>
               <div className='anotherdivOfTwitterPhoto'>
         <div className='anothers'>
-        {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`http://localhost:4000/${res?.photo}`} controls={true} />:<img loading='lazy' className='twitterPhoto' src={`http://localhost:4000/${res?.photo}`} />}
+        {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:<img loading='lazy' className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}
         </div>
       </div>
       </div>

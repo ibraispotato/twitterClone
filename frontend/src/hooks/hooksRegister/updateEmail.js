@@ -10,7 +10,7 @@ export const EmailFun = () => {
     const { dispatch,user } = Hooksregisters()
     const userEmail = async (email,password) => {
          
-         const response = await fetch(`http://localhost:4000/clone/email/${user?.token}`, {
+         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/email/${user?.token}`, {
              method: "POST",
              headers: {
                 "Content-Type": "application/json"
@@ -36,7 +36,6 @@ export const EmailFun = () => {
 
             navigates("/your-account-information/account")
              
-             console.log("ah")
          }
     }
     return {userEmail,errors,setError}

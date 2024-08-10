@@ -26,7 +26,7 @@ const imageList = images.keys().filter(im => im.includes(photo)).map(image => im
     const [noText, setNoText] = useState(false)
 
 const funLogin = async () => {
-    const response = await fetch(`http://localhost:4000/clone/getuser/${id}`)
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
     setProfile(json)
     }//get user from the id
@@ -39,7 +39,7 @@ const funLogin = async () => {
     
     const followUpdate = async (e) => {
         e.preventDefault()
-        const followersResponse = await fetch((`http://localhost:4000/clone/followersUpdate/${id}`)
+        const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const funLogin = async () => {
         if (followersResponse.ok) {
             funLogin()
     }
-        const followingtResponse = await fetch((`http://localhost:4000/clone/followingUpdate/${id}`)
+        const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingUpdate/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const funLogin = async () => {
     }//follow the users
     const followDelete = async (e) => {
         e.preventDefault()
-        const followersResponse = await fetch((`http://localhost:4000/clone/followersDelete/${id}`)
+        const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const funLogin = async () => {
         if (followersResponse.ok) {
             funLogin()
     }
-        const followingtResponse = await fetch((`http://localhost:4000/clone/followingDelete/${id}`)
+        const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingDelete/${id}`)
         , {
           headers: {
             // 'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ const funLogin = async () => {
         if (!user) {
           return 
         }
-        const oks = await Urprofile?.idOfThePost?.toReversed()?.map(ress =>`http://localhost:4000/clone/texts/GetOneText/${ress}`)
+        const oks = await Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${ress}`)
       
           
       const fetchTodo = async (url) => {
@@ -134,7 +134,7 @@ const funLogin = async () => {
         if (!user) {
           return 
         }
-      const oks = await replycomments?.map(ress => `http://localhost:4000/clone/getuserers/${ress?.idText}`)
+      const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
       const fetchPromises = await oks?.map(url => fetch(url));
       await Promise.all(fetchPromises)
       .then(responses => Promise.all(responses?.map(response => response.json())))

@@ -12,7 +12,7 @@ export const Signup = () => {
         formdata.append('password', password)
         formdata.append('photo', photo)
         formdata.append('bio', bio)
-        const response = await fetch("http://localhost:4000/clone/signup", {
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/signup`, {
             
             method: "POST",
             headers: {

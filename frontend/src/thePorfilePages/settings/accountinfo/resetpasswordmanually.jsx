@@ -31,7 +31,7 @@ const { user,dispatch } = Hooksregisters()
         UserPass(checkPassword,password,secPassword)
     }//theres a compunenet we update the password and check the password
     const funLogin = async () => {
-        const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(localhost)?._id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(localhost)?._id}`)
         const json = await response.json()
         if (response.ok) {
             setError(null)

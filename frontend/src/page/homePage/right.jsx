@@ -15,7 +15,7 @@ const Right = () => {
   const searchFunction = async (e) => {
     const formdata = new FormData()
     formdata.append('names', names)
-    const response = await fetch(`http://localhost:4000/clone/getUserByName`, {
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getUserByName`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({names})
@@ -72,7 +72,7 @@ const Right = () => {
                   <div className='motherProfileo search' >
                    
                     <div className='userTweet profileSearch'>
-                      <img loading='lazy' key={index} className='imgprofileSearch' src={imageList[0] === res?.photo ? imageList[0] : `http://localhost:4000/${res.photo}`} />
+                      <img loading='lazy' key={index} className='imgprofileSearch' src={imageList[0] === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} />
                       <div className='userNameProfileSearch'>
                         <div className='nameProfileFollow'>
                           <span className='nameProfileFollow'>{res?.name}</span>

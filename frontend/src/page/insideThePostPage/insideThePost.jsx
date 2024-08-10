@@ -20,7 +20,7 @@
             const [Thecomments, setThecomments] = useState(null)
             const [loding, setLoding] = useState(false)
             const funLogin = async () => {
-                const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idLocal)?._id}`)
+                const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idLocal)?._id}`)
                 const json = await response.json()
                 setProfile(json)
                 }///get your account from the localhost
@@ -31,19 +31,19 @@
                 
                 }, [])
                 const GetText = async () => {
-                    const response = await fetch(`http://localhost:4000/clone/texts/getOneText/${id}`)
+                    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/getOneText/${id}`)
                     const json = await response.json()
                     if (response.ok) {
                         setThePost(json)
                         // console.log(json)
                     }
-                    const responseReply = await fetch(`http://localhost:4000/clone/replying/getreplyingComments/${id}`)
+                    const responseReply = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
                     const jsonReply = await responseReply.json()
                     if (responseReply.ok) {
                         setThePostReply(jsonReply)
                         // console.log(jsonReply)
                     }
-                    const accountOfThePost = await fetch(`http://localhost:4000/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
+                    const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
                     const accountOfThePostJson = await accountOfThePost.json()
                     if (accountOfThePost.ok) {
                         setTheProfile(accountOfThePostJson)
@@ -61,8 +61,8 @@
                     
                 }, [])
             const usersOfTheFollwoingFunction = async (e) => {
-                const oks =  thePost !== null ? await thePost?.comments?.toReversed()?.map(res => `http://localhost:4000/clone/replying/getreplyingComments/${res}`) :
-                await theProfilePostReply?.comments?.toReversed()?.map(res => `http://localhost:4000/clone/replying/getreplyingComments/${res}`)
+                const oks =  thePost !== null ? await thePost?.comments?.toReversed()?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`) :
+                await theProfilePostReply?.comments?.toReversed()?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`)
 
                 const fetchTodo = async (url) => {
                 const res = await fetch(url);

@@ -22,7 +22,7 @@ const [update,setUpdate] = useState(null)
   const imageList = images.keys().map(image => images(image))
 
   const funLogin = async () => {
-    const response = await fetch(`http://localhost:4000/clone/getuser/${id}`)
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
     setProfile(json)
     }//get a user from the id paramas
@@ -34,7 +34,7 @@ const [update,setUpdate] = useState(null)
     }, [])
     const followUpdate = async (e) => {
       e.preventDefault()
-      const followersResponse = await fetch((`http://localhost:4000/clone/followersUpdate/${update}`)
+      const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${update}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const [update,setUpdate] = useState(null)
       if (followersResponse.ok) {
           funLogin()
   }
-      const followingtResponse = await fetch((`http://localhost:4000/clone/followingUpdate/${update}`)
+      const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingUpdate/${update}`)
       , {
         headers: {
           // 'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const [update,setUpdate] = useState(null)
 
   const followDelete = async (e) => {
     e.preventDefault()
-    const followersResponse = await fetch((`http://localhost:4000/clone/followersDelete/${dele}`)
+    const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${dele}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const [update,setUpdate] = useState(null)
     if (followersResponse.ok) {
         funLogin()
 }
-    const followingtResponse = await fetch((`http://localhost:4000/clone/followingDelete/${dele}`)
+    const followingtResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followingDelete/${dele}`)
     , {
       headers: {
         // 'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const [update,setUpdate] = useState(null)
 }
   }// we unfollow the user
     const usersOfTheFollwoingFunction = async (e) => {
-      const oks = await Urprofile.followers?.map(res => `http://localhost:4000/clone/getuserers/${res}`)
+      const oks = await Urprofile.followers?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${res}`)
       
       const fetchTodo = async (url) => {
         const res = await fetch(url);
@@ -175,10 +175,10 @@ const [update,setUpdate] = useState(null)
                                 <div className='motherProfileo' >
                                   <Link className='linkHomePageRetweet' to={`/profile/${res._id}`}>
                                   <div className='userTweet followin'>
-                                  {/* <img loading='lazy' key={index} className='img' src={imageList[0] === res?.photo ? imageList[0] : `http://localhost:4000/${res.photo}`} /> */}
+                                  {/* <img loading='lazy' key={index} className='img' src={imageList[0] === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} /> */}
                                   <div className='photoExplore'>
                                   <img loading='lazy' className='img' src={imageList[0] === res?.photo ? imageList[0] :
-                        `http://localhost:4000/${res?.photo}`} />       
+                        `${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />       
                                               </div>
                                     <div className='userNameProfileFollows'>
                                       <div className='nameProfileFollow'>

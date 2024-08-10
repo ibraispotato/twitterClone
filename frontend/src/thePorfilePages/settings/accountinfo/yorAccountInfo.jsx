@@ -18,7 +18,7 @@ const DeleteProfile = () => {
     const ah  = localStorage.getItem("user")
   const [Urprofiles, setProfiles] = useState(null)
   const funLogin = async () => {
-    const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(ah)?._id}`)
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(ah)?._id}`)
     const json = await response.json()
     
     setProfiles(json)

@@ -97,21 +97,6 @@ const Left = ({setBackAndFourth,backAndFourth,Urprofile}) => {
           <div className='postBtn'>
               <h1>Post</h1>
         </div>
-        {/* <div className='iconAndText more'>
-        <div onClick={() => setBackAndFourth(prev => !prev)} className='down'>
-                <div className='allimgandtext'>
-                <img loading='lazy' className='img' src={img === user?.photo ? photo || imageLists[0] : imageList[0]} />
-                
-
-                <div className='names'>
-                  <span className='nameText'>{user?.name}</span>
-                  <span>@{user?.userName}</span>
-                  </div>
-                </div>
-                <div className='leftBtn'>{<FontAwesomeIcon icon={faEllipsis}/>}</div>
-          </div>
-          
-        </div> */}
       </div>
         {/* <div> */}
           {backAndFourth&&user ?

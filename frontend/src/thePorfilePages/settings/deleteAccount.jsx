@@ -28,7 +28,7 @@ const DeleteProfile = () => {
         if (!user) {
           return 
         }
-        const response = await fetch(`http://localhost:4000/clone/getuser/${JSON.parse(idLocal)?._id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idLocal)?._id}`)
         const json = await response.json()
         if (response.ok) {
             dispatch({ type: "LOGIN", payload: json })
@@ -45,7 +45,7 @@ const DeleteProfile = () => {
         
     const deleteProfileBtn = async () => {
         ///////////////////////////delete a comments of the account////////////////////////////////////////////////////////////////////////////
-        const MapComment = await Urprofile?.myComments.map((res) => `http://localhost:4000/clone/deleteComments/${res}`)
+        const MapComment = await Urprofile?.myComments.map((res) => `${process.env.REACT_APP_APi_LINK}/clone/deleteComments/${res}`)
         const responseComment = await MapComment?.map(url => fetch(url,{
             method:"DELETE",
             headers: {
@@ -57,7 +57,7 @@ const DeleteProfile = () => {
 
 
         //////////////////////////delete likes////////////////////////////////////////////////////////////////////////////////////
-        const MapLikes = await Urprofile?.myLikes?.map((res) => `http://localhost:4000/clone/deleteLikes/${res}`)
+        const MapLikes = await Urprofile?.myLikes?.map((res) => `${process.env.REACT_APP_APi_LINK}/clone/deleteLikes/${res}`)
         const responseLikes = await MapLikes?.map(url => fetch(url,{
             method:"DELETE",
             headers: {
@@ -69,7 +69,7 @@ const DeleteProfile = () => {
 
 
         ////////////////////////////////delte QoutRetweet//////////////////////////////////////////////////////////////////////////////
-        const MapQouteRetweet = await Urprofile?.myComments?.map((res) => `http://localhost:4000/clone/deleteQouteTweet/${res}`)
+        const MapQouteRetweet = await Urprofile?.myComments?.map((res) => `${process.env.REACT_APP_APi_LINK}/clone/deleteQouteTweet/${res}`)
         const responseQouteRetweet = await MapQouteRetweet?.map(url => fetch(url,{
             method:"DELETE",
             headers: {
@@ -81,7 +81,7 @@ const DeleteProfile = () => {
 
 
         ////////////////////////////////delete tweet//////////////////////////////////////////////////////////////////////////////
-        const MapdeleteTweet= await Urprofile?.deleteTweet?.map((res) => `http://localhost:4000/clone/deleteTweet/${res}`)
+        const MapdeleteTweet= await Urprofile?.deleteTweet?.map((res) => `${process.env.REACT_APP_APi_LINK}/clone/deleteTweet/${res}`)
         const responsedeleteTweet= await MapdeleteTweet?.map(url => fetch(url,{
             method:"DELETE",
             headers: {
@@ -94,7 +94,7 @@ const DeleteProfile = () => {
 
         
         ///////////////////////////// delete follow/////////////////////////////////////////////////////////////////////////////////
-        const responseFollow = await fetch(`http://localhost:4000/clone/deleteFollow/${Urprofile?._id}`, {
+        const responseFollow = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteFollow/${Urprofile?._id}`, {
             method:"DELETE",
             headers: {
                 // 'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ const DeleteProfile = () => {
 
 
          ///////////////////////////////delete id of the post///////////////////////////////////////////////////////////////////////////////
-         const Mapfollowers = await Urprofile?.idOfThePost?.map((res) => `http://localhost:4000/clone/deleteIdText/${res}`)
+         const Mapfollowers = await Urprofile?.idOfThePost?.map((res) => `${process.env.REACT_APP_APi_LINK}/clone/deleteIdText/${res}`)
 
          const responsefollowers = await Mapfollowers?.map(url => fetch(url,{
              method:"DELETE",
@@ -117,7 +117,7 @@ const DeleteProfile = () => {
         await Promise?.all(responsefollowers).catch((err) => console.log(err))
 
           ////////////////////////delete the user and every thing on the accounts that contains the if of the deleted account/////////////////////////////////////////////////////////////////////////////////
-        const response = await fetch(`http://localhost:4000/clone/deleteuser/${Urprofile?._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteuser/${Urprofile?._id}`, {
             method:"DELETE",
             headers: {
                 // 'Content-Type': 'application/json',
