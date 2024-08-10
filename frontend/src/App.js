@@ -31,6 +31,7 @@ import "./register/mobileResRegister.css"
 import "./page/insideThePostPage/mobileResInsideThePost.css"
 import "./thePorfilePages/mobileResProfile.css"
 import "./thePorfilePages/settings/mobileResSettings.css"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 function App() {
   const { user } = Hooksregisters()
   // const API = process.env.REACT_APP_APi
