@@ -16,7 +16,7 @@ const YourProfile = () => {
     const [Urprofile, setProfile] = useState([])
 const [backAndFourth,setBackAndFourth] = useState(false)
 const {dispatch,user} = Hooksregisters()
-const photo = Urprofile && Urprofile.photo
+const photo = user && user.photo
     const images = require.context('../../../../images', true);
     const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
     const [unfollow, setUnfollow] = useState(false)
@@ -24,7 +24,7 @@ const photo = Urprofile && Urprofile.photo
     const [loding, setLoding] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
-
+console.log(Urprofile)
     const funLogin = async () => {
       const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
       const json = await response.json()
@@ -187,12 +187,12 @@ return (
                         {/* <p>{"Joined "+formatDistanceToNow(new Date(user?.createdAt), { addSuffix: true })}</p> */}
                     </div>
                 <div className='followers'>
-                    <Link to={`/following/${user?._id}`}>
-                        <p className='textOfFollow'><span className='numberOfFollow'>{user?.follwoing?.length}</span> follwoing</p>
+                    <Link to={`/following/${Urprofile?._id}`}>
+                        <p className='textOfFollow'><span className='numberOfFollow'>{Urprofile?.follwoing?.length}</span> follwoing</p>
                     </Link>
                     
-                    <Link to={`/followers/${user?._id}`}>
-                        <p className='textOfFollow'><span className='numberOfFollow'>{user?.followers?.length}</span> followers</p>
+                    <Link to={`/followers/${Urprofile?._id}`}>
+                        <p className='textOfFollow'><span className='numberOfFollow'>{Urprofile?.followers?.length}</span> followers</p>
                     </Link>
                     
                         
