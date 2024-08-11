@@ -7,16 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {LogoutFun} from "../../hooks/hooksRegister/logout"
 import {Hooksregisters} from "../../hooks/hooksRegister/hooksregister"
 import "./left.css"
-import img from "../../images/defultPic.png"
+import img from "../..//defultPic.png"
 import { Link } from 'react-router-dom'
 const Left = ({setBackAndFourth,backAndFourth,Urprofile}) => {
   const { user, dispatch } = Hooksregisters()
   const [more,setMore] = useState(false)
   const photo = user && user?.photo
   const photos = Urprofile && Urprofile?.photo
-  const images = require.context('../../images', true);
-  const imageList = images.keys().filter(im => im.includes(photo||photos)).map(image => images(image))
-  const imageLists = images.keys().map(image => images(image))
   const { Logout } = LogoutFun()
   const logoutFunction=() =>{
     Logout()
@@ -118,7 +115,7 @@ const Left = ({setBackAndFourth,backAndFourth,Urprofile}) => {
         <>
               <div onClick={() => setBackAndFourth(prev => !prev)} className='down'>
                 <div className='allimgandtext'>
-                <img loading='lazy' className='img' src={img === user?.photo ? photo || imageLists[0] : imageList[0]} />
+                <img loading='lazy' className='img' src={user?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${user?.photo}`} />
                 
 
                 <div className='names'>

@@ -1,7 +1,7 @@
 import React,{useState,useEffect, useRef} from 'react'
 import "./center.css"
 import {Hooksregisters} from "../../hooks/hooksRegister/hooksregister"
-import img from "../../images/defultPic.png"
+import img from "../../defultPic.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
 import { useTextContext } from "../../hooks/textContext"
@@ -14,17 +14,12 @@ const Center = () => {
   const { user, dispatch:dispatched } = Hooksregisters()
   const [Urprofile, setProfiles] = useState(null)
   const TextArRef = useRef(null)
-  const photo = user && user?.photo
-  const photos = Urprofile && Urprofile?.photo
-  const images = require.context('../../images', true);
     const playerRef = useRef(null);
-  const imageList = images.keys().filter(im => im.includes(photo||photos)).map(image => images(image))
-  const idProfile  = localStorage.getItem("user")
-  const [Text, setText] = useState("")
-  const { dispatchs } = useTextContext()
-  const imageLists = images.keys().map(image => images(image))
-  const [videoFile, setVideoFile] = useState(null);
-  const [videoPreview, setVideoPreview] = useState(null);
+    const idProfile  = localStorage.getItem("user")
+    const [Text, setText] = useState("")
+    const { dispatchs } = useTextContext()
+    const [videoFile, setVideoFile] = useState(null);
+    const [videoPreview, setVideoPreview] = useState(null);
   useEffect(() => {
     if (videoPreview) {
       return () => {
@@ -46,18 +41,19 @@ const Center = () => {
     if (!user) {
       return 
     }
-    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/getuser/${JSON.parse(idProfile)?._id}`)
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idProfile)?._id}`)
     const json = await response.json()
     if (response.ok) {
         dispatched({ type: "LOGIN", payload: json })
+        setProfiles(json)
         
     }
-    setProfiles(json)
+    
   
   }//we get a user and transfer it on usestate
   useEffect(() => {
     if (user) {
-
+      
       funLogin()
 
         }
@@ -130,7 +126,7 @@ const Center = () => {
           <input title='da' id='inputField' accept='image/*,video/*' onChange={SubmitPoto}
               type='file' className='FileBtn' name='photo' />
              
-          <img loading='lazy' className='img' src={img === user?.photo ? photo || imageLists[0] : imageList[0]} />
+          <img loading='lazy' className='img' src={user?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
           <textarea rows="2" value={Text} ref={TextArRef} onChange={(e) => setText(e.target.value)} placeholder='What is happening?' className='TheTextAreaPost' maxLength={280} />
           
           </div>

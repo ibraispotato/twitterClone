@@ -8,7 +8,7 @@ import Registerpage from './registerpage'
 import {  faXTwitter } from '@fortawesome/free-brands-svg-icons'
 import {faX } from '@fortawesome/free-solid-svg-icons'
 import {faUpload } from '@fortawesome/free-solid-svg-icons'
-import img from "../images/defultPic.png"
+import img from "../defultPic.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./mobileResRegister.css"
 const SSignup = () => {
@@ -19,10 +19,8 @@ const SSignup = () => {
     const [email,setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [bio, setBio] = useState("")
-  const images = require.context('../images', true);
-  const imageList = images.keys().map(image => images(image))
   // console.log(imageList)
-    const [photo,setProfilePic] = useState(imageList[0])
+    const [photo,setProfilePic] = useState("")
     const submitSigUp = async (e) => {
         e.preventDefault()
       await funSignup(name, userName, photo, email, password,bio,Next,setNext)

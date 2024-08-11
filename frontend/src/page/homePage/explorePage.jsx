@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import Left from "./left"
 import {Hooksregisters} from "../../hooks/hooksRegister/hooksregister"
 import { useNavigate } from 'react-router-dom';
-import img from "../../images/defultPic.png"
+import img from "../../defultPic.png"
 
 import "./searchPage.css"
 // import TextOfThePost from "./posts/textOfThePost"
@@ -23,10 +23,8 @@ const YourProfile = () => {
     const [update, setUpdate] = useState(null)
     const [unfollow, setUnfollow] = useState(false)
     const navigates = useNavigate()
-    const images = require.context('../../images', true);
-    const imageList = images.keys().map(image => images(image))
     const [names, setSearch] = useState("")
-    const imageLists = images.keys().map(image => images(image))
+
 
 const searchMotherFunction = async (e) => {
   const formdata = new FormData()
@@ -201,8 +199,7 @@ return (
                                   <div className='userTweet followin'>
                                   {/* <img loading='lazy' key={index} className='img' src={imageList[0] === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} /> */}
                                   <div className='photoExplore'>
-                                  <img loading='lazy' className='img' src={imageList[0] === res?.photo ? imageList[0] :
-                        `${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />       
+                                  <img loading='lazy' className='img' src={img} />       
                                               </div>
                                     <div className='userNameProfileFollows'>
                                       <div className='nameProfileFollow'>

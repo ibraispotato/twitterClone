@@ -9,6 +9,7 @@
         import { MoonLoader} from "react-spinners";
         import TheInputOfTheComment from './TheInputOfTheComment'
         import Thereplies from './Thereplies'
+        import img from "../../defultPic.png"
         const InsideThePost = () => {
             const [Urprofile, setProfile] = useState([])
             const [backAndFourth, setBackAndFourth] = useState(false)

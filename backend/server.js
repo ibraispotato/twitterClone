@@ -4,17 +4,21 @@ const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors');
 
-
+;
 const userRouter = require("./router/userProfileRouter")
 const textRout = require("./router/testRoutes")
-const replyingRout = require("./router/replyingCommentsRoute")
+const replyingRout = require("./router/replyingCommentsRoute");
+const path = require('path');
 // const fs = require('fs');
 // const bodyParser = require("body-parser"); 
 
 const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin: 'http://localhost:3000'}))
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('images'));
 
 
 app.use((req, res, next) => {
@@ -23,7 +27,7 @@ app.use((req, res, next) => {
 })
 // app.use(upload.array());
 // router.use(bodyParser.json());
-app.use("/",express.static("../frontend/src/images"))
+// app.use("/",express.static("../frontend/src/images"))
 app.use("/clone/",userRouter)
 app.use("/clone/texts/",textRout)
 app.use("/clone/replying",replyingRout)

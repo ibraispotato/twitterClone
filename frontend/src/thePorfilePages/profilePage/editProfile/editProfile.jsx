@@ -4,7 +4,7 @@
     import {  faXTwitter } from '@fortawesome/free-brands-svg-icons'
     import {faX ,faCamera} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import imgs from "../../../images/defultPic.png"
+import img from "../../../defultPic.png"
 import { useParams } from 'react-router'
 import { Hooksregisters } from "../../../hooks/hooksRegister/hooksregister"
 import {UpdateProfile} from "../../../hooks/hooksRegister/updateProfile"
@@ -18,10 +18,9 @@ import "./editProfileCss.css"
         const maxLengthBio = useState(160)
         const { id } = useParams()
         const photos= user && Urprofile.photo
-        const images = require.context('../../../images', true);
-        const imageList = images.keys().filter(im => im.includes(photos)).map(image => images(image))
         // theres a file for the update user
         const { epdateProfile,error,setError } = UpdateProfile()
+        console.log(photos)
         const funLogin = async () => {
             const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
             const json = await response.json()
@@ -89,7 +88,7 @@ import "./editProfileCss.css"
                                     type='file' className='FileBtn' name='photo'/>
                                 
                                 <img loading='lazy' className='profileImgEdit'
-                                src={photo===undefined||photo===user?.photo?imageList[0]||photos:URL?.createObjectURL(photo)} />
+                                src={photo===undefined?Urprofile?.photo?`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`:photo===undefined ?img:URL?.createObjectURL(photo):URL?.createObjectURL(photo)} />
                             </div>
                     <div className='formDivProfileEdit'>
                             <div className='NameDiv'>

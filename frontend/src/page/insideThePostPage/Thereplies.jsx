@@ -9,6 +9,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import ReactPlayer from 'react-player';
+import img from "../../defultPic.png"
 
 const Thereplies = ({ res, Thecomments, index, indx, GetText,usersOfTheFollwoingFunction }) => {
   const navigate = useNavigate();
@@ -296,7 +297,7 @@ const Thereplies = ({ res, Thecomments, index, indx, GetText,usersOfTheFollwoing
             <div className='photoUser'>
             <Link key={indexo} to={`/profile/${reses?._id}`} preventScrollReset={true}>
               
-                      <img key={indexo} loading='lazy' className='img' src={imageList[0] === reses?.photo ? imageList[0] :
+                      <img key={indexo} loading='lazy' className='img' src={reses?.photo==="" ? img :
                         `${process.env.REACT_APP_APi_LINK}/${reses.photo}`} />
             </Link>
                   </div>

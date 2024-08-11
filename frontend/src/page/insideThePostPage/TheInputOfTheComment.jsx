@@ -5,7 +5,7 @@ import {Hooksregisters} from "../../hooks/hooksRegister/hooksregister"
 import { useNavigate } from "react-router-dom";
 import { faImage } from '@fortawesome/free-solid-svg-icons'
 import ReactPlayer from 'react-player';
-
+import img from "../../defultPic.png"
 const TheInputOfTheComment = ({Urprofile,usersOfTheFollwoingFunction,GetText,thePost,theProfilePostReply}) => {
     const images = require.context('../../images', true);
     const imageList = images.keys().map(image => images(image))
@@ -98,7 +98,7 @@ const TheInputOfTheComment = ({Urprofile,usersOfTheFollwoingFunction,GetText,the
                         
               <div className='imgProfileAndText'>
                   
-                                <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
+                                <img loading='lazy' className='img retweet' src={Urprofile?.photo==="" ? img :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
                                     <textarea rows="2" value={retweetComments} ref={TextArRef} onChange={(e) => setRetweetText(e.target.value)}
                                         placeholder='Post your reply' className='TheTextAreaPost retweet' maxLength={280} />
                                             </div>

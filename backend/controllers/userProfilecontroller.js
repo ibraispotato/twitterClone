@@ -253,7 +253,7 @@ const updateUser = async (req,res) => {
         
         const photo = req.file?.filename
         // const photos = photo.filename
-        // console.log(photo)
+        console.log(photo)
             let text= await User.findOneAndUpdate({ _id: id }, {name,photo,bio})
             // res.status(200).json({all})
             res.status(200).json({text})

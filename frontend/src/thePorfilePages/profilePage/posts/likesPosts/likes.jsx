@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import {Hooksregisters} from "../../../../hooks/hooksRegister/hooksregister"
 // import {useTextContext} from "../../../hooks/textContext"
-import img from "../../../../images/defultPic.png"
+import img from "../../../../defultPic.png"
 import { Link } from 'react-router-dom'
 import Left from "../../../../page/homePage/left"
 import LikesPage from './likesPage'
@@ -17,8 +17,6 @@ const YourProfile = () => {
     const [backAndFourth,setBackAndFourth] = useState(false)
     const {  user } = Hooksregisters()
     const photo = Urprofile && Urprofile.photo
-    const images = require.context('../../../../images', true);
-    const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
     const [myLikes,setMyLikes] = useState([])
     const [myLikes2,setMyLikes2] = useState([])
     const [unfollow, setUnfollow] = useState(false)
@@ -177,7 +175,7 @@ return (
           <div className='afterTheNav'>
               <div className='backgroundPhoto'></div>
               <div className='profilPicAndBtn'>
-                  <img loading='lazy' className='imgProfile' src={img === Urprofile?.photo ? photo : imageList[0]} />
+                  <img loading='lazy' className='imgProfile' src={img} />
                   {Urprofile?._id === user?._id ? 
                     <Link to={`/editProfile/${id}`}>
                     <button className='btnSetProfile'>Edit Profile</button>

@@ -10,7 +10,7 @@ import { getImageSize  } from 'react-image-size';
 import { useNavigate } from 'react-router-dom';
 import { MoonLoader} from "react-spinners";
 import ReactPlayer from 'react-player';
-
+import img from "../../../../defultPic.png"
 const  TheshownTwitter = ({ res, idx, GetAllText, replycomments, maper, setGetCommentsFromComments,
   setGetCommentsFromPost, setGetProfileOfThePost, getCommentsFromComments, getCommentsFromPost, GetProfileOfThePost,
   GETREPLYFROMPOST,maps,resMap,indexMap,MYprofiles}) => {
@@ -485,7 +485,7 @@ return ()=>clearTimeout(time)
                   <div className='photoUser s'>
                     <Link key={idx} to={`/profile/${reses?._id}`}>
                         
-                      <img loading='lazy' className='img' src={imageList[0] === reses?.photo ? imageList[0] :
+                      <img loading='lazy' className='img' src={reses?.photo==="" ? img :
                         `${process.env.REACT_APP_APi_LINK}/${reses?.photo}`} />
                     </Link>
                   </div>

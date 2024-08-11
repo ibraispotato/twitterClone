@@ -1,10 +1,8 @@
 import React,{useState,useEffect} from 'react'
-
 import { Link } from 'react-router-dom'
-
 import {faArrowRight,faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import img from "../../images/defultPic.png"
+import img from "../../defultPic.png"
 import { useParams } from 'react-router'
 import { Hooksregisters } from "../../hooks/hooksRegister/hooksregister"
 import Left from "../../page/homePage/left"
@@ -21,9 +19,7 @@ const DeleteProfile = () => {
     const [backAndFourth, setBackAndFourth] = useState(false)
     const [error,setError] = useState(null)
     const photo = user && user.photo
-    const images = require.context('../../images', true);
     const idLocal  = localStorage.getItem("user")
-    const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
     const funLogin = async () => {
         if (!user) {
           return 
@@ -187,7 +183,7 @@ return (
                     <Link className='settingsA' to={`/profile/${user?._id}`}>
                      <div className='accountDele'>
                 <div className='allimgandtext dele'>
-                <img  loading='lazy' className='img' src={img === user?.photo ? photo : imageList[0]} />
+                <img  loading='lazy' className='img' src={img} />
                 <div className='name dele'>
                   <span className='nameText'>{user?.name}</span>
                   <span>@{user?.userName}</span>

@@ -1,13 +1,11 @@
 import React,{useState,useEffect,useRef} from 'react'
 import {Hooksregisters} from "../../hooks/hooksRegister/hooksregister"
 import { Link } from 'react-router-dom'
-
+import img from "../../defultPic.png"
 import "./insidePost.css"
 const AccountOfthePost = ({id}) => {
     const [Urprofile, setProfile] = useState([])
     const { dispatch, user } = Hooksregisters()
-    const images = require.context('../../images', true);
-    const imageList = images.keys().map(image => images(image))
     const idLocal = localStorage.getItem("user")
     const [dele,setDelete] = useState(null)
     const [update,setUpdate] = useState(null)
@@ -15,6 +13,7 @@ const AccountOfthePost = ({id}) => {
     const [theProfilePostReply, setThePostReply] = useState(null)
     const [theProfilePost, setTheProfile] = useState(null)
     const [unfollow, setUnfollow] = useState(false)
+    console.log(theProfilePost)
     const GetText = async () => {
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${id}`)
         const json = await response.json()
@@ -129,8 +128,8 @@ const AccountOfthePost = ({id}) => {
                         <div className='motherProfileo' >
                         <Link to={`/profile/${theProfilePost?._id}`}>
                         <div className='userTweet followin'>
-                                    <img loading='lazy' className='img' src={imageList[0] === theProfilePost?.photo ? imageList[0] :
-                                    `${process.env.REACT_APP_APi_LINK}/${theProfilePost?.photo}`} />
+                            
+                        <img loading='lazy' className='img' src={theProfilePost?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${theProfilePost?.photo}`} />
                             <div className='userNameProfileFollows'>
                             <div className='nameProfileFollow'>
                             <span className='nameProfileFollow'>{theProfilePost?.name}</span>

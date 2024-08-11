@@ -7,6 +7,7 @@ import { faComment,faRetweet,faHeart,faEllipsis,faQuoteLeft,faArrowUpFromBracket
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player';
+import img from "../../../defultPic.png"
 
 const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin }) => {
     const { user } = Hooksregisters()
@@ -18,7 +19,6 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
     const playerRef = useRef(null);
     const [messegeDelete,setMessegeDelete] = useState(null)
     const [MessegeLikes,setMessegeLiked] = useState(null)
-
   const DeleteLikes = async (e) => {
     e.preventDefault()
     const TextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/delete/${res?._id}`, {
@@ -222,7 +222,7 @@ useEffect(() => {
                 
             <div className='photoUser'>
             <Link key={theIndex} to={`profile/${resProfiles?._id}`}>
-                      <img loading='lazy' key={theIndex} className='img' src={imageList[0] === resProfiles?.photo ? imageList[0] :
+                      <img loading='lazy' key={theIndex} className='img' src={resProfiles.photo === "" ? img :
                         `${process.env.REACT_APP_APi_LINK}/${resProfiles?.photo}`} />
             </Link>
                   </div>

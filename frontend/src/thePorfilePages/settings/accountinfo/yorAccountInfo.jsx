@@ -4,7 +4,7 @@ import {faArrowRight,faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Hooksregisters } from "../../../hooks/hooksRegister/hooksregister"
 import Left from "../../../page/homePage/left"
-
+import img from "../../../defultPic.png"
 import "../settings.css"
 import { useNavigate } from 'react-router-dom';
 import  {AuthFun} from "../../../hooks/hooksRegister/checkPassword"
@@ -13,8 +13,6 @@ const DeleteProfile = () => {
     const { user, dispatch } = Hooksregisters()
     const [backAndFourth, setBackAndFourth] = useState(false)
   const photo = user && user.photo
-    const images = require.context('../../../images', true);
-    const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
     const ah  = localStorage.getItem("user")
   const [Urprofiles, setProfiles] = useState(null)
   const funLogin = async () => {

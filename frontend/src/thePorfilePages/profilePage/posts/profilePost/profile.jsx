@@ -3,13 +3,14 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import {Hooksregisters} from "../../../../hooks/hooksRegister/hooksregister"
-import img from "../../../../images/defultPic.png"
+import img from "../../../../defultPic.png"
 import { Link } from 'react-router-dom'
 import Left from "../../../../page/homePage/left"
 import "../../yourProfile.css"
 import TextOfThePost from "./textOfThePost"
 import { MoonLoader} from "react-spinners";
 import Right from "../../../../page/homePage/right"
+
 const YourProfile = () => {
     const { id } = useParams()
     // console.log(id)
@@ -17,14 +18,12 @@ const YourProfile = () => {
 const [backAndFourth,setBackAndFourth] = useState(false)
 const {dispatch,user} = Hooksregisters()
 const photo = Urprofile && Urprofile.photo
-    const images = require.context('../../../../images', true);
-    const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
+    
     const [unfollow, setUnfollow] = useState(false)
     const [replycomments,setReplyComments] = useState([])
     const [loding, setLoding] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
-
     const funLogin = async () => {
       const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
       const json = await response.json()
@@ -154,7 +153,7 @@ return (
                 <div className='afterTheNav'>
                     <div className='backgroundPhoto'></div>
                     <div className='profilPicAndBtn'>
-                        <img loading='lazy' className='imgProfile' src={img === Urprofile?.photo ? photo : imageList[0]} />
+                        <img loading='lazy' className='imgProfile' src={Urprofile?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
                         {Urprofile?._id === user?._id ? 
                           <Link to={`/editProfile/${id}`}>
                           <button className='btnSetProfile'>Edit Profile</button>
@@ -221,7 +220,7 @@ return (
                     <div className='borderline profile'></div>
                     <div>
                     <div>
-                    {noText?"" :!loding ?
+                    {/* {noText?"" :!loding ?
                             <div className='moonLoader'>
                               <MoonLoader color="#01b3ff" size={30}/>
                               </div>
@@ -234,7 +233,7 @@ return (
                             
                         />
                         
-                    ))}
+                    ))} */}
                     
                 </div>
                     

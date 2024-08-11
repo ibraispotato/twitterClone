@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import {Hooksregisters} from "../../../hooks/hooksRegister/hooksregister"
-import img from "../../../images/defultPic.png"
+import img from "../../../defultPic.png"
 import { Link } from 'react-router-dom'
 import Left from "../../../page/homePage/left"
 import Right from "../../../page/homePage/right"
@@ -18,8 +18,6 @@ const [update,setUpdate] = useState(null)
   const [backAndFourth,setBackAndFourth] = useState(false)
   const [Urprofile, setProfile] = useState([])
   const [FollowersUsers, setFollowersUsers] = useState([])
-  const images = require.context('../../../images', true);
-  const imageList = images.keys().map(image => images(image))
 
   const funLogin = async () => {
     const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
@@ -179,8 +177,7 @@ const [update,setUpdate] = useState(null)
                                   <div className='userTweet followin'>
                                   {/* <img loading='lazy' key={index} className='img' src={imageList[0] === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} /> */}
                                   <div className='photoExplore'>
-                                  <img loading='lazy' className='img' src={imageList[0] === res?.photo ? imageList[0] :
-                        `${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />       
+                                  <img loading='lazy' className='img' src={img} />       
                                               </div>
                                     <div className='userNameProfileFollows'>
                                       <div className='nameProfileFollow'>

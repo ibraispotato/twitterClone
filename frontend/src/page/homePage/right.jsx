@@ -72,7 +72,7 @@ const Right = () => {
                   <div className='motherProfileo search' >
                    
                     <div className='userTweet profileSearch'>
-                      <img loading='lazy' key={index} className='imgprofileSearch' src={imageList[0] === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} />
+                      {/* <img loading='lazy' key={index} className='imgprofileSearch' src={img} /> */}
                       <div className='userNameProfileSearch'>
                         <div className='nameProfileFollow'>
                           <span className='nameProfileFollow'>{res?.name}</span>

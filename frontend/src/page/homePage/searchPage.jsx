@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import Left from "./left"
 import {Hooksregisters} from "../../hooks/hooksRegister/hooksregister"
 import { useNavigate } from 'react-router-dom';
-import img from "../../images/defultPic.png"
+import img from "../../defultPic.png"
 
 import "./searchPage.css"
 import Right from "./right"
@@ -24,9 +24,6 @@ const SearchPage = () => {
     const [unfollow, setUnfollow] = useState(false)
     const navigates = useNavigate()
     const photo = Urprofile && Urprofile.photo
-    const images = require.context('../../images', true);
-    const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
-    const imageLists = images.keys().map(image => images(image))
 
 const [names, setSearch] = useState("")
 const searchFunction = async (e) => {
@@ -204,7 +201,7 @@ return (
                   <div className='motherProfileo search' >
                    
                     <div className='userTweet profileSearch'>
-                      <img loading='lazy' key={index} className='imgprofileSearch' src={img === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} />
+                      <img loading='lazy' key={index} className='imgprofileSearch' src={img} />
                       <div className='userNameProfileSearch'>
                         <div className='nameProfileFollow'>
                           <span className='nameProfileFollow'>{res?.name}</span>
@@ -251,7 +248,7 @@ return (
                                 <div className='motherProfileo' >
                                   <Link className='linkHomePageRetweet' to={`/profile/${res._id}`}>
                                   <div className='userTweet followin'>
-                                  <img loading='lazy' key={index} className='img' src={img === res?.photo ? imageLists[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} />
+                                  <img loading='lazy' key={index} className='img' src={img} />
                                     <div className='userNameProfileFollows'>
                                       <div className='nameProfileFollow'>
                                       <span className='nameProfileFollow'>{res?.name}</span>
