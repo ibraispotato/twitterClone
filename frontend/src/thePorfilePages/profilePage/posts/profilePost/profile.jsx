@@ -191,7 +191,7 @@ return (
                         <p className='textOfFollow'><span className='numberOfFollow'>{user?.follwoing?.length}</span> follwoing</p>
                     </Link>
                     
-                    <Link to={`/followers/${Urprofile?._id}`}>
+                    <Link to={`/followers/${user?._id}`}>
                         <p className='textOfFollow'><span className='numberOfFollow'>{user?.followers?.length}</span> followers</p>
                     </Link>
                     
