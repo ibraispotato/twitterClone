@@ -97,7 +97,9 @@ const [update,setUpdate] = useState(null)
 }
   }// we unfollow the user
     const usersOfTheFollwoingFunction = async (e) => {
-      const oks = await Urprofile.followers?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${res}`)
+      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
+    const json = await response.json()
+      const oks = await json.followers?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${res}`)
       
       const fetchTodo = async (url) => {
         const res = await fetch(url);
