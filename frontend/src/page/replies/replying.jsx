@@ -16,7 +16,7 @@ const Replying = () => {
     const { user, dispatch:dispatched } = Hooksregisters()
     const [oneText,setOneText] = useState(null)
     const [oneText2,setOneText2] = useState(null)
-    const [profileText,setProfileText] = useState(null)
+    const [profileText,setProfileText] = useState([])
     const TextArRef = useRef(null)
     const { id } = useParams()
     const { idTextProfile } = useParams()
