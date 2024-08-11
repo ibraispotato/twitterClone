@@ -15,11 +15,10 @@ const path = require('path');
 const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
-// app.use(cors({origin: 'http://localhost:3000'}))
+app.use(cors({origin: 'http://localhost:3000'}))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('images'));
-// app.use(`/images`, express.static(`images`));
 
 
 app.use((req, res, next) => {
