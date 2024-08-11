@@ -142,7 +142,7 @@ const funLogin = async () => {
         return
       }
       
-      const oks = await json?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
+      const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
       const fetchPromises = await oks?.map(url => fetch(url));
       await Promise.all(fetchPromises)
       .then(responses => Promise.all(responses?.map(response => response.json())))
