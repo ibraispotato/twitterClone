@@ -152,7 +152,7 @@ return (
                 <div className='afterTheNav'>
                     <div className='backgroundPhoto'></div>
                     <div className='profilPicAndBtn'>
-                        <img loading='lazy' className='imgProfile' src={img === user?.photo ? user?.photo : imageList[0]} />
+                        <img loading='lazy' className='imgProfile' src={img === user?.photo ? photo : imageList[0]} />
                         {user?._id === user?._id ? 
                           <Link to={`/editProfile/${id}`}>
                           <button className='btnSetProfile'>Edit Profile</button>
