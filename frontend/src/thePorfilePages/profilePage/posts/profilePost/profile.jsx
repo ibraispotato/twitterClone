@@ -18,7 +18,7 @@ const YourProfile = () => {
 const [backAndFourth,setBackAndFourth] = useState(false)
 const {dispatch,user} = Hooksregisters()
 const photo = Urprofile && Urprofile.photo
-    
+    console.log(Urprofile?.photo)
     const [unfollow, setUnfollow] = useState(false)
     const [replycomments,setReplyComments] = useState([])
     const [loding, setLoding] = useState(false)
@@ -220,7 +220,7 @@ return (
                     <div className='borderline profile'></div>
                     <div>
                     <div>
-                    {/* {noText?"" :!loding ?
+                    {noText?"" :!loding ?
                             <div className='moonLoader'>
                               <MoonLoader color="#01b3ff" size={30}/>
                               </div>
@@ -233,7 +233,7 @@ return (
                             
                         />
                         
-                    ))} */}
+                    ))}
                     
                 </div>
                     

@@ -221,6 +221,7 @@ useEffect(() => {
                 
             <div className='photoUser'>
             <Link key={theIndex} to={`profile/${resProfiles?._id}`}>
+            
                       <img loading='lazy' key={theIndex} className='img' src={resProfiles.photo === "" ? img :
                         `${process.env.REACT_APP_APi_LINK}/${resProfiles?.photo}`} />
             </Link>
