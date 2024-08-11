@@ -58,7 +58,6 @@ const Center = () => {
 
         }
     }, [dispatched])//render a profile
-    // console.log(`https://twitterclone-airs.onrender.com/${Urprofile?.photo}`)
   const textPost = async (e) => {
     e.preventDefault()
     const formdata = new FormData()
@@ -127,7 +126,7 @@ const Center = () => {
           <input title='da' id='inputField' accept='image/*,video/*' onChange={SubmitPoto}
               type='file' className='FileBtn' name='photo' />
              
-          <img loading='lazy' className='img' src={`https://twitterclone-airs.onrender.com/${Urprofile?.photo}`} />
+          <img loading='lazy' className='img' src={user?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
           <textarea rows="2" value={Text} ref={TextArRef} onChange={(e) => setText(e.target.value)} placeholder='What is happening?' className='TheTextAreaPost' maxLength={280} />
           
           </div>

@@ -13,6 +13,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
     const { user } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
     const { dispatchs } = useTextContext()
+
     const [threeDotsBtn, setThreeDotsBtn] = useState(false)
     const playerRef = useRef(null);
     const [messegeDelete,setMessegeDelete] = useState(null)
