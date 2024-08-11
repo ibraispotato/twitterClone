@@ -54,9 +54,7 @@ const funLogins = async () => {
       ////////////////////////////////////////GET COMMENTS FROM REPLY/////////////////////////////////////////////////////////////////
       const oks = json?.myLikes?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
       const fetchPromisesGetReply =  await oks?.map(url => fetch(url));
-      console.log(fetchPromisesGetReply)
       const GetReplyPromis = await Promise?.all(fetchPromisesGetReply)
-      console.log(GetReplyPromis)
       const getReplyFetcPromis =  await Promise?.all(GetReplyPromis?.map(response => response.json())).catch(err => console.error(err));
       setMyLikes(getReplyFetcPromis)
       // console.log(getReplyFetcPromis)

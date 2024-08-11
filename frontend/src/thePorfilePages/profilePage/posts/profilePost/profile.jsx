@@ -17,10 +17,10 @@ const YourProfile = () => {
 const [backAndFourth,setBackAndFourth] = useState(false)
 const {dispatch,user} = Hooksregisters()
 const photo = Urprofile && Urprofile.photo
-const images = require.context('../../../../images', true);
-const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
+    const images = require.context('../../../../images', true);
+    const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
     const [unfollow, setUnfollow] = useState(false)
-    const [replycomments,setReplyComments] = useState(null)
+    const [replycomments,setReplyComments] = useState([])
     const [loding, setLoding] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
@@ -106,15 +106,21 @@ const funLogin = async () => {
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
         const json = await response.json()
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${ress}`)
-        const fetchPromisesGetReply =  await oks?.map(url => fetch(url));
-        const GetReplyPromis = await Promise?.all(fetchPromisesGetReply)
-        const getReplyFetcPromis =  await Promise?.all(GetReplyPromis?.map(response => response.json())).catch(err => console.error(err));
-        setReplyComments(getReplyFetcPromis.flat());
-        setNoText(getReplyFetcPromis.length===0)
-        setLoding(getReplyFetcPromis.flat().length > 0)
+        const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+        const promisidz = oks?.map(url => fetch(url).then(response => response.json()))
+        const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
+        setReplyComments(fetcPromisidz.flat());
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+        const oksz = await fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
+      const fetchPromises = await oksz?.map(url => fetch(url));
+      await Promise.all(fetchPromises)
+      .then(responses => Promise.all(responses?.map(response => response.json())))
+      .then(data => {
+        // Process the data
+          setGetMyLikes(data.flat())
+          setNoText(data.length===0)
+        setLoding(data.flat().length > 0)
+      })
       }
       //we get the textS from the account
       useEffect(() => {
@@ -122,28 +128,6 @@ const funLogin = async () => {
             replyComments()
         }
       }, [Urprofile])
-      const GetLikesFromUser = async (e) => {
-        if (!user) {
-          return 
-        }
-      const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
-      const fetchPromises = await oks?.map(url => fetch(url));
-      await Promise.all(fetchPromises)
-      .then(responses => Promise.all(responses?.map(response => response.json())))
-      .then(data => {
-        // Process the data
-          setGetMyLikes(data.flat())
-          setLoding(data.flat().length > 0)
-          
-      })
-      }// we get the users from the replycomments
-      useEffect(() => {
-        if (user) {
-            // setProfiles()
-            GetLikesFromUser()
-          
-        }
-      }, [replycomments])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
@@ -166,7 +150,7 @@ return (
                 <div className='afterTheNav'>
                     <div className='backgroundPhoto'></div>
                     <div className='profilPicAndBtn'>
-                        <img loading='lazy' className='imgProfile' src={img === Urprofile?.photo ? photo : imageList[0]} />
+                        <img loading='lazy' className='imgProfile' src={img === Urprofile?.photo ? Urprofile?.photo : imageList[0]} />
                         {Urprofile?._id === user?._id ? 
                           <Link to={`/editProfile/${id}`}>
                           <button className='btnSetProfile'>Edit Profile</button>
@@ -242,7 +226,7 @@ return (
                             replycomments={replycomments}
                             GetMyLikes={GetMyLikes}
                             funLogin={funLogin}
-                            GetLikesFromUser={GetLikesFromUser}
+                            
                         />
                         
                     ))}

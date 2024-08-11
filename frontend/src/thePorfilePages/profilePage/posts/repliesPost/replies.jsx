@@ -44,40 +44,15 @@ const funLogins = async () => {
 
 
     //////////////////////////////////////Get comments from COMMENTS OF THE POST//////////////////////////////////////////////////
-  //   const replyComments = async (e) => {
-  //       if (!user) {
-  //         return 
-  //       }
-  //       const oks = await Urprofile?.myComments?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress}`)
-        
-  //     const fetchTodo = async (url) => {
-  //       const res = await fetch(url);
-  //       if (!res.ok) {
-  //         throw new Error(`HTTP error! status: ${res.status}`);
-  //       }
-  //       return res.json();
-  //     };
-      
-  //     await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
-  //       .then((res) => {
-  //           // setReplyComments(res);
-          
-  //       })
-  //       .catch((err) => console.error(err));
-      
-  //     }
-  // useEffect(() => {
-  //   replyComments()
-        
-  //     }, [Urprofile])
+
       const GETREPLYFROMPOST = async () => {
         if (!user) {
           return
         }
         /////////////////////////we get the users from the id paramas//////////////////////////////////////////////////////////////////////
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
-    const json = await response.json()
-    setProfile(json)
+        const json = await response.json()
+        setProfile(json)
     ///////////////////////////////we get the comment of the account from the user account////////////////////////////////////////////////////////////////////
         const okse = await json?.myComments?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress}`)
         const promisidz = okse?.map(url => fetch(url).then(response => response.json()))
@@ -88,13 +63,11 @@ const funLogins = async () => {
         const GetReplyPromis = await Promise?.all(oks).catch((err) => console.log(err))
         const getReplyFetcPromis = await Promise.all(GetReplyPromis)
         setGetCommentsFromPost(getReplyFetcPromis)
-        console.log(getReplyFetcPromis)
         ////////////////////////////////////////GET reply FROM comments/////////////////////////////////////////////////////////////////
         const oko = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress?.idText}`).then(response => response.json()));
         const fetchPromises = await Promise.all(oko).catch((err) => console.log(err))
         const promis = await Promise.all(fetchPromises);
         setGetCommentsFromComments(promis)
-        console.log(promis)
         ////////////////////////////////////////GET users FROM comments/////////////////////////////////////////////////////////////////
         const oksz = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idOfTheReplyer}`).then(response => response.json()));
         const fetchPromisesz = await Promise.all(oksz).catch((err) => console.log(err))
