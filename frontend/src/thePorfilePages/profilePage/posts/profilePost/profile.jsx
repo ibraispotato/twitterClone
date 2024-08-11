@@ -107,6 +107,8 @@ console.log(Urprofile)
         }
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
         const json = await response.json()
+    setProfile(json)
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
         const promisidz = oks?.map(url => fetch(url).then(response => response.json()))
