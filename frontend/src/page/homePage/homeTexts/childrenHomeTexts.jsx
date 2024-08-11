@@ -13,8 +13,6 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
     const { user } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
     const { dispatchs } = useTextContext()
-    const images = require.context('../../../images', true);
-    const imageList = images.keys().map(image => images(image))
     const [threeDotsBtn, setThreeDotsBtn] = useState(false)
     const playerRef = useRef(null);
     const [messegeDelete,setMessegeDelete] = useState(null)

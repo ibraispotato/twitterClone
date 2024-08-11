@@ -10,7 +10,7 @@ import { faImage } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import ReactPlayer from 'react-player';
-
+import img from "../../defultPic.png"
 import "../replies/postPage.css"
 const PostPage = () => {
     const { user, dispatch:dispatched } = Hooksregisters()
@@ -25,8 +25,6 @@ const PostPage = () => {
     const { dispatchs, texts } = useTextContext()
     const [retweetQouteText, setRetweetText] = useState("")
     const idProfile  = localStorage.getItem("user")
-    const images = require.context('../../images', true);
-    const imageList = images.keys().map(image => images(image))
   const [Urprofile, setProfiles] = useState(null)
   // const [photos,setProfilePics] = useState("")
     const [commentText, setCommentText] = useState(null)
@@ -155,7 +153,7 @@ const PostPage = () => {
                 
             <div className={`${operators===undefined&&videoFile===""?"yourCommentRetweet noPhoto":"yourCommentRetweet"}`}>
             <div className='imgRetweet'>
-                <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
+                <img loading='lazy' className='img retweet' src={Urprofile?.photo==="" ? img :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
 
             </div>
             <div className='textAreaRetweet'>
@@ -176,8 +174,7 @@ const PostPage = () => {
               <div className='allOfTheTextTweet retweet'>
               <div className='motherTweets' >
                   <div className='RetweetText'>
-                      <img loading='lazy' className='img profileRetweet' src={imageList[0] === profileText?.photo ? imageList[0]
-                        : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
+                      <img loading='lazy' className='img profileRetweet' src={Urprofile?.photo==="" ? img : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
                   <span className='nameOfTheTweet'>{profileText?.name}</span>
                 <span className='userNameReetwetText'>@{profileText?.userName}</span>
                 </div>

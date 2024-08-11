@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import "../replies/replying.css"
 import ReactPlayer from 'react-player';
-
+import img from "../../defultPic.png"
 const Replying = () => {
     const { user, dispatch:dispatched } = Hooksregisters()
     const [oneText,setOneText] = useState(null)
@@ -24,8 +24,6 @@ const Replying = () => {
     const { dispatchs, texts } = useTextContext()
     const [retweetComments, setRetweetText] = useState("")
     const idProfile  = localStorage.getItem("user")
-    const images = require.context('../../images', true);
-    const imageList = images.keys().map(image => images(image))
     const [Urprofile, setProfiles] = useState(null)
     const [videoFile, setVideoFile] = useState(null);
     const [videoPreview, setVideoPreview] = useState(null);
@@ -163,7 +161,7 @@ const Replying = () => {
               <div className='motherTweets comments' >
                   <div className='RetweetText comments'>
                     <div className='ProfilephotoComment'>
-                      <img loading='lazy' className='img profileComment' src={imageList[0] === profileText?.photo ? imageList[0]
+                      <img loading='lazy' className='img profileComment' src={Urprofile?.photo==="" ? img 
                       : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
                 <div className='borderline'></div>
                     </div>
@@ -195,7 +193,7 @@ const Replying = () => {
             <div>
                 <div className='imgComment'>
                   <div className='imgProfileAndText'>
-                    <img loading='lazy' className='img retweet' src={imageList[0] === Urprofile?.photo ? imageList[0] :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
+                    <img loading='lazy' className='img retweet' src={Urprofile?.photo==="" ? img :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
                 <textarea rows="2" value={retweetComments} ref={TextArRef} onChange={(e) => setRetweetText(e.target.value)}
                 placeholder='Add a comment' className='TheTextAreaPost retweet' maxLength={280} />
                   </div>

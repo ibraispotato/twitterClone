@@ -7,8 +7,6 @@ import { faImage } from '@fortawesome/free-solid-svg-icons'
 import ReactPlayer from 'react-player';
 import img from "../../defultPic.png"
 const TheInputOfTheComment = ({Urprofile,usersOfTheFollwoingFunction,GetText,thePost,theProfilePostReply}) => {
-    const images = require.context('../../images', true);
-    const imageList = images.keys().map(image => images(image))
     const { id } = useParams()
     const { user, dispatch:dispatched } = Hooksregisters()
     const playerRef = useRef(null);

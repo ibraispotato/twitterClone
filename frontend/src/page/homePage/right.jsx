@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom';
 const Right = () => {
   const [names, setSearch] = useState("")
   const [accountSearch, setAccountSearch] = useState(null)
-  const images = require.context('../../images', true);
-  const imageList = images.keys().map(image => images(image))
   const navigates = useNavigate()
 
   const searchFunction = async (e) => {

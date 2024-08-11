@@ -25,8 +25,6 @@ const PostPage = () => {
     const { dispatchs, texts } = useTextContext()
     const [retweetQouteText, setRetweetText] = useState("")
     const idProfile  = localStorage.getItem("user")
-    const images = require.context('../../images', true);
-    const imageList = images.keys().map(image => images(image))
   const [Urprofile, setProfiles] = useState(null)
   // const [photos,setProfilePics] = useState("")
   const [commentText,setCommentText] = useState(null)

@@ -19,8 +19,6 @@ const Thereplies = ({ res, Thecomments, index, indx, GetText,usersOfTheFollwoing
     const { user, dispatch } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
     const [profileOfTheComments, setProfileOfTheComments] = useState(null)
-    const images = require.context('../../images', true);
-    const imageList = images.keys().map(image => images(image))
     const [Urprofiles, setProfiles] = useState(null)
   const { dispatchs, texts } = useTextContext()
   const [threeDotsBtn, setThreeDotsBtn] = useState(false)

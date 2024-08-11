@@ -7,13 +7,11 @@ import { faComment,faRetweet,faHeart,faEllipsis,faQuoteLeft,faTrash,faArrowUpFro
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player';
-
+import img from "../../../../defultPic.png"
 const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,funLogin,GetMyLikes,replyComments }) => {
     const { user, dispatch } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
     const { dispatchs, texts } = useTextContext()
-    const images = require.context('../../../../images', true);
-    const imageList = images.keys().map(image => images(image))
     const [error, setError] = useState(null)
     const playerRef = useRef(null);
     const [threeDotsBtn, setThreeDotsBtn] = useState(false)
@@ -263,7 +261,7 @@ useEffect(() => {
             <div className='photoUser'>
             <Link key={theIndex} to={`/profile/${resProfiles?._id}`}>
               {/* {console.log(theIndex)} */}
-                      <img loading='lazy' key={theIndex} className='img' src={imageList[0] === resProfiles?.photo ? imageList[0] :
+                      <img loading='lazy' key={theIndex} className='img' src={resProfiles?.photo==="" ? img :
                         `${process.env.REACT_APP_APi_LINK}/${resProfiles?.photo}`} />
             </Link>
                   </div>
