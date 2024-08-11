@@ -88,7 +88,7 @@ const Center = () => {
     setVideoFile(null)
       dispatchs({ type: "CREATE", payload: json })
     }
-    const rsponseUpdatePost = await fetch(`${process.env.REACT_APP_APi_LINK}/updateMyPosts/${json._id}`, {
+    const rsponseUpdatePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/updateMyPosts/${json._id}`, {
       method:"POST",
       headers: {
         // 'Content-Type': 'application/json',

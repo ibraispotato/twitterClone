@@ -24,7 +24,6 @@ const imageList = images.keys().filter(im => im.includes(photo)).map(image => im
     const [loding, setLoding] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
-
 const funLogin = async () => {
     const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
@@ -118,7 +117,7 @@ const funLogin = async () => {
       await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
         .then((res) => {
             setReplyComments(res.flat());
-          // console.log(res.flat());
+          console.log(res.flat());
           setNoText(res.length===0)
           setLoding(res.flat().length > 0)
         })
@@ -134,6 +133,7 @@ const funLogin = async () => {
         if (!user) {
           return 
         }
+
       const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
       const fetchPromises = await oks?.map(url => fetch(url));
       await Promise.all(fetchPromises)
