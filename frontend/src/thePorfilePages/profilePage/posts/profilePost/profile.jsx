@@ -179,20 +179,20 @@ return (
                     
                     </div>
                     <div className='profileNames'>
-                        <span className='nameProfile'>{Urprofile?.name}</span>
-                    <span className='userNameProfile'>@{Urprofile?.userName}</span>
-                    <span className='bioProfile'>{Urprofile?.bio}</span>
+                        <span className='nameProfile'>{user?.name}</span>
+                    <span className='userNameProfile'>@{user?.userName}</span>
+                    <span className='bioProfile'>{user?.bio}</span>
                     </div>
                     <div className='profileNames'>
                         {/* <p>{"Joined "+formatDistanceToNow(new Date(user?.createdAt), { addSuffix: true })}</p> */}
                     </div>
                 <div className='followers'>
-                    <Link to={`/following/${Urprofile?._id}`}>
-                        <p className='textOfFollow'><span className='numberOfFollow'>{Urprofile?.follwoing?.length}</span> follwoing</p>
+                    <Link to={`/following/${user?._id}`}>
+                        <p className='textOfFollow'><span className='numberOfFollow'>{user?.follwoing?.length}</span> follwoing</p>
                     </Link>
                     
                     <Link to={`/followers/${Urprofile?._id}`}>
-                        <p className='textOfFollow'><span className='numberOfFollow'>{Urprofile?.followers?.length}</span> followers</p>
+                        <p className='textOfFollow'><span className='numberOfFollow'>{user?.followers?.length}</span> followers</p>
                     </Link>
                     
                         
