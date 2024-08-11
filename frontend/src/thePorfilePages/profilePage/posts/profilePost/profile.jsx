@@ -134,14 +134,6 @@ const funLogin = async () => {
         if (!user) {
           return 
         }
-        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
-        const json = await response.json()
-      setProfile(json)
-      console.log(json)
-      if (!user) {
-        return
-      }
-      
       const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
       const fetchPromises = await oks?.map(url => fetch(url));
       await Promise.all(fetchPromises)
