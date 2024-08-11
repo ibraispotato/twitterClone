@@ -178,7 +178,7 @@ width: 200%;
 .twitterPhoto {
   height: 100%;
   cursor: pointer;
-  width: 100%;
+  width: 550px;
   object-fit: cover;
   border-radius: 10px;
   /* border: 2px solid rgb(255, 0, 0); */

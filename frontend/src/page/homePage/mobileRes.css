@@ -1,4 +1,7 @@
 @media(max-width:540px){
+    .twitterPhoto {
+        width: 100%;
+    }
     .iconX.signUp{
         width: 90%;
     }
@@ -574,6 +577,9 @@
     }
 }
 @media(min-width:700px){
+    .twitterPhoto {
+        width: 300px;
+    }
     .iconX.signUp{
         width: 90%;
     }
@@ -777,6 +783,9 @@
     }
 }
 @media(min-width:1024px){
+    .twitterPhoto {
+        width: 350px;
+    }
     .divIconX.signUp{
         font-size: 20px;
     }
@@ -1070,6 +1079,9 @@
 }
 
 @media(min-width:1440px){
+    .twitterPhoto {
+        width: 370px;
+    }
     .bioProfileSearch{
         width: 500px;
     }
@@ -1147,6 +1159,9 @@
     }
 }
 @media(min-width:1920px){
+    .twitterPhoto {
+        width: 380px;
+    }
     .motherOfPostPage{
         margin-top: 2%;
     }
@@ -1178,6 +1193,9 @@
     
 }
 @media(min-width:2560px){
+    .twitterPhoto {
+        width: 400px;
+    }
     .userName{
         font-size: 20px;
     }
