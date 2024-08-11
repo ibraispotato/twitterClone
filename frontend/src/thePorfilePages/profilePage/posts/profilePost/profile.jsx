@@ -20,7 +20,7 @@ const photo = Urprofile && Urprofile.photo
 const images = require.context('../../../../images', true);
 const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
     const [unfollow, setUnfollow] = useState(false)
-    const [replycomments,setReplyComments] = useState([])
+    const [replycomments,setReplyComments] = useState(null)
     const [loding, setLoding] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
@@ -100,31 +100,23 @@ const funLogin = async () => {
     }
     }//unfollow the users
     const replyComments = async (e) => {
-
         if (!user) {
           return 
         }
-        const oks = await Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${ress}`)
-      
-          
-      const fetchTodo = async (url) => {
-        const res = await fetch(url);
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      };
-      
-      await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
-        .then((res) => {
-            setReplyComments(res.flat());
-          // console.log(res.flat());
-          setNoText(res.length===0)
-          setLoding(res.flat().length > 0)
-        })
-        .catch((err) => console.error(err));
-      
-      }//we get the textS from the account
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
+        const json = await response.json()
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${ress}`)
+        const fetchPromisesGetReply =  await oks?.map(url => fetch(url));
+        const GetReplyPromis = await Promise?.all(fetchPromisesGetReply)
+        const getReplyFetcPromis =  await Promise?.all(GetReplyPromis?.map(response => response.json())).catch(err => console.error(err));
+        setReplyComments(getReplyFetcPromis.flat());
+        setNoText(getReplyFetcPromis.length===0)
+        setLoding(getReplyFetcPromis.flat().length > 0)
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+      }
+      //we get the textS from the account
       useEffect(() => {
           if (user) {
             replyComments()
@@ -141,9 +133,7 @@ const funLogin = async () => {
       .then(data => {
         // Process the data
           setGetMyLikes(data.flat())
-          console.log(data.flat())
           setLoding(data.flat().length > 0)
-
           
       })
       }// we get the users from the replycomments
