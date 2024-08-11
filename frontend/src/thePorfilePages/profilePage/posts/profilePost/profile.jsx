@@ -16,7 +16,7 @@ const YourProfile = () => {
     const [Urprofile, setProfile] = useState([])
 const [backAndFourth,setBackAndFourth] = useState(false)
 const {dispatch,user} = Hooksregisters()
-const photo = user && user.photo
+const photo = Urprofile && Urprofile.photo
     const images = require.context('../../../../images', true);
     const imageList = images.keys().filter(im => im.includes(photo)).map(image => images(image))
     const [unfollow, setUnfollow] = useState(false)
@@ -24,7 +24,6 @@ const photo = user && user.photo
     const [loding, setLoding] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
-console.log(Urprofile)
     const funLogin = async () => {
       const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
       const json = await response.json()
@@ -131,7 +130,7 @@ console.log(Urprofile)
           if (user) {
             replyComments()
         }
-      }, [Urprofile])
+      }, [user])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
@@ -147,22 +146,22 @@ return (
                     </Link>
                     </div>
                     <div className='nameAndPostPro'>
-                        <span className='nameProfile'>{user?.name}</span>
-                    <span>{user?.idOfThePost?.length+user?.myComments?.length} posts</span>
+                        <span className='nameProfile'>{Urprofile?.name}</span>
+                    <span>{Urprofile?.idOfThePost?.length+Urprofile?.myComments?.length} posts</span>
                     </div>
                 </div>
                 <div className='afterTheNav'>
                     <div className='backgroundPhoto'></div>
                     <div className='profilPicAndBtn'>
-                        <img loading='lazy' className='imgProfile' src={img === user?.photo ? photo : imageList[0]} />
-                        {user?._id === user?._id ? 
+                        <img loading='lazy' className='imgProfile' src={img === Urprofile?.photo ? photo : imageList[0]} />
+                        {Urprofile?._id === user?._id ? 
                           <Link to={`/editProfile/${id}`}>
                           <button className='btnSetProfile'>Edit Profile</button>
                       </Link>
                         :
                         
                             
-                        user?.follwoing?.includes(user?._id) ?
+                        Urprofile?.follwoing?.includes(user?._id) ?
                                     <form onSubmit={followDelete}>
                                         <button onMouseLeave={() => setUnfollow(false)} onMouseEnter={() => setUnfollow(true)}
                                         className={unfollow?`btnSetProfile unfollow`:`btnSetProfile following`}>{unfollow?"Unfollow":"following"}</button>
@@ -181,9 +180,9 @@ return (
                     
                     </div>
                     <div className='profileNames'>
-                        <span className='nameProfile'>{user?.name}</span>
-                    <span className='userNameProfile'>@{user?.userName}</span>
-                    <span className='bioProfile'>{user?.bio}</span>
+                        <span className='nameProfile'>{Urprofile?.name}</span>
+                    <span className='userNameProfile'>@{Urprofile?.userName}</span>
+                    <span className='bioProfile'>{Urprofile?.bio}</span>
                     </div>
                     <div className='profileNames'>
                         {/* <p>{"Joined "+formatDistanceToNow(new Date(user?.createdAt), { addSuffix: true })}</p> */}
