@@ -25,17 +25,19 @@ const photo = Urprofile && Urprofile.photo
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
 
-const funLogin = async () => {
-    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
-    const json = await response.json()
+    const funLogin = async () => {
+      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
+      const json = await response.json()
     setProfile(json)
-    }//get user from the id
-    useEffect(() => {
+    // console.log(json)
+      }//get ur user from the id paramas
+      useEffect(() => {
         return () => {
-            funLogin()
-        }
-        
-    }, [user])
+                        funLogin()
+          }
+          
+          
+      }, [user])
     
     const followUpdate = async (e) => {
         e.preventDefault()
@@ -143,22 +145,22 @@ return (
                     </Link>
                     </div>
                     <div className='nameAndPostPro'>
-                        <span className='nameProfile'>{Urprofile?.name}</span>
-                    <span>{Urprofile?.idOfThePost?.length+Urprofile?.myComments?.length} posts</span>
+                        <span className='nameProfile'>{user?.name}</span>
+                    <span>{user?.idOfThePost?.length+user?.myComments?.length} posts</span>
                     </div>
                 </div>
                 <div className='afterTheNav'>
                     <div className='backgroundPhoto'></div>
                     <div className='profilPicAndBtn'>
-                        <img loading='lazy' className='imgProfile' src={img === Urprofile?.photo ? Urprofile?.photo : imageList[0]} />
-                        {Urprofile?._id === user?._id ? 
+                        <img loading='lazy' className='imgProfile' src={img === user?.photo ? user?.photo : imageList[0]} />
+                        {user?._id === user?._id ? 
                           <Link to={`/editProfile/${id}`}>
                           <button className='btnSetProfile'>Edit Profile</button>
                       </Link>
                         :
                         
                             
-                                Urprofile?.follwoing?.includes(user?._id) ?
+                        user?.follwoing?.includes(user?._id) ?
                                     <form onSubmit={followDelete}>
                                         <button onMouseLeave={() => setUnfollow(false)} onMouseEnter={() => setUnfollow(true)}
                                         className={unfollow?`btnSetProfile unfollow`:`btnSetProfile following`}>{unfollow?"Unfollow":"following"}</button>

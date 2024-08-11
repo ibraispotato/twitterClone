@@ -46,7 +46,6 @@ const funLogins = async () => {
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
         const json = await response.json()
       setProfile(json)
-      console.log(json)
       if (!user) {
         return
       }
