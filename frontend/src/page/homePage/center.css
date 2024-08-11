@@ -68,8 +68,8 @@ overflow: hidden;
  }
 .photoPost{
   border-radius: 10px;
-  width: 90%;
-  height: 50%;
+  width: 550px;
+  height: 90%;
 }
  .imgAndTextAraPost{
    display: flex;
