@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors');
 
-;
+
 const userRouter = require("./router/userProfileRouter")
 const textRout = require("./router/testRoutes")
 const replyingRout = require("./router/replyingCommentsRoute")
@@ -14,7 +14,8 @@ const replyingRout = require("./router/replyingCommentsRoute")
 const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
-// app.use(cors({origin: 'https://twitterclone-airs.onrender.com'}))
+app.use(cors())
+
 
 app.use((req, res, next) => {
     console.log(req.path , req.method)
