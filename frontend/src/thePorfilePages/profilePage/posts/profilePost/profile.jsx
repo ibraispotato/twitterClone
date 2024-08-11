@@ -227,6 +227,7 @@ return (
                             :replycomments?.map((res,idx) => (
                         <TextOfThePost res={res} idx={idx}
                             replycomments={replycomments}
+                            replyComments={replyComments}
                             GetMyLikes={GetMyLikes}
                             funLogin={funLogin}
                             

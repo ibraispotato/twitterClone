@@ -8,7 +8,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player';
 
-const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,funLogin,GetMyLikes }) => {
+const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,funLogin,GetMyLikes,replyComments }) => {
     const { user, dispatch } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
     const { dispatchs, texts } = useTextContext()
@@ -36,7 +36,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   }
   if (TextDeleteResponse.ok) {
       
-    funLogin()
+    replyComments()
     }
     
     const MyTextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/deleteMyLikes/${res?._id}`, {
@@ -54,7 +54,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   }
   if (TextDeleteResponse.ok) {
     setMessegeLiked("You UnLiked The Tweet :( ")
-    funLogin()
+    replyComments()
     }
     
   }
@@ -78,7 +78,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   if (TextLikesResponse.ok) {
       // setError(null)
        
-      funLogin()
+      replyComments()
     }
     //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
     const myLikesTextResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/updateMyLikes/${res?._id}`)
@@ -99,7 +99,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   if (myLikesTextResponse.ok) {
       // setError(null)
       setMessegeLiked("You Liked The Tweet :) ")
-    funLogin()
+      replyComments()
     }
   }
   const UpdateReTweet = async (e) => {
@@ -122,7 +122,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   if (TextLikesResponse.ok) {
      
     setClickRetweet(false)
-    funLogin()
+    replyComments()
     
     }
     //////////////////////////////////////MY PROFILE LIKES TEXT/////////////////////////////////////////////////////////////////////////////
@@ -144,7 +144,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   if (myLikesTextResponse.ok) {
     setMessegeLiked("You Reposted The Tweet :) ")
     // setClickRetweet(false)
-    funLogin()
+    replyComments()
     
     }
   }
@@ -166,7 +166,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
   if (TextDeleteResponses.ok) {
       
     setClickRetweet(false)
-    funLogin()
+    replyComments()
     
     }
     
@@ -187,7 +187,7 @@ const TheshownTwitter = ({ res,idx,GetAllText,replycomments,GetLikesFromUser,fun
     setMessegeLiked("You UnReposted The Tweet :( ")
     
     // setClickRetweet(false)
-    funLogin()
+    replyComments()
     
     }
     
