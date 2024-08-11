@@ -14,7 +14,7 @@ const replyingRout = require("./router/replyingCommentsRoute")
 const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
-app.use(cors({origin: 'https://twitterclone-airs.onrender.com'}))
+// app.use(cors({origin: 'https://twitterclone-airs.onrender.com'}))
 
 app.use((req, res, next) => {
     console.log(req.path , req.method)
