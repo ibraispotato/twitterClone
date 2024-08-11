@@ -58,7 +58,7 @@ const Center = () => {
 
         }
     }, [dispatched])//render a profile
-    console.log(`https://twitterclone-airs.onrender.com/${Urprofile?.photo}`)
+    // console.log(`https://twitterclone-airs.onrender.com/${Urprofile?.photo}`)
   const textPost = async (e) => {
     e.preventDefault()
     const formdata = new FormData()
