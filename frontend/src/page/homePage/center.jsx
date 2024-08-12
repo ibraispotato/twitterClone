@@ -64,7 +64,7 @@ const Center = () => {
     formdata.append('Text', Text)
     formdata.append('photo', videoFile)
     // const work = {Text}
-    const response = await fetch(`https://twitter-clone-mauve-delta.vercel.app/clone/texts`, {
+    const response = await fetch(`https://twitter-clone-mauve-delta.vercel.app/clone/texts/lsgo`, {
       method: 'POST',
       body: formdata,
       headers: {
