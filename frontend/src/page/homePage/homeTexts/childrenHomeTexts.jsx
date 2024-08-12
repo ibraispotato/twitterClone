@@ -18,7 +18,6 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin,
     const playerRef = useRef(null);
     const [messegeDelete,setMessegeDelete] = useState(null)
     const [MessegeLikes,setMessegeLiked] = useState(null)
-    console.log(texts)
   const DeleteLikes = async (e) => {
     e.preventDefault()
     const TextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/delete/${res?._id}`, {

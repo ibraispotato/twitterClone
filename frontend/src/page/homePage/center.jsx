@@ -64,6 +64,7 @@ const Center = () => {
     formdata.append('Text', Text)
     formdata.append('photo', videoFile)
     // const work = {Text}
+    const res = await fetch(`/backend/photoRoute?filename=${videoFile}`)
     const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts`, {
       method: 'POST',
       body: formdata,
