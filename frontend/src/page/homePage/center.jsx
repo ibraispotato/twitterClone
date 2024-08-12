@@ -62,9 +62,9 @@ const Center = () => {
     e.preventDefault()
     const formdata = new FormData()
     formdata.append('Text', Text)
-    formdata.append('photo', videoFile)
+    // formdata.append('photo', videoFile)
     // const work = {Text}
-    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/lsgo`, {
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts`, {
       method: 'POST',
       body: formdata,
       headers: {
@@ -84,6 +84,15 @@ const Center = () => {
     setVideoFile(null)
       dispatchs({ type: "CREATE", payload: json })
     }
+    const formdataz = new FormData()
+    formdata.append('photo', videoFile)
+    const responsey = await fetch('/api/upload', {
+      method: 'POST',
+      body: formdataz,
+    });
+    const data = await responsey.json();
+    console.log('File uploaded successfully:', data);
+  
     const rsponseUpdatePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/updateMyPosts/${json._id}`, {
       method:"POST",
       headers: {
