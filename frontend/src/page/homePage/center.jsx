@@ -34,7 +34,7 @@ const Center = () => {
 
       // Create and set the object URL for the video preview
       const previewUrl = URL.createObjectURL(file);
-      setVideoPreview(previewUrl);
+      setVideoPreview(file);
     }
   };//we transfer the input photo/video into a usestate
   const funLogin = async () => {
