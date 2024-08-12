@@ -18,14 +18,9 @@ app.use(express.json())
 app.use(cors({}))
 
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static('images'));
+app.use(express.static('images'));
 
-// const __dirname = path.resolve();
 
-// app.use(
-//   "./images",
-//   express.static(path.join(__dirname, "images")),
-// );
 app.use((req, res, next) => {
     console.log(req.path , req.method)
     next()
@@ -34,7 +29,7 @@ app.use((req, res, next) => {
 // router.use(bodyParser.json());
 // app.use("/",express.static("../frontend/src/images"))
 app.use("/clone/",userRouter)
-app.use("/clone/texts/",textRout)
+app.use("/clone/texts",textRout)
 app.use("/clone/replying",replyingRout)
 // app.use("/uploads", express.static("uploads"))
 mongoose.connect(process.env.MONGOURI).then(() => {
