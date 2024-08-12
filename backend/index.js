@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 // router.use(bodyParser.json());
 // app.use("/",express.static("../frontend/src/images"))
 app.use("/clone/",userRouter)
-app.use("/clone/texts",textRout)
+app.use("/clone/texts/",textRout)
 app.use("/clone/replying",replyingRout)
 // app.use("/uploads", express.static("uploads"))
 mongoose.connect(process.env.MONGOURI).then(() => {
