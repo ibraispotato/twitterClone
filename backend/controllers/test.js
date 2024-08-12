@@ -18,6 +18,8 @@ const CreateText = async (req, res) => {
     const { Text, likes, comments,retweet } = req.body
     const { authorization } = req.headers
     const token = authorization.split(" ")[1]
+    const { searchParams } = new URL(request.url);
+  const filename = searchParams.get('filename');
     // console.log()
     const { _id } = jwt.verify(token, process.env.KEY)
         req.user = await User.findOne({_id}).select("_id")
@@ -25,7 +27,7 @@ const CreateText = async (req, res) => {
         const userId = req.user._id
         
         const photo = req.file?.filename
-        const blob = await put(photo, request.body, {
+        const blob = await put(filename, request.body, {
             access: 'public',
           });
         const texts = await Texts.create({ Text, photo:blob,retweet, likes, comments,idText:userId})
