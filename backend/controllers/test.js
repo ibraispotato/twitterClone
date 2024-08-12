@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 require("dotenv").config()
 const jwt = require('jsonwebtoken')
 const User = require('../schema/userProfile')
-import { put } from '@vercel/blob';
+// import { put } from '@vercel/blob';
 
 const GetAllText = async (req, res) => {
     const workouts = await Texts.find({}).sort({ createdAt: -1 })
