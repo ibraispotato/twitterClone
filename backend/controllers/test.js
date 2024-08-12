@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 require("dotenv").config()
 const jwt = require('jsonwebtoken')
 const User = require('../schema/userProfile')
+import { put } from '@vercel/blob';
 
 const GetAllText = async (req, res) => {
     const workouts = await Texts.find({}).sort({ createdAt: -1 })
@@ -23,9 +24,13 @@ const CreateText = async (req, res) => {
     const { _id } = jwt.verify(token, process.env.KEY)
         req.user = await User.findOne({_id}).select("_id")
     try {
-        const userId = req.user._id
-        
         const photo = req.file?.filename
+        const userId = req.user._id
+        const result = await put(photo, req.file, 
+            { access: 'public', 
+            addRandomSuffix: false,
+          },); 
+        
         const texts = await Texts.create({ Text, photo,retweet, likes, comments,idText:userId})
         res.status(200).json(texts)
     }
