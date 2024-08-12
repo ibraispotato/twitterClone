@@ -75,6 +75,7 @@ const Center = () => {
       
     })
     const json = await response.json()
+    const jsonz = await res.json()
     // console.log(json)
     if (!response.ok) {
       
