@@ -34,7 +34,7 @@ const Center = () => {
 
       // Create and set the object URL for the video preview
       const previewUrl = URL.createObjectURL(file);
-      setVideoPreview(file);
+      setVideoPreview(previewUrl);
     }
   };//we transfer the input photo/video into a usestate
   const funLogin = async () => {
@@ -64,8 +64,7 @@ const Center = () => {
     formdata.append('Text', Text)
     formdata.append('photo', videoFile)
     // const work = {Text}
-    const res = await fetch(`/backend/photoRoute?filename=${videoFile}`)
-    const response = await fetch(`/backend/photoRoute?filename=${videoFile.name}`, {
+    const response = await fetch(`https://twitter-clone-mauve-delta.vercel.app/clone/texts/z`, {
       method: 'POST',
       body: formdata,
       headers: {
@@ -75,8 +74,6 @@ const Center = () => {
       
     })
     const json = await response.json()
-    
-    const jsonz = await res.json()
     // console.log(json)
     if (!response.ok) {
       

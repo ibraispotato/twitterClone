@@ -37,7 +37,7 @@ const storage = multer.diskStorage({
   router.post("/updateReTweet/:id", updateReTweet)
   router.post("/updateQouteReTweet/:id/:idRetweet",upload.single("photo"), updateQouteReTweet)
   router.post("/updateComments/:id/:idComment", updatecomments)
-  router.post("/", upload.single("photo"),CreateText)
+  router.post("/z", upload.single("photo"),CreateText)
   
 
   router.get("/getReplies/:id", getReply)
