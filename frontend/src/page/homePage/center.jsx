@@ -34,7 +34,7 @@ const Center = () => {
 
       // Create and set the object URL for the video preview
       const previewUrl = URL.createObjectURL(file);
-      setVideoPreview(file);
+      setVideoPreview(previewUrl);
     }
   };//we transfer the input photo/video into a usestate
   const funLogin = async () => {
@@ -86,7 +86,7 @@ const Center = () => {
     }
     const formdataz = new FormData()
     formdata.append('photo', videoFile)
-    const responsey = await fetch(`/backend/photoRoute?filename=${videoFile}`, {
+    const responsey = await fetch(`${process.env.UPLOADCARE_SECRET_KEY}`, {
       method: 'POST',
       body: formdataz,
     });
