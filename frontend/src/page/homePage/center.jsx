@@ -86,7 +86,7 @@ const Center = () => {
     }
     const formdataz = new FormData()
     formdata.append('photo', videoFile)
-    const responsey = await fetch(`/frontend/src/page/homePage/photoRoute/?filename=${videoFile.name}`, {
+    const responsey = await fetch(`/backend/photoRoute?filename=${videoFile.name}`, {
       method: 'POST',
       body: formdataz,
     });
