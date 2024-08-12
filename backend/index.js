@@ -20,7 +20,12 @@ app.use(cors({}))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('images'));
 
+const __dirname = path.resolve();
 
+app.use(
+  "/images/products",
+  express.static(path.join(__dirname, "images", "products")),
+);
 app.use((req, res, next) => {
     console.log(req.path , req.method)
     next()
