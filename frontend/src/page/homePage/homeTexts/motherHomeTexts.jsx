@@ -23,6 +23,7 @@ const API = process.env.REACT_APP_APi_LINK
 
       }
     }//we get all texts
+    console.log(texts)
   useEffect(() => {
     if (user) {
       GetAllText()
@@ -62,6 +63,7 @@ const API = process.env.REACT_APP_APi_LINK
         
           <ChildrenHomeTexts res={res} GetAllText={GetAllText} idx={idx}
           funLogin={funLogin}
+          texts={texts}
             setProfiles={setProfiles}
             Urprofiles={Urprofiles}
           />

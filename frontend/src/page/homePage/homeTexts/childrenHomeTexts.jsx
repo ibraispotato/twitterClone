@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player';
 import img from "../../../defultPic.png"
 
-const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin }) => {
+const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin,texts }) => {
     const { user } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
     const { dispatchs } = useTextContext()
@@ -18,6 +18,7 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin 
     const playerRef = useRef(null);
     const [messegeDelete,setMessegeDelete] = useState(null)
     const [MessegeLikes,setMessegeLiked] = useState(null)
+    console.log(texts)
   const DeleteLikes = async (e) => {
     e.preventDefault()
     const TextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/delete/${res?._id}`, {
@@ -281,6 +282,7 @@ useEffect(() => {
       <div className='divOfTwitterPhoto'>
               <div className='anotherdivOfTwitterPhoto'>
         <div className='anothers'>
+              
               {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}              
         </div>
       </div>
@@ -419,7 +421,7 @@ useEffect(() => {
         <div className='copyBtn'>
           <div className='iconThreeDots'>
             {/* //////////////////////// to copy the link of the post //////////////////////////// */}
-            <button onClick={() => navigator.clipboard.writeText(`http://localhost:3000/tweet/${res?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`https://twitter-clone-beta-three.vercel.app/tweet/${res?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>

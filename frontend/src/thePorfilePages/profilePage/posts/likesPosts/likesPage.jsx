@@ -510,7 +510,7 @@ useEffect(() => {
         </div>
         <div className='copyBtn'>
           <div className='iconThreeDots'>
-            <button onClick={() => navigator.clipboard.writeText(`http://localhost:3000/tweet/${res?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`https://twitter-clone-beta-three.vercel.app/tweet/${res?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>

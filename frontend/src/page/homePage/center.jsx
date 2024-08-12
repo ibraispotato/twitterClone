@@ -134,7 +134,8 @@ const Center = () => {
             {/* //////////////if it's not video we got <img /> if it's not and img it's <video />//////////////////////////////////// */}
             {videoFile===null?"":videoFile?.type?.split("/")[0]?.includes("image")?
             <img loading='lazy' className='photoPost'
-            src={videoPreview} />:<ReactPlayer ref={playerRef} type={videoFile?.type} url={videoPreview} controls={true} />}
+            src={videoPreview} />:
+            <ReactPlayer ref={playerRef} type={videoFile?.type} url={videoPreview} controls={true} />}
             
           </div>
           
