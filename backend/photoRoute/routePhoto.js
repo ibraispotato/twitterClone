@@ -1,26 +1,10 @@
-import { put } from '@vercel/blob';
-import { NextResponse } from 'next/server';
+const cloudinary = require('cloudinary').v2
 
-export async function POST(request) {
-  const { searchParams } = new URL(request.url);
-  const filename = searchParams.get('filename');
+cloudinary.config({
+  cloud_name:process.env.CLOUD_NAME,
+  api_key:process.env.API_KEY,
+  api_secret:process.API_SECRET
+})
 
-  // ⚠️ The below code is for App Router Route Handlers only
-  const blob = await put(filename, request.body, {
-    access: 'public',
-  });
 
-  // Here's the code for Pages API Routes:
-  // const blob = await put(filename, request, {
-  //   access: 'public',
-  // });
-
-  return NextResponse.json(blob);
-}
-
-// The next lines are required for Pages API Routes only
-// export const config = {
-//   api: {
-//     bodyParser: false,
-//   },
-// };
+module.exports=cloudinary;

@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 require("dotenv").config()
 const jwt = require('jsonwebtoken')
 const User = require('../schema/userProfile')
-
+// const cloudinary  = require('../photoRoute/routePhoto')
+const cloudinary = require("cloudinary").v2;
 const GetAllText = async (req, res) => {
     const workouts = await Texts.find({}).sort({ createdAt: -1 })
     res.status(200).json(workouts)
@@ -14,20 +15,44 @@ const GetOneText = async (req, res) => {
     const workouts = await Texts.findOne({_id:id}).sort({ createdAt: -1 })
     res.status(200).json(workouts)
 }
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+  });
+  
+async function handleUpload(file) {
+    const res = await cloudinary.uploader.upload(file, {
+      resource_type: "auto",
+    });
+    return res;
+  }
 const CreateText = async (req, res) => {
-    const { Text, likes, comments,retweet } = req.body
+    const { Text, likes, comments,retweet,photo } = req.body
     const { authorization } = req.headers
-
     const token = authorization.split(" ")[1]
-    // console.log()
     const { _id } = jwt.verify(token, process.env.KEY)
         req.user = await User.findOne({_id}).select("_id")
     try {
+        // const photo = req.file?.filename
+        // const result = await cloudinary.uploader.upload_stream(
+        //     { resource_type: 'auto' },
+        //     (error, result) => {
+        //       if (error) {
+        //         return res.status(500).send(error.message);
+        //       }
+        //       res.status(200).json(result);
+        //     }
+        //   )
+        //   req.file.stream.pipe(result);
+        const b64 = Buffer.from(req.file.buffer).toString("base64");
+        let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+        const cldRes = await handleUpload(dataURI);
+        console.log(cldRes)
         const userId = req.user._id
-        
-        const photo = req.file?.filename
-        const texts = await Texts.create({ Text, photo,retweet, likes, comments,idText:userId})
+        const texts = await Texts.create({ Text, photo:cldRes.url,retweet, likes, comments,idText:userId})
         res.status(200).json(texts)
+        // console.log(texts)
     }
     catch (error) {
         res.status(400).json({error: error.message})

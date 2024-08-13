@@ -13,11 +13,11 @@ const ChildrenHomeTexts = ({ res,idx,GetAllText,Urprofiles,setProfiles,funLogin,
     const { user } = Hooksregisters()
     const [clickRetweet,setClickRetweet] = useState(false)
     const { dispatchs } = useTextContext()
-
     const [threeDotsBtn, setThreeDotsBtn] = useState(false)
     const playerRef = useRef(null);
     const [messegeDelete,setMessegeDelete] = useState(null)
     const [MessegeLikes,setMessegeLiked] = useState(null)
+    console.log(res?.photo?.split(".")[3])
   const DeleteLikes = async (e) => {
     e.preventDefault()
     const TextDeleteResponse = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/delete/${res?._id}`, {
@@ -282,7 +282,7 @@ useEffect(() => {
               <div className='anotherdivOfTwitterPhoto'>
         <div className='anothers'>
               
-              {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}              
+              {!res?.photo?"":res?.photo?.split(".")[3]?.includes("mp4")?<ReactPlayer ref={playerRef} url={`${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${res?.photo}`} />}              
         </div>
       </div>
       </div>
