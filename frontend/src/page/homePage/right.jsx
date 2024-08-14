@@ -70,7 +70,8 @@ const Right = () => {
                   <div className='motherProfileo search' >
                    
                     <div className='userTweet profileSearch'>
-                      {/* <img loading='lazy' key={index} className='imgprofileSearch' src={img} /> */}
+                    <img loading='lazy' className='imgprofileSearch' src={res?.photo?.map((res)=> res.url)?.[0]||res?.photo} />
+
                       <div className='userNameProfileSearch'>
                         <div className='nameProfileFollow'>
                           <span className='nameProfileFollow'>{res?.name}</span>

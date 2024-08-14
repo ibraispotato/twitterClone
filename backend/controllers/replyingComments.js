@@ -3,23 +3,42 @@ const Comments = require("../schema/textsSchema")
 const jwt = require('jsonwebtoken')
 const User = require('../schema/userProfile')
 const mongoose = require('mongoose')
+const cloudinary = require("cloudinary").v2;
 
-
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+  });
+  
+async function handleUpload(file) {
+    const res = await cloudinary.uploader.upload(file, {
+      resource_type: "auto",
+    });
+    
+    return res;
+  }
 const CreateText = async (req, res) => {
-    const { retweetComments } = req.body
+    const { retweetComments,photo } = req.body
     const { id } = req.params
     const { authorization } = req.headers
-
     const token = authorization.split(" ")[1]
-    
     const { _id } = jwt.verify(token, process.env.KEY)
         req.user = await User.findOne({_id}).select("_id")
     try {
+        if(photo==="null"){
         const userId = req.user._id
-
-        const photo = req.file?.filename
-        const texts = await replyingComments.create({ retweetComments, photo,idText:id,idOfTheReplyer:userId })
+        const texts = await replyingComments.create({ retweetComments, photo:null,idText:id,idOfTheReplyer:userId })
         res.status(200).json(texts)
+        }
+        else{
+            const b64 = Buffer.from(req.file.buffer).toString("base64")||''
+            let dataURI = "data:" + req.file.mimetype + ";base64," + b64||''
+            const cldRes = await handleUpload(dataURI)||null
+            const userId = req.user._id
+        const texts = await replyingComments.create({ retweetComments, photo:cldRes,idText:id,idOfTheReplyer:userId })
+        res.status(200).json(texts)
+        }
     }
     catch (error) {
         res.status(400).json({error: error.message})
@@ -209,7 +228,16 @@ const updatecomments = async (req, res) => {
             return res.status(404).json({ error: 'Not Found' })
             
         }
-        console.log(id)
+        const getPost = await replyingComments.findOne({_id:id}).sort({ createdAt: -1 })
+    async function deleteImage(publicId) {
+        try {
+          const result = await cloudinary.uploader.destroy(publicId);
+          console.log('Delete result:', result);
+        } catch (error) {
+          console.error('Error deleting image:', error);
+        }
+      }
+      deleteImage(getPost.photo?.map((res) => res.public_id)[0])
         const workout = await replyingComments.findOneAndDelete({ _id: id })
         await User.updateMany({}, { $pull: { retweet: id } });
         await Comments.updateMany({}, { $pull: { comments: id } });

@@ -1,4 +1,13 @@
 @media(max-width:540px){
+    .photoPost {
+        width: 300px;
+    }
+    .photoRetweet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+    }
     .twitterPhoto {
         width: 100%;
     }
@@ -131,7 +140,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 20px;
-        align-items: flex-start;
+        align-items: center;
         align-content: flex-start;
         width: 100%;
         height: auto;
@@ -353,6 +362,9 @@
 }
 
 @media(max-width:375px){
+    .photoPost {
+        width: 90%;
+    }
     .InputPassword {
         padding: 10px;
         margin-left: 0px;
@@ -402,6 +414,7 @@
         }
 }
 @media(max-width:320px){
+    
     .YourAccNav.settings {
         width: auto;
     }

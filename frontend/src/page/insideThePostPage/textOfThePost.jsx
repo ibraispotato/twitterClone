@@ -225,9 +225,10 @@ return (
                                     </div>
                                     <div className='PhotoTweetPost'>
                                         {!thePost?.photo&&!theProfilePostReply?.photo ? '' :
-                                        thePost?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${thePost?.photo||theProfilePostReply?.photo}`} controls={true} />:
-                                        theProfilePostReply?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${thePost?.photo||theProfilePostReply?.photo}`} controls={true} />: 
-                                        <img loading='lazy' className='twitterPhoto PostPhoto'src={`${process.env.REACT_APP_APi_LINK}/${thePost?.photo||theProfilePostReply?.photo}`} />}
+                                        thePost?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${theProfilePostReply?.photo?.map((res) => res.url)[0]===undefined?thePost?.photo?.map((res) => res.url)[0]:theProfilePostReply?.photo?.map((res) => res.url)[0]}`} controls={true} />                                        :
+                                        theProfilePostReply?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${theProfilePostReply?.photo?.map((res) => res.url)[0]===undefined?thePost?.photo?.map((res) => res.url)[0]:theProfilePostReply?.photo?.map((res) => res.url)[0]}`} controls={true} />  : 
+                                        <img loading='lazy'  className='twitterPhoto' src={`${theProfilePostReply?.photo?.map((res) => res.url)[0]===undefined?thePost?.photo?.map((res) => res.url)[0]:theProfilePostReply?.photo?.map((res) => res.url)[0]}`} />
+}
                                     </div>
                                     <div className='dateOfTextOfThePost'>
                 {(thePost === null ?theProfilePostReply === null ? <span></span> : <span>Posted {formatDistanceToNow(new Date(theProfilePostReply?.createdAt))}</span>:

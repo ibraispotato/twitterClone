@@ -201,7 +201,9 @@ return (
                   <div className='motherProfileo search' >
                    
                     <div className='userTweet profileSearch'>
-                      <img loading='lazy' key={index} className='imgprofileSearch' src={img} />
+                    <img loading='lazy' className='imgprofileSearch' src={res?.photo?.map((res)=> res.url)?.[0]||res?.photo} />
+
+
                       <div className='userNameProfileSearch'>
                         <div className='nameProfileFollow'>
                           <span className='nameProfileFollow'>{res?.name}</span>
@@ -248,7 +250,7 @@ return (
                                 <div className='motherProfileo' >
                                   <Link className='linkHomePageRetweet' to={`/profile/${res._id}`}>
                                   <div className='userTweet followin'>
-                                  <img loading='lazy' key={index} className='img' src={img} />
+                                                      <img loading='lazy' className='img' src={res?.photo?.map((res)=> res.url)?.[0]||res?.photo} />
                                     <div className='userNameProfileFollows'>
                                       <div className='nameProfileFollow'>
                                       <span className='nameProfileFollow'>{res?.name}</span>

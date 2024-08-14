@@ -18,7 +18,6 @@ const YourProfile = () => {
 const [backAndFourth,setBackAndFourth] = useState(false)
 const {dispatch,user} = Hooksregisters()
 const photo = Urprofile && Urprofile.photo
-    console.log(Urprofile?.photo)
     const [unfollow, setUnfollow] = useState(false)
     const [replycomments,setReplyComments] = useState([])
     const [loding, setLoding] = useState(false)
@@ -153,8 +152,8 @@ return (
                 <div className='afterTheNav'>
                     <div className='backgroundPhoto'></div>
                     <div className='profilPicAndBtn'>
-                        <img loading='lazy' className='imgProfile' src={Urprofile?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
-                        {Urprofile?._id === user?._id ? 
+                    <img loading='lazy' className='imgProfile' src={Urprofile?.photo?.map((res)=> res.url)?.[0]||Urprofile?.photo} />
+                    {Urprofile?._id === user?._id ? 
                           <Link to={`/editProfile/${id}`}>
                           <button className='btnSetProfile'>Edit Profile</button>
                       </Link>

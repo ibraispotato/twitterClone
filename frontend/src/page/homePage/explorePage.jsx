@@ -54,7 +54,7 @@ searchMotherFunction()
   
 }, [names])//renders the search input
 
-
+console.log(Urprofile)
 
 const funLogin = async () => {
     const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getAllUsers`)
@@ -199,7 +199,7 @@ return (
                                   <div className='userTweet followin'>
                                   {/* <img loading='lazy' key={index} className='img' src={imageList[0] === res?.photo ? imageList[0] : `${process.env.REACT_APP_APi_LINK}/${res.photo}`} /> */}
                                   <div className='photoExplore'>
-                                  <img loading='lazy' className='img' src={img} />       
+                                  <img loading='lazy' className='img' src={res?.photo?.map((res)=> res.url)?.[0]||res?.photo} />
                                               </div>
                                     <div className='userNameProfileFollows'>
                                       <div className='nameProfileFollow'>

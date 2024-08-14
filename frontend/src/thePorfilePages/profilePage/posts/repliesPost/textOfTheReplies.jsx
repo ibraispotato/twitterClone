@@ -483,8 +483,8 @@ return ()=>clearTimeout(time)
                   <div className='photoUser s'>
                     <Link key={idx} to={`/profile/${reses?._id}`}>
                         
-                      <img loading='lazy' className='img' src={reses?.photo==="" ? img :
-                        `${process.env.REACT_APP_APi_LINK}/${reses?.photo}`} />
+                    <img loading='lazy' className='img' src={reses?.photo?.map((res)=> res.url)?.[0]||reses?.photo} />
+
                     </Link>
                   </div>
                   <Link className='linkUser' to={`/profile/${reses?._id}`}>
@@ -511,10 +511,8 @@ return ()=>clearTimeout(time)
                   {!resMap?.photo ? "" : <div className='divOfTwitterPhoto photo'>
                     <div className='anotherdivOfTwitterPhoto photo'>
                       <div className='anothers'>
-                        {/* {!resMap?.photo ? "" : <img key={idx} loading='lazy' className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${resMap?.photo}`} />} */}
-                        {!resMap?.photo?"":resMap?.photo?.split("-")[2]?.includes(".mp4")?
-                        <ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${resMap?.photo}`} controls={true} />:
-                        <img loading='lazy' key={idx} className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${resMap?.photo}`} />}
+                        {!resMap?.photo?"":resMap?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${resMap?.photo?.map((res) => res.url)[0]}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${resMap?.photo?.map((res) => res.url)[0]}`} />}              
+
                       </div>
                     </div>
                     </div>}
@@ -635,7 +633,7 @@ return ()=>clearTimeout(time)
                   </div>
                   <div className='copyBtn'>
           <div className='iconThreeDots'>
-            <button onClick={() => navigator.clipboard.writeText(`https://twitter-clone-beta-three.vercel.app/tweet/${resMap?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`${[process.env.REACT_APP_APi_LINK]}/tweet/${resMap?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>
@@ -665,8 +663,8 @@ return ()=>clearTimeout(time)
                     <div className='photoUser'>
                       <Link key={theIndex} to={`/profile/${resProfiles?._id}`}>
                         {/* {console.log(theIndex)} */}
-                        <img loading='lazy' key={theIndex} className='img' src={resProfiles?.photo==="" ? img :
-                          `${process.env.REACT_APP_APi_LINK}/${resProfiles?.photo}`} />
+                        <img loading='lazy' className='img' src={resProfiles?.photo?.map((res)=> res.url)?.[0]||resProfiles?.photo} />
+
                       </Link>
                     </div>
                     <Link className='linkUser' to={`/profile/${user?._id}`}>
@@ -721,10 +719,8 @@ return ()=>clearTimeout(time)
             ))[idx]}
             <div className='divOfTwitterPhoto photo'>
               <div className='anotherdivOfTwitterPhoto'>
-                <div className='anothers'>
-                {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?
-                        <ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:
-                        <img loading='lazy' key={idx} className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}                </div>
+                <div className='anothers'>             </div>
+                      {!res?.photo?"":res?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${res?.photo?.map((res) => res.url)[0]}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${res?.photo?.map((res) => res.url)[0]}`} />}              
               </div>
             </div>
           </div>
@@ -859,7 +855,7 @@ return ()=>clearTimeout(time)
         </div>
         <div className='copyBtn'>
           <div className='iconThreeDots'>
-            <button onClick={() => navigator.clipboard.writeText(`https://twitter-clone-beta-three.vercel.app/tweet/${res?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`${process.env.REACT_APP_APi_LINK}/tweet/${res?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>

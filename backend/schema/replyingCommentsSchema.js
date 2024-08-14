@@ -7,7 +7,7 @@ const SCHEMA = new schema({
         required: true
     },
     photo: {
-        type: String,
+        type: Array,
         
     },
     retweet: {

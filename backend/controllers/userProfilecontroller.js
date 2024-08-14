@@ -5,11 +5,25 @@ const Texts = require("../schema/textsSchema")
 const replyingComments = require("../schema/replyingCommentsSchema")
 const Comments = require("../schema/textsSchema.js")
 const mongoose = require('mongoose')
-
+const cloudinary = require("cloudinary").v2;
 require('dotenv').config()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+  });
+  
+async function handleUpload(file) {
+    const res = await cloudinary.uploader.upload(file, {
+      resource_type: "auto",
+    });
+    
+    return res;
+  }
 const CreateToken = (_id) => {
         return jwt.sign({_id},process.env.KEY,{expiresIn:"30d"})
 }
@@ -56,11 +70,11 @@ const GetBYName2= async (req, res) => {
     res.status(200).json(getUserByName)
 }
 const signUpUser = async (req,res) => {
-    const { name, userName,photo, email, password,bio } = req.body
+    const { name, userName,photo:thePohot, email, password,bio } = req.body
     // console.log(req.file)
     // console.log(name, userName,photo, email, password,bio)
     try {
-        // const photo = req.file.filename||null
+        const photo = 'https://res.cloudinary.com/dyoy5gl6a/image/upload/v1723572482/qf1z3syzesgzc6oeianl.png'
         const user = await User.signup(name, userName,photo, email, password,bio)
         
         const token = CreateToken(user._id)
@@ -246,18 +260,34 @@ const resetPass = async (req,res) => {
     }
 }
 const updateUser = async (req,res) => {
-    const { name, bio } = req.body
+    const { name, bio,photo:thePhoto } = req.body
     // const { photo } = req.file.filename
     const { id } = req.params
+    
     try {
-        
-        const photo = req.file?.filename
-        // const photos = photo.filename
-        console.log(photo)
-            let text= await User.findOneAndUpdate({ _id: id }, {name,photo,bio})
-            // res.status(200).json({all})
+        const photo = 'https://res.cloudinary.com/dyoy5gl6a/image/upload/v1723572482/qf1z3syzesgzc6oeianl.png'
+        if(thePhoto==="undefined"){
+        let text= await User.findOneAndUpdate({ _id: id }, {name,photo,bio})
             res.status(200).json({text})
-        
+        }
+        else{
+            const getPost = await User.findOne({_id:id}).sort({ createdAt: -1 })
+            async function deleteImage(publicId) {
+                try {
+                  const result = await cloudinary.uploader.destroy(publicId);
+                  console.log('Delete result:', result);
+                } catch (error) {
+                  console.error('Error deleting image:', error);
+                }
+              }
+              deleteImage(getPost.photo?.map((res) => res.public_id)[0])
+             const b64 = Buffer.from(req.file.buffer).toString("base64")||''
+        let dataURI = "data:" + req.file.mimetype + ";base64," + b64||''
+        const cldRes = await handleUpload(dataURI)||null
+        let text= await User.findOneAndUpdate({ _id: id }, {name,photo:cldRes,bio})
+            res.status(200).json({text})
+        }
+       
     }
     catch (error) {
         res.status(400).json({ message: error.message})

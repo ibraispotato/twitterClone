@@ -9,18 +9,32 @@ import {Hooksregisters} from "../../hooks/hooksRegister/hooksregister"
 import "./left.css"
 import img from "../..//defultPic.png"
 import { Link } from 'react-router-dom'
-const Left = ({setBackAndFourth,backAndFourth,Urprofile}) => {
+const Left = ({setBackAndFourth,backAndFourth,}) => {
   const { user, dispatch } = Hooksregisters()
   const [more,setMore] = useState(false)
-  const photo = user && user?.photo
-  const photos = Urprofile && Urprofile?.photo
+  const [Urprofile, setProfile] = useState([])
+  const idLocal = localStorage.getItem("user")
+
   const { Logout } = LogoutFun()
   const logoutFunction=() =>{
     Logout()
   }//// logout function to logout from the account
   const [showIcon, setShowIcon] = useState(false);
   const lastScrollTop = useRef(0); // Ref to track the last scroll position
-
+  const funLogin = async () => {
+    const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idLocal)?._id}`)
+    const json = await response.json()
+    setProfile(json)
+    }///get your account from the localhost
+    useEffect(() => {
+        return() => {
+          funLogin()
+        }
+            
+        
+    
+    }, [user])
+    
   const handleScroll = () => {
     const currentScrollTop = window.scrollY;
     if (currentScrollTop > lastScrollTop.current) {
@@ -42,7 +56,7 @@ const Left = ({setBackAndFourth,backAndFourth,Urprofile}) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
+console.log(Urprofile)
 
   return (
     <div className='allLeft z' id='container'>
@@ -115,9 +129,8 @@ const Left = ({setBackAndFourth,backAndFourth,Urprofile}) => {
         <>
               <div onClick={() => setBackAndFourth(prev => !prev)} className='down'>
                 <div className='allimgandtext'>
-                <img loading='lazy' className='img' src={user?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${user?.photo}`} />
-                
-
+                  
+                <img loading='lazy' className='img' src={Urprofile?.photo?.map((res)=> res.url)?.[0]||Urprofile?.photo} />
                 <div className='names'>
                   <span className='nameText'>{user?.name}</span>
                   <span>@{user?.userName}</span>

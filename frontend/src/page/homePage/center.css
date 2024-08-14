@@ -68,7 +68,7 @@ overflow: hidden;
  }
 .photoPost{
   border-radius: 10px;
-  width: 550px;
+  width: 400px;
   height: 90%;
 }
  .imgAndTextAraPost{
@@ -210,7 +210,7 @@ width: 200%;
 
 .anothers {
     /* height: 100%; */
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     align-content: center;
     justify-content: center;

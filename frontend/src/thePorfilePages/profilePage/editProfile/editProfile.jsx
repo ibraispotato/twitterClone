@@ -13,14 +13,13 @@ import "./editProfileCss.css"
         // const [errors,Seterrors] = useState(null)
         const [Urprofile, setProfile] = useState([])
         const {dispatch,user} = Hooksregisters()
-        const [photo,setProfilePic] = useState(Urprofile?.photo)
+        const [photo,setProfilePic] = useState()
         const maxlengthName = useState(50)
         const maxLengthBio = useState(160)
         const { id } = useParams()
         const photos= user && Urprofile.photo
         // theres a file for the update user
         const { epdateProfile,error,setError } = UpdateProfile()
-        console.log(photos)
         const funLogin = async () => {
             const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
             const json = await response.json()
@@ -86,9 +85,11 @@ import "./editProfileCss.css"
                                 <label for="inputField" class="btnCamera">{<FontAwesomeIcon icon={faCamera}/>}</label>
                                 <input title='da' id='inputField' onChange={uploadPhoto}
                                     type='file' className='FileBtn' name='photo'/>
-                                
+
+                                                {/* <img loading='lazy' className='img' src={Urprofile?.photo?.map((res) => res.url)[0]===undefined?Urprofile?.photo:`${Urprofile?.photo?.map((res) => res.url)[0]}`} /> */}
                                 <img loading='lazy' className='profileImgEdit'
-                                src={photo===undefined?Urprofile?.photo?`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`:photo===undefined ?img:URL?.createObjectURL(photo):URL?.createObjectURL(photo)} />
+                                src={photo===undefined?Urprofile?.photo?.map((res) => res.url)[0]===undefined?Urprofile?.photo:`${Urprofile?.photo?.map((res) => res.url)[0]}`:URL?.createObjectURL(photo)} />
+                                {/* URL?.createObjectURL(photo) */}
                             </div>
                     <div className='formDivProfileEdit'>
                             <div className='NameDiv'>

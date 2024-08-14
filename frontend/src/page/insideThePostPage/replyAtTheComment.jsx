@@ -161,8 +161,8 @@ const Replying = () => {
               <div className='motherTweets comments' >
                   <div className='RetweetText comments'>
                     <div className='ProfilephotoComment'>
-                      <img loading='lazy' className='img profileComment' src={Urprofile?.photo==="" ? img 
-                      : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
+                    <img loading='lazy' className='img profileComment' src={profileText?.photo?.map((res)=> res.url)?.[0]||profileText?.photo} />
+
                 <div className='borderline'></div>
                     </div>
                   
@@ -193,8 +193,8 @@ const Replying = () => {
             <div>
                 <div className='imgComment'>
                   <div className='imgProfileAndText'>
-                    <img loading='lazy' className='img retweet' src={Urprofile?.photo==="" ? img :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
-                <textarea rows="2" value={retweetComments} ref={TextArRef} onChange={(e) => setRetweetText(e.target.value)}
+                  <img loading='lazy' className='img retweet' src={Urprofile?.photo.map((res)=> res.url)?.[0]||Urprofile?.photo} />
+                  <textarea rows="2" value={retweetComments} ref={TextArRef} onChange={(e) => setRetweetText(e.target.value)}
                 placeholder='Add a comment' className='TheTextAreaPost retweet' maxLength={280} />
                   </div>
                   <div className='textAreaRetweet'>

@@ -50,7 +50,6 @@ const API = process.env.REACT_APP_APi_LINK
             funLogin()
         }
       }, [texts])//render the function of the users
-    console.log(texts)
   return (
     <div>
       {noText?"" :!loding ?

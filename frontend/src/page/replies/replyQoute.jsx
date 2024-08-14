@@ -178,7 +178,7 @@ const PostPage = () => {
                 
             <div className={`${operators===undefined&&videoFile===null?"yourCommentRetweet noPhoto":"yourCommentRetweet"}`}>
             <div className='imgRetweet'>
-                <img loading='lazy' className='img retweet' src={Urprofile?.photo==="" ? img :`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
+                <img loading='lazy' className='img retweet' src={Urprofile?.photo?.map((res)=> res.url)?.[0]||Urprofile?.photo} />
 
             </div>
             <div className='textAreaRetweet'>
@@ -199,8 +199,7 @@ const PostPage = () => {
               <div className='allOfTheTextTweet retweet'>
               <div className='motherTweets' >
                   <div className='RetweetText'>
-                      <img loading='lazy' className='img profileRetweet' src={profileText?.photo==="" ? img
-                        : `${process.env.REACT_APP_APi_LINK}/${profileText?.photo}`} />
+                      <img loading='lazy' className='img profileRetweet' src={profileText?.photo?.map((res)=> res.url)?.[0]||profileText?.photo} />
                   <span className='nameOfTheTweet'>{profileText?.name}</span>
                 <span className='userNameReetwetText'>@{profileText?.userName}</span>
                 </div>
@@ -213,10 +212,11 @@ const PostPage = () => {
                   </div>
                   <div>
                     {/* if there's nothin in the oneText and OneText2 we get nothin if theres a photo we make sure it is "mp4" and make VIDEO compounent if it's not a "mp4" we make a PHOTO  compounent*/}
-                      {!oneText2?.photo&&!oneText?.photo ? '' :
-                          oneText2?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} width={"96%"} url={`${process.env.REACT_APP_APi_LINK}/${oneText?.photo||oneText2?.photo}`} controls={true} />:
-                          oneText?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} width={"96%"} url={`${process.env.REACT_APP_APi_LINK}/${oneText?.photo||oneText2?.photo}`} controls={true} />: 
-                          <img loading='lazy' className='twitterPhoto'src={`${process.env.REACT_APP_APi_LINK}/${oneText?.photo||oneText2?.photo}`} />}
+                    {!oneText?.photo&&!oneText2?.photo ? '' :
+                                        oneText?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${oneText2?.photo?.map((res) => res.url)[0]===undefined?oneText?.photo?.map((res) => res.url)[0]:oneText2?.photo?.map((res) => res.url)[0]}`} controls={true} />                                        :
+                                        oneText2?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${oneText2?.photo?.map((res) => res.url)[0]===undefined?oneText?.photo?.map((res) => res.url)[0]:oneText2?.photo?.map((res) => res.url)[0]}`} controls={true} />  : 
+                                        <img loading='lazy'  className='twitterPhoto' src={`${oneText2?.photo?.map((res) => res.url)[0]===undefined?oneText?.photo?.map((res) => res.url)[0]:oneText2?.photo?.map((res) => res.url)[0]}`} />
+}
                   </div>
                   
             </div>

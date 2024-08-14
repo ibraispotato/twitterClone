@@ -84,7 +84,6 @@ const Center = () => {
     setVideoFile(null)
       dispatchs({ type: "CREATE", payload: json })
     }
-
     const rsponseUpdatePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/updateMyPosts/${json._id}`, {
       method:"POST",
       headers: {
@@ -126,8 +125,7 @@ const Center = () => {
           <div className='imgAndTextAraPost'>
           <input title='da' id='inputField' accept='image/*,video/*' onChange={SubmitPoto}
               type='file' className='FileBtn' name='photo' />
-             
-          <img loading='lazy' className='img' src={user?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${Urprofile?.photo}`} />
+                <img loading='lazy' className='img' src={Urprofile?.photo?.map((res) => res.url)[0]===undefined?Urprofile?.photo:`${Urprofile?.photo?.map((res) => res.url)[0]}`} />
           <textarea rows="2" value={Text} ref={TextArRef} onChange={(e) => setText(e.target.value)} placeholder='What is happening?' className='TheTextAreaPost' maxLength={280} />
           
           </div>

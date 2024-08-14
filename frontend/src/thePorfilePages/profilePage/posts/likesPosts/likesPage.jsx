@@ -317,8 +317,7 @@ useEffect(() => {
             <div className='photoUser'>
             <Link key={theIndex} to={`/profile/${resProfiles?._id}`}>
               {/* {console.log(theIndex)} */}
-                      <img loading='lazy' key={theIndex} className='img' src={resProfiles?.photo==="" ? img:
-                        `${process.env.REACT_APP_APi_LINK}/${resProfiles?.photo}`} />
+              <img loading='lazy' className='img' src={resProfiles?.photo?.map((res)=> res.url)?.[0]||resProfiles?.photo} />
             </Link>
                   </div>
                   <Link className='linkUser' to={`profile/${resProfiles?._id}`}>
@@ -375,7 +374,7 @@ useEffect(() => {
       <div className='divOfTwitterPhoto'>
               <div className='anotherdivOfTwitterPhoto'>
         <div className='anothers'>
-        {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}
+        {!res?.photo?"":res?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${res?.photo?.map((res) => res.url)[0]}`} controls={true} />:<img loading='lazy' key={idx} className='twitterPhoto' src={`${res?.photo?.map((res) => res.url)[0]}`} />}              
         </div>
       </div>
       </div>
@@ -510,7 +509,7 @@ useEffect(() => {
         </div>
         <div className='copyBtn'>
           <div className='iconThreeDots'>
-            <button onClick={() => navigator.clipboard.writeText(`https://twitter-clone-beta-three.vercel.app/tweet/${res?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`${process.env.REACT_APP_APi_LINK}/tweet/${res?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>

@@ -25,33 +25,31 @@ async function handleUpload(file) {
     const res = await cloudinary.uploader.upload(file, {
       resource_type: "auto",
     });
+    
     return res;
   }
 const CreateText = async (req, res) => {
     const { Text, likes, comments,retweet,photo } = req.body
+    
     const { authorization } = req.headers
     const token = authorization.split(" ")[1]
     const { _id } = jwt.verify(token, process.env.KEY)
         req.user = await User.findOne({_id}).select("_id")
     try {
-        // const photo = req.file?.filename
-        // const result = await cloudinary.uploader.upload_stream(
-        //     { resource_type: 'auto' },
-        //     (error, result) => {
-        //       if (error) {
-        //         return res.status(500).send(error.message);
-        //       }
-        //       res.status(200).json(result);
-        //     }
-        //   )
-        //   req.file.stream.pipe(result);
-        const b64 = Buffer.from(req.file.buffer).toString("base64");
-        let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-        const cldRes = await handleUpload(dataURI);
-        console.log(cldRes)
-        const userId = req.user._id
-        const texts = await Texts.create({ Text, photo:cldRes.url,retweet, likes, comments,idText:userId})
+        if(photo==="null"){
+            const userId = req.user._id
+        const texts = await Texts.create({ Text, photo:null,retweet, likes, comments,idText:userId})
         res.status(200).json(texts)
+        }else{
+            const b64 = Buffer.from(req.file.buffer).toString("base64")||''
+        let dataURI = "data:" + req.file.mimetype + ";base64," + b64||''
+        const cldRes = await handleUpload(dataURI)||null
+        // console.log(dataURI)
+        const userId = req.user._id
+        const texts = await Texts.create({ Text, photo:cldRes,retweet, likes, comments,idText:userId})
+        res.status(200).json(texts)
+        }
+        
         // console.log(texts)
     }
     catch (error) {
@@ -256,7 +254,16 @@ const deletePost =  async (req,res) => {
         return res.status(404).json({ error: 'Not Found' })
         
     }
-    console.log(id)
+    const getPost = await Texts.findOne({_id:id}).sort({ createdAt: -1 })
+    async function deleteImage(publicId) {
+        try {
+          const result = await cloudinary.uploader.destroy(publicId);
+          console.log('Delete result:', result);
+        } catch (error) {
+          console.error('Error deleting image:', error);
+        }
+      }
+      deleteImage(getPost.photo?.map((res) => res.public_id)[0])
     const workout = await Texts.findOneAndDelete({ _id: id })
     await User.updateMany({}, { $pull: { retweet: id } });
     await User.updateMany({}, { $pull: { QouteTweet: id } });

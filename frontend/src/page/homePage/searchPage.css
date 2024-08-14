@@ -38,12 +38,12 @@ width: 32.7%;
 
 
 }
-.motherOfTheProfile.searchPage{
+/* .motherOfTheProfile.searchPage{
 width: 450px;
 position: fixed;
 z-index: 1;
 
-}
+} */
 .inputAndArrowSearchProfile{
     display: flex;
     align-items: center;

@@ -295,8 +295,7 @@ const Thereplies = ({ res, Thecomments, index, indx, GetText,usersOfTheFollwoing
             <div className='photoUser'>
             <Link key={indexo} to={`/profile/${reses?._id}`} preventScrollReset={true}>
               
-                      <img key={indexo} loading='lazy' className='img' src={reses?.photo==="" ? img :
-                        `${process.env.REACT_APP_APi_LINK}/${reses.photo}`} />
+                      <img key={indexo} loading='lazy' className='img' src={reses?.photo?.map((res)=> res.url)?.[0]||reses?.photo} />
             </Link>
                   </div>
                   {/* <Link className='linkUser' to={`/profile/${reses?._id}`}> */}
@@ -352,7 +351,7 @@ const Thereplies = ({ res, Thecomments, index, indx, GetText,usersOfTheFollwoing
       <div className='divOfTwitterPhoto'>
               <div className='anotherdivOfTwitterPhoto'>
         <div className='anothers'>
-        {!res?.photo?"":res?.photo?.split("-")[2]?.includes(".mp4")?<ReactPlayer ref={playerRef} url={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} controls={true} />:<img loading='lazy' className='twitterPhoto' src={`${process.env.REACT_APP_APi_LINK}/${res?.photo}`} />}
+        {!res?.photo?"":res?.photo?.map((res) => res.url)[0].split(".").includes("mp4")?<ReactPlayer ref={playerRef} url={`${res?.photo?.map((res) => res.url)[0]}`} controls={true} />:<img loading='lazy' className='twitterPhoto' src={`${res?.photo?.map((res) => res.url)[0]}`} />}              
         </div>
       </div>
       </div>

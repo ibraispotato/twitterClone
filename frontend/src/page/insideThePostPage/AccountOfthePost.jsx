@@ -13,7 +13,6 @@ const AccountOfthePost = ({id}) => {
     const [theProfilePostReply, setThePostReply] = useState(null)
     const [theProfilePost, setTheProfile] = useState(null)
     const [unfollow, setUnfollow] = useState(false)
-    console.log(theProfilePost)
     const GetText = async () => {
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${id}`)
         const json = await response.json()
@@ -120,6 +119,7 @@ const AccountOfthePost = ({id}) => {
         GetText()
 }
     }//unfollow an account
+
     return (
       
     <div>
@@ -129,7 +129,7 @@ const AccountOfthePost = ({id}) => {
                         <Link to={`/profile/${theProfilePost?._id}`}>
                         <div className='userTweet followin'>
                             
-                        <img loading='lazy' className='img' src={theProfilePost?.photo===""?img:`${process.env.REACT_APP_APi_LINK}/${theProfilePost?.photo}`} />
+                        <img loading='lazy' className='img' src={`${theProfilePost?.photo.map((res)=> res.url)?.[0]||theProfilePost?.photo}`} />
                             <div className='userNameProfileFollows'>
                             <div className='nameProfileFollow'>
                             <span className='nameProfileFollow'>{theProfilePost?.name}</span>
