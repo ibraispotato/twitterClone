@@ -14,7 +14,7 @@
             const [Urprofile, setProfile] = useState([])
             const [backAndFourth, setBackAndFourth] = useState(false)
             const idLocal = localStorage.getItem("user")
-            const [thePost, setThePost] = useState(null)
+            const [thePost, setThePost] = useState([])
             const [theProfilePost, setTheProfile] = useState(null)
             const [theProfilePostReply, setThePostReply] = useState([])
             const { id } = useParams()
