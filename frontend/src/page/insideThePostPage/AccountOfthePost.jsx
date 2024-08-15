@@ -18,14 +18,14 @@ const AccountOfthePost = ({id}) => {
         const json = await response.json()
         if (response.ok) {
             setThePost(json)
-            
+            console.log(json)
         }
         const responseReply = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
         const jsonReply = await responseReply.json()
         if (responseReply.ok) {
             setThePostReply(jsonReply)
         }
-        const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
+        const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json!==null?json?.idText:jsonReply?.idOfTheReplyer}`)
         const accountOfThePostJson = await accountOfThePost.json()
         if (accountOfThePost.ok) {
             setTheProfile(accountOfThePostJson)

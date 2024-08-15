@@ -76,6 +76,7 @@ function App() {
           <Route path='/settings/Change-password' element={!user?<RegisterPage />:<Resetpassword />} />
       </Routes>
       </Router>
+      <SpeedInsights />
     </div>
   );
 }
