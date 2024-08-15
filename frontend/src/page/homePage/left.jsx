@@ -14,7 +14,6 @@ const Left = ({setBackAndFourth,backAndFourth,}) => {
   const [more,setMore] = useState(false)
   const [Urprofile, setProfile] = useState([])
   const idLocal = localStorage.getItem("user")
-
   const { Logout } = LogoutFun()
   const logoutFunction=() =>{
     Logout()
@@ -30,9 +29,6 @@ const Left = ({setBackAndFourth,backAndFourth,}) => {
         return() => {
           funLogin()
         }
-            
-        
-    
     }, [user])
     
   const handleScroll = () => {
@@ -56,7 +52,6 @@ const Left = ({setBackAndFourth,backAndFourth,}) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-console.log(Urprofile)
 
   return (
     <div className='allLeft z' id='container'>
@@ -130,7 +125,7 @@ console.log(Urprofile)
               <div onClick={() => setBackAndFourth(prev => !prev)} className='down'>
                 <div className='allimgandtext'>
                   
-                <img loading='lazy' className='img' src={Urprofile?.photo?.map((res)=> res.url)?.[0]||Urprofile?.photo} />
+                <img loading='lazy' className='img' src={user?.photo?.map((res)=> res.url)?.[0]||user?.photo} />
                 <div className='names'>
                   <span className='nameText'>{user?.name}</span>
                   <span>@{user?.userName}</span>
