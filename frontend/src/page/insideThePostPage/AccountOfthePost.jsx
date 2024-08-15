@@ -18,14 +18,14 @@ const AccountOfthePost = ({id}) => {
         const json = await response.json()
         if (response.ok) {
             setThePost(json)
-            console.log(json)
+            
         }
         const responseReply = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${id}`)
         const jsonReply = await responseReply.json()
         if (responseReply.ok) {
             setThePostReply(jsonReply)
         }
-        const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json!==null?json?.idText:jsonReply?.idOfTheReplyer}`)
+        const accountOfThePost = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${json!==null?json.idText:jsonReply.idOfTheReplyer}`)
         const accountOfThePostJson = await accountOfThePost.json()
         if (accountOfThePost.ok) {
             setTheProfile(accountOfThePostJson)
@@ -34,10 +34,10 @@ const AccountOfthePost = ({id}) => {
         
     }//we make a responses function with three apis 1:get a post from text 2:get a post from a comment 3:it recives an account of the post or a comment, if theres a comment it recives a account of the comment if it's not it recives an account of the post
     useEffect(() => {
-        return () => {
+        
             GetText()
             
-        }
+        
         
     }, [])
     const funLogin = async () => {
