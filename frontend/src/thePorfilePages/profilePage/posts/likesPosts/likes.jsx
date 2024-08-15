@@ -23,6 +23,7 @@ const YourProfile = () => {
     const [loding, setLoding] = useState(false)
     const [noText, setNoText] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
+  const [trues,setTrue] = useState(false)
     const maps = myLikes?.map(((res, index) => res === null ? myLikes2?.[index] : res))
 const funLogins = async () => {
     const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
@@ -88,6 +89,8 @@ const funLogins = async () => {
         
     }, [user])
     const followUpdate = async (e) => {
+      setTrue(true)
+
         e.preventDefault()
         const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${id}`)
         , {
@@ -119,6 +122,8 @@ const funLogins = async () => {
     }
     }//follow an account
     const followDelete = async (e) => {
+      setTrue(false)
+
         e.preventDefault()
         const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${id}`)
         , {
@@ -191,7 +196,7 @@ return (
                               
                               :
                                   <form onSubmit={followUpdate}>
-                              <button className='btnSetProfile follow'>Follow</button>
+                              <button disabled={trues} className='btnSetProfile follow'>Follow</button>
                           </form>
                       
                      

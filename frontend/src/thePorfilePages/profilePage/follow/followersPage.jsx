@@ -18,6 +18,7 @@ const [update,setUpdate] = useState(null)
   const [backAndFourth,setBackAndFourth] = useState(false)
   const [Urprofile, setProfile] = useState([])
   const [FollowersUsers, setFollowersUsers] = useState([])
+  const [trues,setTrue] = useState(false)
 
   const funLogin = async () => {
     const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
@@ -31,6 +32,8 @@ const [update,setUpdate] = useState(null)
         
     }, [])
     const followUpdate = async (e) => {
+      setTrue(true)
+
       e.preventDefault()
       const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${update}`)
       , {
@@ -64,6 +67,8 @@ const [update,setUpdate] = useState(null)
   }// we follow the user
 
   const followDelete = async (e) => {
+    setTrue(false)
+
     e.preventDefault()
     const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${dele}`)
     , {
@@ -209,7 +214,7 @@ const [update,setUpdate] = useState(null)
                                     </form>
                                     :
                                         <form onSubmit={followUpdate}>
-                                    <button onClick={() => setUpdate(res._id)} className='btnSetProfile follow'>Follow</button>
+                                    <button disabled={trues} onClick={() => setUpdate(res._id)} className='btnSetProfile follow'>Follow</button>
                                 </form>
                                 
                            

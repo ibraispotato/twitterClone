@@ -1,4 +1,18 @@
 @media(max-width:540px){
+    
+    .TheLeft.settings.delete{
+        display: none;
+    }
+    .motherTweets {
+        flex-direction: column;
+    }
+    .bottomName{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+    
+    }
     .photoPost {
         width: 300px;
     }
@@ -362,6 +376,10 @@
 }
 
 @media(max-width:375px){
+    .btnSetProfile.follow {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
     .photoPost {
         width: 90%;
     }
@@ -414,7 +432,23 @@
         }
 }
 @media(max-width:320px){
-    
+    .btnSetProfile.follow {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+    .dotBTn.Center{
+        display: none;
+    }
+    .motherTweets{
+        width: auto;
+    }
+    .bottomName {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+
     .YourAccNav.settings {
         width: auto;
     }
@@ -461,6 +495,24 @@
 }
 
 @media(min-width:549px){
+    .motherTweets{
+        width: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    .bottomName{
+        display: flex;
+        gap: 10px;
+    }
+    .twitterPhoto {
+        height: 100%;
+        cursor: pointer;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+        /* border: 2px solid rgb(255, 0, 0); */
+        /* border: 1px solid rgba(255, 255, 255, 0.219); */
+    }
     input[type=text]{
         width: 100%;
     }
@@ -590,6 +642,11 @@
     }
 }
 @media(min-width:700px){
+    .motherTweets {
+        width: 200%;
+        display: flex;
+        /* flex-wrap: wrap; */
+    }
     .twitterPhoto {
         width: 300px;
     }
@@ -636,7 +693,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        gap: 50%;
+        gap: 200px;
         position: relative;
         transform: translate(0%, -30%);
     }
@@ -796,6 +853,10 @@
     }
 }
 @media(min-width:1024px){
+    .btnSetProfile.follow {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .twitterPhoto {
         width: 350px;
     }
@@ -966,6 +1027,10 @@
     }
 }
 @media(min-width:1280px){
+    .btnSetProfile.follow {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     
     .AllComp {
         display: flex;
@@ -1155,6 +1220,10 @@
 }
 }
 @media(min-width:1716px){
+    .btnSetProfile.follow {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
     .motherOfPostPage.post {
         margin-top: 3%;
     }
@@ -1206,6 +1275,11 @@
     
 }
 @media(min-width:2560px){
+    .btnSetProfile.follow {
+        padding: 10px;
+        padding-left: 17px;
+        padding-right: 17px;
+    }
     .twitterPhoto {
         width: 400px;
     }
@@ -1493,8 +1567,8 @@ h3 {
     font-size: 22px;
 }
 .btnSetProfile {
-    padding: 12px;
-    font-size: 17px;
+    padding: 10px;
+    font-size: 20px;
 }
    
 .btnSetProfile.follow{

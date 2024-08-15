@@ -23,6 +23,7 @@ const photo = Urprofile && Urprofile.photo
     const [loding, setLoding] = useState(false)
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
+    const [trues,setTrue] = useState(false)
     const funLogin = async () => {
       const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
       const json = await response.json()
@@ -38,6 +39,7 @@ const photo = Urprofile && Urprofile.photo
       }, [user])
     
     const followUpdate = async (e) => {
+      setTrue(true)
         e.preventDefault()
         const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersUpdate/${id}`)
         , {
@@ -69,6 +71,8 @@ const photo = Urprofile && Urprofile.photo
     }
     }//follow the users
     const followDelete = async (e) => {
+      setTrue(false)
+
         e.preventDefault()
         const followersResponse = await fetch((`${process.env.REACT_APP_APi_LINK}/clone/followersDelete/${id}`)
         , {
@@ -162,13 +166,13 @@ return (
                             
                         Urprofile?.follwoing?.includes(user?._id) ?
                                     <form onSubmit={followDelete}>
-                                        <button onMouseLeave={() => setUnfollow(false)} onMouseEnter={() => setUnfollow(true)}
+                                        <button onMouseLeave={() => setUnfollow(false)} onMouseEnter={() => setUnfollow(true)} 
                                         className={unfollow?`btnSetProfile unfollow`:`btnSetProfile following`}>{unfollow?"Unfollow":"following"}</button>
                                     </form>
                                     
                                     :
                                         <form onSubmit={followUpdate}>
-                                    <button className='btnSetProfile follow'>Follow</button>
+                                    <button disabled={trues} className='btnSetProfile follow'>Follow</button>
                                 </form>
                             
                            

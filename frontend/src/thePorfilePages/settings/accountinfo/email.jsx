@@ -46,7 +46,7 @@ const { user,dispatch } = Hooksregisters()
         }, [dispatch])
 return (
     <div className='AllComps'>
-      <div className='TheLeft settings'>
+      <div className='TheLeft settings delete'>
             <Left setBackAndFourth={setBackAndFourth} backAndFourth={backAndFourth}/>
         </div>
         <div className='allCenterDivSettings urnameSettings'>
@@ -87,7 +87,7 @@ return (
         <div className='alldivInfoAcc'>
         <div className='allCenterDivSettingss'>
                 <div className='YourAccNav'>
-                <Link className='iconArrow' to={"/your-account-information/account"}>
+                <Link className='iconArrow' to={"/settings/account"}>
                             <FontAwesomeIcon icon={faArrowLeft}/>
                 </Link>
                         <span className='settingsText'>Your Account</span>

@@ -794,7 +794,7 @@ const followingUpdate = async (req, res) => {
         req.user = await User.findOne({_id}).select("_id")
     try {
         const userId = req.user._id
-        const text = await User.findByIdAndUpdate({ _id: id }, { $push: { follwoing: userId } })
+        await User.findByIdAndUpdate({ _id: id }, { $push: { follwoing: userId } })
         const workouts = await User.findOne({_id:id}).sort({ createdAt: -1 })
         res.status(200).json(workouts)
     }

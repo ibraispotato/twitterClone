@@ -322,13 +322,17 @@ useEffect(() => {
                   </div>
                   <Link className='linkUser' to={`profile/${resProfiles?._id}`}>
             <div className='allOfTheTextTweet'>
-              <div className='motherTweets' >
+            <div className='motherTweets' >
                 <div key={theIndex} className='userTweet'>
                   <span key={theIndex} className='nameOfTheTweet'>{resProfiles?.name}</span>
-                <span key={theIndex}>@{resProfiles?.userName}</span>
+                
                 </div>
-                <span>•</span>
-                {maps===null?<span></span>:<span>{formatDistanceToNow(new Date(res?.createdAt))}</span>}
+                <div className='bottomName'>
+                  <span className='userNameText' key={theIndex}>@{resProfiles?.userName}</span>
+                <span className='dotBTn Center'>•</span>
+                <span className='dateHomeText'>{formatDistanceToNow(new Date(res?.createdAt))}</span>
+                </div>
+                
                       </div>
               <Link className='linkTweet' to={`/tweet/${res?._id}`}>
                       

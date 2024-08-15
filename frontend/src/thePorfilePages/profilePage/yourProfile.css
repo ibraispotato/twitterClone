@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50%;
+    gap: 200px;
     position: relative;
     transform: translate(0%,-30%);
     

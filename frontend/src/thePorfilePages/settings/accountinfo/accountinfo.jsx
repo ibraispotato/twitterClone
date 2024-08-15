@@ -25,7 +25,7 @@ const { user } = Hooksregisters()
     
 return (
     <div className='AllComps'>
-      <div className='TheLeft settings'>
+      <div className='TheLeft settings delete'>
             <Left setBackAndFourth={setBackAndFourth} backAndFourth={backAndFourth}/>
         </div>
         <div className='allCenterDivSettings accountInfo'>

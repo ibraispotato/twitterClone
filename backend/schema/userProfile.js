@@ -48,13 +48,11 @@ const SCHEMA = new schema({
     myQouteRetweet: {
         type: Array,
     },
-    ////////////////////fixing the comments ASAP////////////////////////////////////////
     myComments: {
         type: Array,
         
         
     },
-    /////////////////////////updating the comment////////////////////////////////////////////////
     follwoing: {
         type: Array,
     },
@@ -196,5 +194,12 @@ SCHEMA.statics.Email = async function (email, password) {
 SCHEMA.statics.getUser = async function (name) {
     const user = await this.find( name )
     return user
+}
+SCHEMA.statics.follow = async function(userName){
+    const username = await this.findOne({ userName })
+    if(username) {
+        throw Error("This user is already in follow")
+    }
+    return username
 }
 module.exports = mongoose.model("userSchema", SCHEMA)
