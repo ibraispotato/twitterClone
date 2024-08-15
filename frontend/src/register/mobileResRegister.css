@@ -110,10 +110,9 @@
         width: 60%;
         padding: 15px;
     }
-    .allLoginDiv {
+    .allLoginDiv{
         width: 100%;
         gap: 0px;
-        height: 75%;
     }
     .err{
         width: 300px;
@@ -150,10 +149,9 @@
         width: 60%;
         padding: 15px;
     }
-    .allLoginDiv {
+    .allLoginDiv{
         width: 100%;
         gap: 0px;
-        height: 70%;
     }
     .err{
         width: 300px;
