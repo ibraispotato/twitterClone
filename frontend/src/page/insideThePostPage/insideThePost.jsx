@@ -14,9 +14,9 @@
             const [Urprofile, setProfile] = useState([])
             const [backAndFourth, setBackAndFourth] = useState(false)
             const idLocal = localStorage.getItem("user")
-            const [thePost, setThePost] = useState([])
+            const [thePost, setThePost] = useState(null)
             const [theProfilePost, setTheProfile] = useState(null)
-            const [theProfilePostReply, setThePostReply] = useState([])
+            const [theProfilePostReply, setThePostReply] = useState(null)
             const { id } = useParams()
             const [Thecomments, setThecomments] = useState(null)
             const [loding, setLoding] = useState(false)
@@ -60,10 +60,21 @@
             const usersOfTheFollwoingFunction = async (e) => {
                 const oks =  thePost !== null ? await thePost?.comments?.toReversed()?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`) :
                 await theProfilePostReply?.comments?.toReversed()?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`)
-                const promisidz = oks?.map(url => fetch(url).then(response => response.json()))
-                const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
-                setThecomments(fetcPromisidz);
+
+                const fetchTodo = async (url) => {
+                const res = await fetch(url);
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+                };
                 
+                await Promise?.all(oks?.map((item) => fetchTodo(item)))
+                .then((res) => {
+                    setThecomments(res.flat());
+                    // console.log(res)
+                })
+                .catch((err) => console.error(err));
                 
             }//we make Promise all basically when you get array of the api's we fetch them all if theres a post we fetch the comment of the post if there's no post we fetch the comment of the reply
             useEffect(() => {
