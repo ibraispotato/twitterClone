@@ -72,7 +72,7 @@ const SSignup = () => {
                   <input placeholder='Email' readonly="readonly" className='EmailInputs login' autocorrect="on" type='email' value={email} />
                   <input placeholder='password' readonly="readonly" className='EmailInputs login' autocorrect="on" type='password' value={password} />
                     <input placeholder='Your Name'  className='EmailInputs login'  value={name} autocorrect="on" onChange={(e) => setName(e.target.value)}/>
-                    <input placeholder='User Name' className='EmailInputs login' value={userName} autocorrect="on" onChange={(e) => setUserName(e.target.value)}/>
+                    <input placeholder='User Name' className='EmailInputs login' value={userName} autocorrect="on" onChange={(e) => setUserName(e.target.value.toLocaleLowerCase())}/>
                     {/* <input placeholder='User Name' type='text' 
                     className='EmailInputs' value={bio} onChange={(e) => setBio(e.target.value)}/> */}
                     {/* <FontAwesomeIcon className='faUpload' icon={faUpload}/> */}

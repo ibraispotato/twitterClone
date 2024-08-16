@@ -25,11 +25,7 @@ const YourProfile = () => {
     const navigates = useNavigate()
     const [names, setSearch] = useState("")
 
-
 const searchMotherFunction = async (e) => {
-  const formdata = new FormData()
-  
-  formdata.append('names', names)
   const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getUserByName`, {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
@@ -43,6 +39,7 @@ const searchMotherFunction = async (e) => {
     // console.log(json)
     setMotherAccountSearch(json)
     // navigates(`/search/${names}`)
+    
   }
 
 }///serach for an accounts
@@ -54,7 +51,7 @@ searchMotherFunction()
   
 }, [names])//renders the search input
 
-console.log(Urprofile)
+console.log(motheraccountSearch)
 
 const funLogin = async () => {
     const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getAllUsers`)

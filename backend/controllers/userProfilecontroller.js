@@ -49,16 +49,7 @@ const GetAllUsers = async (req, res) => {
     // console.log(workouts)
     res.status(200).json(workouts)
 }
-const GetBYName = async (req, res) => {
-    const { names } = req.body
-    // console.log(name)
-    // const getuser = await User.find({})
-    // const name = getuser
-    // const o = name[1]?.name.split("")
-    // console.log(o)
-    const getUserByName = await User.getUser({ name: { $regex: names } })
-    res.status(200).json(getUserByName)
-}
+
 const GetBYName2= async (req, res) => {
     const { names } = req.params
     // console.log(name)
@@ -211,6 +202,14 @@ const getUser = async (req, res) => {
         myLikes: text.myLikes, myQouteRetweet: text.myQouteRetweet, myComments: text.myComments, follwoing: text.follwoing,
         followers: text.followers,idOfThePost: text.idOfThePost})
 }
+const GetBYName = async (req, res) => {
+    const { names } = req.body
+    // const getuser = await User.find({})
+    // const name = getuser
+    // const o = name[1]?.name.split("")
+    const getUserByName = await User.find({ userName: { $regex: names } })
+    res.status(200).json(getUserByName)
+}
 const forgotpassword = async (req, res)=>{
     const { email } = req.body
     try {
@@ -263,11 +262,10 @@ const updateUser = async (req,res) => {
     const { name, bio,photo:thePhoto } = req.body
     // const { photo } = req.file.filename
     const { id } = req.params
-    
+    console.log(thePhoto)
     try {
-        const photo = 'https://res.cloudinary.com/dyoy5gl6a/image/upload/v1723572482/qf1z3syzesgzc6oeianl.png'
         if(thePhoto==="undefined"){
-        let text= await User.findOneAndUpdate({ _id: id }, {name,photo,bio})
+        let text= await User.findOneAndUpdate({ _id: id }, {name,bio})
             res.status(200).json({text})
         }
         else{

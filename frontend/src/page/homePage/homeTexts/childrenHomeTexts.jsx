@@ -424,7 +424,7 @@ useEffect(() => {
         <div className='copyBtn'>
           <div className='iconThreeDots'>
             {/* //////////////////////// to copy the link of the post //////////////////////////// */}
-            <button onClick={() => navigator.clipboard.writeText(`${process.env.REACT_APP_APi_LINK}/tweet/${res?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`${process.env.REACT_APP_APi_FRONT}/tweet/${res?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>

@@ -17,7 +17,6 @@ import "./editProfileCss.css"
         const maxlengthName = useState(50)
         const maxLengthBio = useState(160)
         const { id } = useParams()
-        const photos= user && Urprofile.photo
         // theres a file for the update user
         const { epdateProfile,error,setError } = UpdateProfile()
         const funLogin = async () => {
@@ -41,9 +40,10 @@ import "./editProfileCss.css"
             
         const uploadPhoto =  (e) => {
             e.preventDefault()
-            setProfilePic(e.target.files[0])
+            setProfilePic(e.target.files?.[0])
+            
           }
-          
+          console.log(photo)
         useEffect(() => {
             return () => {
                     funLogin()

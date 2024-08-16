@@ -26,9 +26,9 @@ const Left = ({setBackAndFourth,backAndFourth,}) => {
     setProfile(json)
     }///get your account from the localhost
     useEffect(() => {
-        return() => {
+
           funLogin()
-        }
+        
     }, [user])
     
   const handleScroll = () => {
@@ -42,7 +42,6 @@ const Left = ({setBackAndFourth,backAndFourth,}) => {
     }
     lastScrollTop.current = currentScrollTop; // Update last scroll position
   };
-
   useEffect(() => {
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
@@ -125,7 +124,7 @@ const Left = ({setBackAndFourth,backAndFourth,}) => {
               <div onClick={() => setBackAndFourth(prev => !prev)} className='down'>
                 <div className='allimgandtext'>
                   
-                <img loading='lazy' className='img' src={user?.photo?.map((res)=> res.url)?.[0]||user?.photo} />
+                <img loading='lazy' className='img' src={Urprofile?.photo?.map((res)=> res.url)?.[0]===undefined?Urprofile?.photo:Urprofile?.photo?.map((res)=> res.url)?.[0]} />
                 <div className='names'>
                   <span className='nameText'>{user?.name}</span>
                   <span>@{user?.userName}</span>

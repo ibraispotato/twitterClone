@@ -636,7 +636,7 @@ return ()=>clearTimeout(time)
                   </div>
                   <div className='copyBtn'>
           <div className='iconThreeDots'>
-            <button onClick={() => navigator.clipboard.writeText(`${[process.env.REACT_APP_APi_LINK]}/tweet/${resMap?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`${[process.env.REACT_APP_APi_FRONT]}/tweet/${resMap?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>
@@ -862,7 +862,7 @@ return ()=>clearTimeout(time)
         </div>
         <div className='copyBtn'>
           <div className='iconThreeDots'>
-            <button onClick={() => navigator.clipboard.writeText(`${process.env.REACT_APP_APi_LINK}/tweet/${res?._id}`)}
+            <button onClick={() => navigator.clipboard.writeText(`${process.env.REACT_APP_APi_FRONT}/tweet/${res?._id}`)}
               className='threeDotsBtn'>
                       <span className='ThreeDots'>
                         <FontAwesomeIcon icon={faArrowUpFromBracket}/>
