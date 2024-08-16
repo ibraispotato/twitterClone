@@ -9,7 +9,8 @@ export const Logins = () => {
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/login`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'content-Type':'application/x-www-form-urlencoded',
             },
             body: JSON.stringify({email,password})
         })
