@@ -76,6 +76,8 @@ function App() {
           <Route path='/settings/Change-password' element={!user?<RegisterPage />:<Resetpassword />} />
       </Routes>
       </Router>
+      <uses-permission android:name="android.permission.INTERNET" />
+
       <SpeedInsights />
     </div>
   );

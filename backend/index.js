@@ -15,7 +15,9 @@ const path = require('path');
 const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:"https://twitter-clone-hazel-omega.vercel.app"
+}))
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
