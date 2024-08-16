@@ -16,8 +16,10 @@ const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
 app.use(cors({
-    origin:("https://twitterclone-1-0x4h.onrender.com")
-}))
+    origin: '*', // Adjust this to restrict allowed origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
