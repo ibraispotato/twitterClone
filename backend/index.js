@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose')
 const cors = require('cors');
 
-;
+
 const userRouter = require("./router/userProfileRouter")
 const textRout = require("./router/testRoutes")
 const replyingRout = require("./router/replyingCommentsRoute");
@@ -15,9 +15,9 @@ const path = require('path');
 const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
-app.use(cors({}))
+app.use(cors())
 
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 app.use(express.static('images'));
 
 
