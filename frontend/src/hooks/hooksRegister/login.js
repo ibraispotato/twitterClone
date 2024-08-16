@@ -10,7 +10,7 @@ export const Logins = () => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                'content-Type':'application/x-www-form-urlencoded',
+                
             },
             body: JSON.stringify({email,password})
         })
