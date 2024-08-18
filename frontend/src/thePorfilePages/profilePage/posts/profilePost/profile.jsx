@@ -124,8 +124,8 @@ const photo = Urprofile && Urprofile.photo
       .then(data => {
         // Process the data
           setGetMyLikes(data.flat())
-          setNoText(data.length===0)
-        setLoding(data.flat().length > 0)
+        //   setNoText(data.length===0)
+        // setLoding(data.flat().length > 0)
       })
       }
       //we get the textS from the account
@@ -223,11 +223,7 @@ return (
                     <div className='borderline profile'></div>
                     <div>
                     <div>
-                    {noText?"" :!loding ?
-                            <div className='moonLoader'>
-                              <MoonLoader color="#01b3ff" size={30}/>
-                              </div>
-                            :replycomments?.map((res,idx) => (
+                    {replycomments?.map((res,idx) => (
                         <TextOfThePost res={res} idx={idx}
                             replycomments={replycomments}
                             replyComments={replyComments}
