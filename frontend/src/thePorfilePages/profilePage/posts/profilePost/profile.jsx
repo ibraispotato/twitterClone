@@ -104,15 +104,18 @@ const photo = Urprofile && Urprofile.photo
     }
     }//unfollow the users
     const replyComments = async (e) => {
+        if (!user) {
+          return 
+        }
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
         const json = await response.json()
+    setProfile(json)
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
         const promisidz = oks?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
-        setReplyComments(fetcPromisidz);
-        console.log(fetcPromisidz)
+        setReplyComments(fetcPromisidz.flat());
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oksz = await fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
       const fetchPromises = await oksz?.map(url => fetch(url));
