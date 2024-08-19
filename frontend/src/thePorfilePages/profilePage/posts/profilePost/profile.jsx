@@ -112,12 +112,12 @@ const photo = Urprofile && Urprofile.photo
     setProfile(json)
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
-        const promisidz = oks?.map(url => fetch(url).then(response => response.json()))
+        const oks = json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+        const promisidz = await oks?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
         setReplyComments(fetcPromisidz.flat());
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const oksz = await fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
+        const oksz = fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
       const fetchPromises = await oksz?.map(url => fetch(url));
       await Promise.all(fetchPromises)
       .then(responses => Promise.all(responses?.map(response => response.json())))
@@ -130,13 +130,12 @@ const photo = Urprofile && Urprofile.photo
       }
       //we get the textS from the account
       useEffect(() => {
-          if (user) {
-            return () => {
+
               replyComments()
-            }
             
-        }
-      }, [user])
+          
+        
+      }, [user,replycomments])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
