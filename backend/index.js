@@ -21,7 +21,7 @@ app.use(express.json())
 //     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
 //     credentials: true, // Allow credentials
 //   }));
-  app.use(cors({origin: 'https://twitterclone-1-clw1.onrender.com'}));
+  app.use(cors({origin: true}));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // app.get('*', (req, res) => {
