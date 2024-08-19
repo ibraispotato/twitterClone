@@ -39,7 +39,7 @@ const YourProfile = () => {
           
           
           
-      }, [])
+      }, [dispatch])
     
     const followUpdate = async (e) => {
       setTrue(true)
@@ -107,10 +107,12 @@ const YourProfile = () => {
     }
     }//unfollow the users
     const replyComments = async (e) => {
-        if (!user) {
-          return 
-        }
-        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`,{
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
         const json = await response.json()
         setProfile(json)
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,7 +136,7 @@ const YourProfile = () => {
             
           
         
-      }, [])
+      }, [dispatch])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}

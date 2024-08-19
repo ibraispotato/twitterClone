@@ -41,9 +41,6 @@ const funLogins = async () => {
     }, [])
     //////////////////////////////////////Get comments from COMMENTS OF THE POST//////////////////////////////////////////////////
       const GETREPLYFROMPOST = async () => {
-        if (!user) {
-          return
-        }
         /////////////////////////we get the users from the id paramas//////////////////////////////////////////////////////////////////////
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
         const json = await response.json()
