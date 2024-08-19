@@ -115,6 +115,7 @@ const YourProfile = () => {
         })
         const json = await response.json()
         setProfile(json)
+        
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oks = json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
         const promisidz = await oks?.map(url => fetch(url).then(response => response.json()))
@@ -126,8 +127,7 @@ const YourProfile = () => {
         const fetcPromisidzz = await Promise?.all(promisidzz).catch((err) => console.log(err))
         // Process the data
           setGetMyLikes(fetcPromisidzz?.flat())
-          setNoText(fetcPromisidzz?.flat()?.length===0)
-        setLoding(fetcPromisidzz?.flat()?.length > 0)
+
       }
       //we get the textS from the account
       useEffect(() => {
@@ -226,11 +226,7 @@ return (
                     <div className='borderline profile'></div>
                     <div>
                     <div>
-                    {noText?"" :!loding ?
-                            <div className='moonLoader'>
-                              <MoonLoader color="#01b3ff" size={30}/>
-                              </div>
-                            :replycomments?.map((res,idx) => (
+                    {replycomments?.map((res,idx) => (
                         <TextOfThePost res={res} idx={idx}
                             replycomments={replycomments}
                             replyComments={replyComments}
