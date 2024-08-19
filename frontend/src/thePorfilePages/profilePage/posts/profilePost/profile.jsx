@@ -26,9 +26,7 @@ const YourProfile = () => {
     const funLogin = async () => {
       const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`,{
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        
       
       })
       const json = await response.json()
@@ -37,12 +35,11 @@ const YourProfile = () => {
     // console.log(json)
       }//get ur user from the id paramas
       useEffect(() => {
-        return () => {
                         funLogin()
-          }
           
           
-      }, [user])
+          
+      }, [])
     
     const followUpdate = async (e) => {
       setTrue(true)
@@ -113,25 +110,17 @@ const YourProfile = () => {
         if (!user) {
           return 
         }
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
+        const json = await response.json()
+        setProfile(json)
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const oks = Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
-        const promisidz = await oks?.map(url => fetch(url,{
-          headers:
-{
-    'Content-Type': 'application/json'
-},
-        }).then(response => response.json()))
+        const oks = json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+        const promisidz = await oks?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
         setReplyComments(fetcPromisidz);
-        console.log(fetcPromisidz)
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oksz = fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
-        const promisidzz = await oksz?.map(url => fetch(url,{
-          headers:
-{
-    'Content-Type': 'application/json'
-},
-        }).then(response => response.json()))
+        const promisidzz = await oksz?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidzz = await Promise?.all(promisidzz).catch((err) => console.log(err))
         // Process the data
           setGetMyLikes(fetcPromisidzz?.flat())
@@ -145,7 +134,7 @@ const YourProfile = () => {
             
           
         
-      }, [Urprofile])
+      }, [])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
