@@ -120,12 +120,7 @@ const YourProfile = () => {
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oks = Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
-        const promisidz = await oks?.map(url => fetch(url,{
-          headers:
-{
-    'Content-Type': 'application/json'
-},
-        }).then(response => response.json()))
+        const promisidz = await oks?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
         setReplyComments(fetcPromisidz);
         console.log(fetcPromisidz)

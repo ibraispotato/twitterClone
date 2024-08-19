@@ -15,14 +15,8 @@ const path = require('path');
 const app = express()
 // fs.readFileSync(`${__dirname}\\file`);
 app.use(express.json())
-// app.use(cors({
-//     origin: 'https://your-allowed-origin.com', // Allow only specific origin
-//     methods: ['GET', 'POST'], // Allow specific methods
-//     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
-//     credentials: true, // Allow credentials
-//   }));
-  app.use(cors());
-//   app.options('*', cors());
+app.use(cors())
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 // app.get('*', (req, res) => {
