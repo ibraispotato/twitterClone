@@ -23,28 +23,16 @@ const YourProfile = () => {
     const [GetMyLikes, setGetMyLikes] = useState([])
     const [noText, setNoText] = useState(false)
     const [trues,setTrue] = useState(false)
-    const funLogin = async () => {
-      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`,{
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      const json = await response.json()
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }  
-          if (response.ok) {
-            setProfile(json)
-      }
+  const idLocal = localStorage.getItem("user")
 
-    
-    // console.log(json)
-      }//get ur user from the id paramas
+    const funLogin = async () => {
+      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idLocal)?._id}`)
+      const json = await response.json()
+      setProfile(json)
+      }///get your account from the localhost
       useEffect(() => {
-                        funLogin()
-          
-          
+  
+            funLogin()
           
       }, [user])
     
