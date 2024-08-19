@@ -29,7 +29,6 @@ const YourProfile = () => {
         headers: {
           'Content-Type': 'application/json'
         }
-      
       })
       const json = await response.json()
       if (!response.ok) {
@@ -132,12 +131,7 @@ const YourProfile = () => {
         console.log(fetcPromisidz)
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oksz = fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
-        const promisidzz = await oksz?.map(url => fetch(url,{
-          headers:
-{
-    'Content-Type': 'application/json'
-},
-        }).then(response => response.json()))
+        const promisidzz = await oksz?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidzz = await Promise?.all(promisidzz).catch((err) => console.log(err))
         // Process the data
           setGetMyLikes(fetcPromisidzz?.flat())
