@@ -107,24 +107,20 @@ const photo = Urprofile && Urprofile.photo
         if (!user) {
           return 
         }
-        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
-        const json = await response.json()
-        setProfile(json)
-
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const oks = json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+        const oks = Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
         const promisidz = await oks?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
-        setReplyComments(fetcPromisidz.flat());
+        setReplyComments(fetcPromisidz);
+        console.log(fetcPromisidz)
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oksz = fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
         const promisidzz = await oksz?.map(url => fetch(url).then(response => response.json()))
         const fetcPromisidzz = await Promise?.all(promisidzz).catch((err) => console.log(err))
         // Process the data
-          setGetMyLikes(fetcPromisidzz.flat())
-          setNoText(fetcPromisidzz.length===0)
-        setLoding(fetcPromisidzz.flat().length > 0)
-
+          setGetMyLikes(fetcPromisidzz?.flat())
+          setNoText(fetcPromisidzz?.flat()?.length===0)
+        setLoding(fetcPromisidzz?.flat()?.length > 0)
       }
       //we get the textS from the account
       useEffect(() => {
@@ -133,11 +129,11 @@ const photo = Urprofile && Urprofile.photo
             
           
         
-      }, [user])
+      }, [Urprofile])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
-            <Left Urprofile={Urprofile} setBackAndFourth={setBackAndFourth} backAndFourth={backAndFourth}/>
+            <Left setBackAndFourth={setBackAndFourth} backAndFourth={backAndFourth}/>
         {/* </div> */}
         
             <div className='center'>
