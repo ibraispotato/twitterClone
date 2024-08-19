@@ -42,9 +42,8 @@ const YourProfile = () => {
     // console.log(json)
       }//get ur user from the id paramas
       useEffect(() => {
-        return () => {
                         funLogin()
-          }
+          
           
           
       }, [user])
