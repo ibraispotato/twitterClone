@@ -131,7 +131,10 @@ const photo = Urprofile && Urprofile.photo
       //we get the textS from the account
       useEffect(() => {
           if (user) {
-            replyComments()
+            return () => {
+              replyComments()
+            }
+            
         }
       }, [user])
 return (
