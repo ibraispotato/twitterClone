@@ -25,13 +25,21 @@ const YourProfile = () => {
     const [trues,setTrue] = useState(false)
     const funLogin = async () => {
       const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`,{
-        headers:
-{
-    'Content-Type': 'application/json'
-},
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      
       })
       const json = await response.json()
-    setProfile(json)
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }  
+          if (response.ok) {
+            setProfile(json)
+      }
+
+    
     // console.log(json)
       }//get ur user from the id paramas
       useEffect(() => {
