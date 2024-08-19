@@ -21,7 +21,8 @@ app.use(express.json())
 //     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
 //     credentials: true, // Allow credentials
 //   }));
-  app.use(cors({origin: true}));
+  app.use(cors());
+  app.options('*', cors());
 app.use(express.static(path.join(__dirname, 'build')));
 
 // app.get('*', (req, res) => {
