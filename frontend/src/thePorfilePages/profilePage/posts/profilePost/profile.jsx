@@ -109,7 +109,7 @@ const photo = Urprofile && Urprofile.photo
         }
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
         const json = await response.json()
-    setProfile(json)
+        setProfile(json)
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oks = json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
@@ -118,15 +118,13 @@ const photo = Urprofile && Urprofile.photo
         setReplyComments(fetcPromisidz.flat());
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const oksz = fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
-      const fetchPromises = await oksz?.map(url => fetch(url));
-      await Promise.all(fetchPromises)
-      .then(responses => Promise.all(responses?.map(response => response.json())))
-      .then(data => {
+        const promisidzz = await oksz?.map(url => fetch(url).then(response => response.json()))
+        const fetcPromisidzz = await Promise?.all(promisidzz).catch((err) => console.log(err))
         // Process the data
-          setGetMyLikes(data.flat())
-          setNoText(data.length===0)
-        setLoding(data.flat().length > 0)
-      })
+          setGetMyLikes(fetcPromisidzz.flat())
+          setNoText(fetcPromisidzz.length===0)
+        setLoding(fetcPromisidzz.flat().length > 0)
+
       }
       //we get the textS from the account
       useEffect(() => {
@@ -135,7 +133,7 @@ const photo = Urprofile && Urprofile.photo
             
           
         
-      }, [user,replycomments])
+      }, [user])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
