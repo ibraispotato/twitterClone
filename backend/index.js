@@ -22,7 +22,7 @@ app.use(express.json())
 //     credentials: true, // Allow credentials
 //   }));
   app.use(cors());
-  app.options('*', cors());
+//   app.options('*', cors());
 app.use(express.static(path.join(__dirname, 'build')));
 
 // app.get('*', (req, res) => {
