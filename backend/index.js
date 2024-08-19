@@ -26,11 +26,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.static('images'));
 app.use(cors({
-    'allowedHeaders': ['sessionId', 'Content-Type'],
-    'exposedHeaders': ['sessionId'],
-    'origin': '*',
-    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    'preflightContinue': false
+    credentials: true
   }));
 app.use((req, res, next) => {
     console.log(req.path , req.method)
