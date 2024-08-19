@@ -101,33 +101,33 @@ const YourProfile = () => {
             funLogin()
     }
     }//unfollow the users
-    const replyComments = async (e) => {
-        if (!user) {
-          return 
-        }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const oks = Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
-        const promisidz = await oks?.map(url => fetch(url).then(response => response.json()))
-        const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
-        setReplyComments(fetcPromisidz);
-        console.log(fetcPromisidz)
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const oksz = fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
-        const promisidzz = await oksz?.map(url => fetch(url).then(response => response.json()))
-        const fetcPromisidzz = await Promise?.all(promisidzz).catch((err) => console.log(err))
-        // Process the data
-          setGetMyLikes(fetcPromisidzz?.flat())
-          setNoText(fetcPromisidzz?.flat()?.length===0)
-        setLoding(fetcPromisidzz?.flat()?.length > 0)
-      }
-      //we get the textS from the account
-      useEffect(() => {
+    // const replyComments = async (e) => {
+    //     if (!user) {
+    //       return 
+    //     }
+    //     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //     const oks = Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+    //     const promisidz = await oks?.map(url => fetch(url).then(response => response.json()))
+    //     const fetcPromisidz = await Promise?.all(promisidz).catch((err) => console.log(err))
+    //     setReplyComments(fetcPromisidz);
+    //     console.log(fetcPromisidz)
+    //     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //     const oksz = fetcPromisidz?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
+    //     const promisidzz = await oksz?.map(url => fetch(url).then(response => response.json()))
+    //     const fetcPromisidzz = await Promise?.all(promisidzz).catch((err) => console.log(err))
+    //     // Process the data
+    //       setGetMyLikes(fetcPromisidzz?.flat())
+    //       setNoText(fetcPromisidzz?.flat()?.length===0)
+    //     setLoding(fetcPromisidzz?.flat()?.length > 0)
+    //   }
+    //   //we get the textS from the account
+    //   useEffect(() => {
 
-              replyComments()
+    //           replyComments()
             
           
         
-      }, [Urprofile])
+    //   }, [Urprofile])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
@@ -217,7 +217,7 @@ return (
                     <div className='borderline profile'></div>
                     <div>
                     <div>
-                    {noText?"" :!loding ?
+                    {/* {noText?"" :!loding ?
                             <div className='moonLoader'>
                               <MoonLoader color="#01b3ff" size={30}/>
                               </div>
@@ -230,7 +230,7 @@ return (
                             
                         />
                         
-                    ))}
+                    ))} */}
                     
                 </div>
                     
