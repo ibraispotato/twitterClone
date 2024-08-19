@@ -24,7 +24,12 @@ const YourProfile = () => {
     const [noText, setNoText] = useState(false)
     const [trues,setTrue] = useState(false)
     const funLogin = async () => {
-      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
+      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`,{
+        headers:
+{
+    'Content-Type': 'application/json'
+},
+      })
       const json = await response.json()
     setProfile(json)
     // console.log(json)
