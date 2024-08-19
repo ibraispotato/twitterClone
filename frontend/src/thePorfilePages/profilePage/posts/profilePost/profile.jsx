@@ -28,7 +28,8 @@ const YourProfile = () => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+         mode: 'no-cors'
       
       })
       const json = await response.json()
