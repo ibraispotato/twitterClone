@@ -26,7 +26,7 @@ const YourProfile = () => {
   const idLocal = localStorage.getItem("user")
 
     const funLogin = async () => {
-      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${JSON.parse(idLocal)?._id}`)
+      const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
       const json = await response.json()
       setProfile(json)
       }///get your account from the localhost
