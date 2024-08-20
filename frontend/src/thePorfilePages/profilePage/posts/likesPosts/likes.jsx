@@ -59,7 +59,7 @@ const funLogins = async () => {
   
       ////////////////////////////////////////GET reply FROM comments/////////////////////////////////////////////////////////////////
 
-      const oko = await json?.myLikes?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress}`)
+      const oko = await json?.myLikes?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress}`)
         const fetchPromises = await oko?.map(url => fetch(url));
       const promis = await Promise.all(fetchPromises)
       const fetcPromis = await Promise.all(promis.map(response =>
