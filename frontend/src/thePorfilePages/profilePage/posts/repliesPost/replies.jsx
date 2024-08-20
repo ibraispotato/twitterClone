@@ -53,13 +53,13 @@ const funLogins = async () => {
         ////////////////////////////////////////GET COMMENTS FROM REPLY/////////////////////////////////////////////////////////////////
         const oks = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress?.idText}`).then(response => response.json()));
         const GetReplyPromis = await Promise?.all(oks).catch((err) => console.log(err))
-        const getReplyFetcPromis = await Promise.all(GetReplyPromis)
-        setGetCommentsFromPost(getReplyFetcPromis.reverse())
+        const getReplyFetcPromis = await Promise.all(GetReplyPromis.flat())
+        setGetCommentsFromPost(getReplyFetcPromis.flat().reverse())
         ////////////////////////////////////////GET reply FROM comments/////////////////////////////////////////////////////////////////
         const oko = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${ress?.idText}`).then(response => response.json()));
         const fetchPromises = await Promise.all(oko).catch((err) => console.log(err))
         const promis = await Promise.all(fetchPromises);
-        setGetCommentsFromComments(promis.reverse())
+        setGetCommentsFromComments(promis.flat().reverse())
         ////////////////////////////////////////GET users FROM comments/////////////////////////////////////////////////////////////////
         const oksz = await fetcPromisidz.map(ress => fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idOfTheReplyer}`).then(response => response.json()));
         const fetchPromisesz = await Promise.all(oksz).catch((err) => console.log(err))
@@ -73,6 +73,7 @@ const funLogins = async () => {
         const proz = await Promise.all(fetcPromisid);
         
         setGetProfileOfThePost(proz?.flat().reverse())
+        console.log(GetReplyPromis)
         setNoText(proz?.flat()?.length===0)
         setLoding(proz?.flat()?.length > 0)
       }

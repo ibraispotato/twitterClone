@@ -54,8 +54,8 @@ const funLogins = async () => {
       const fetchPromisesGetReply =  await oks?.map(url => fetch(url));
       const GetReplyPromis = await Promise?.all(fetchPromisesGetReply)
       const getReplyFetcPromis =  await Promise?.all(GetReplyPromis?.map(response => response.json())).catch(err => console.error(err));
-      setMyLikes(getReplyFetcPromis.reverse())
-      // console.log(getReplyFetcPromis)
+      setMyLikes(getReplyFetcPromis.flat().reverse())
+      console.log(getReplyFetcPromis)
   
   
       ////////////////////////////////////////GET reply FROM comments/////////////////////////////////////////////////////////////////
@@ -68,11 +68,11 @@ const funLogins = async () => {
         // console.log(true)
       )).catch(err => console.error(err));
       setMyLikes2(fetcPromis.reverse())
-      // console.log(getReplyFetcPromis)
+      console.log(fetcPromis)
       // console.log(fetcPromis)
   
       /////////////////////if the getReplyFetcPromis array gets null we replace it with fetcPromis arfray////////////////////////////////////////////////////////////////////////////
-      const mapso = getReplyFetcPromis?.map(((res, index) => res === null ? fetcPromis?.[index] : res))
+      const mapso = getReplyFetcPromis.flat()?.map(((res, index) => res === null ? fetcPromis.flat()?.[index] : res))
       console.log(mapso.filter((res) => res!==null))
       
       ////////////////////////////////////////GET users FROM comments/////////////////////////////////////////////////////////////////
