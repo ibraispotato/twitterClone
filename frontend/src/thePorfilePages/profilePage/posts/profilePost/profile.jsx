@@ -35,9 +35,8 @@ const YourProfile = () => {
     // console.log(json)
       }//get ur user from the id paramas
       useEffect(() => {
-        return () => {
           funLogin()
-        }
+        
                         
       }, [])
     
@@ -131,11 +130,10 @@ const YourProfile = () => {
       }
       //we get the textS from the account
       useEffect(() => {
-        return () => {
           replyComments()
-        }
+        
               
-      }, [Urprofile])
+      }, [])
 //       const GetUsers = async () => {
 //         const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
 //         const fetchTodo = async (url) => {
