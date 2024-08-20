@@ -154,7 +154,7 @@ const YourProfile = () => {
       }
       useEffect(() => {
         GetUsers()
-}, [])
+}, [replycomments])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
