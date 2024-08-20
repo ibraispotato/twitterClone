@@ -130,6 +130,12 @@ const YourProfile = () => {
           console.error('Error fetching data:', error);
       }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      }
+      //we get the textS from the account
+      useEffect(() => {
+              replyComments()
+      }, [Urprofile])
+      const GetUsers = async () => {
         const oksz = replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
         try {
           // Map URLs to fetch promises
@@ -148,21 +154,13 @@ const YourProfile = () => {
           
           // Do something with the JSON responses
                     setGetMyLikes(jsonResponses?.flat())
-
       } catch (error) {
           console.error('Error fetching data:', error);
       }
-
-  
       }
-      //we get the textS from the account
       useEffect(() => {
-
-              replyComments()
-            
-          
-        
-      }, [Urprofile])
+        GetUsers()
+}, [replycomments])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
