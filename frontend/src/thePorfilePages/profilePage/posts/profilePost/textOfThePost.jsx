@@ -340,7 +340,7 @@ useEffect(() => {
           </Link>
               
             </div>
-        {!res?.retweet.includes(user?._id) ?
+        {!res?.retweet?.includes(user?._id) ?
           <>
             <div className='ope'>
             {clickRetweet ?

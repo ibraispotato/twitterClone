@@ -108,27 +108,25 @@ const YourProfile = () => {
     }//unfollow the users
     const replyComments = async (e) => {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        const urls = Urprofile?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
-        try {
-          // Map URLs to fetch promises
-          const fetchPromises = urls?.map(url => fetch(url));
-          
-          // Wait for all fetch requests to complete
-          const responses = await Promise.all(fetchPromises);
-          
-          // Process each response
-          const jsonResponses = await Promise.all(responses.map(async response => {
-              if (!response.ok) {
-                  throw new Error(`HTTP error! status: ${response.status}`);
-              }
-              return response.json();
-          }));
-          
-          // Do something with the JSON responses
-          setReplyComments(jsonResponses);
-      } catch (error) {
-          console.error('Error fetching data:', error);
-      }
+        const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
+    const json = await response.json()
+    const oks = json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+      
+      const fetchTodo = async (url) => {
+        const res = await fetch(url);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      };
+      
+      await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
+        .then((res) => {
+          setReplyComments(res.flat());
+          // console.log(res.flat());
+        
+        })
+        .catch((err) => console.error(err));
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       }
       //we get the textS from the account
@@ -136,27 +134,24 @@ const YourProfile = () => {
               replyComments()
       }, [Urprofile])
       const GetUsers = async () => {
-        const oksz = replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)
-        try {
-          // Map URLs to fetch promises
-          const fetchPromises = oksz?.map(url => fetch(url));
+        const oks = replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
+      
+        const fetchTodo = async (url) => {
+          const res = await fetch(url);
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        };
+        
+        await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
+          .then((res) => {
+            setGetMyLikes(res.flat());
+            // console.log(res.flat());
           
-          // Wait for all fetch requests to complete
-          const responses = await Promise.all(fetchPromises);
-          
-          // Process each response
-          const jsonResponses = await Promise.all(responses.map(async response => {
-              if (!response.ok) {
-                  throw new Error(`HTTP error! status: ${response.status}`);
-              }
-              return response.json();
-          }));
-          
-          // Do something with the JSON responses
-                    setGetMyLikes(jsonResponses?.flat())
-      } catch (error) {
-          console.error('Error fetching data:', error);
-      }
+          })
+          .catch((err) => console.error(err));
+      
       }
       useEffect(() => {
         GetUsers()
