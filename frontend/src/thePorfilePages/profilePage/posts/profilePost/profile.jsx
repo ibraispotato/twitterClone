@@ -122,7 +122,7 @@ const YourProfile = () => {
       
       await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
         .then((res) => {
-          setReplyComments(res.flat());
+          setReplyComments(res.flat().reverse());
           // console.log(res.flat());
         
         })
@@ -145,7 +145,7 @@ const YourProfile = () => {
         
         await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
           .then((res) => {
-            setGetMyLikes(res.flat());
+            setGetMyLikes(res.flat().reverse());
             // console.log(res.flat());
           
           })
