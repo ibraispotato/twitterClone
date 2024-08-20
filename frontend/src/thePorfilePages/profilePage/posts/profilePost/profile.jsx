@@ -131,7 +131,10 @@ const YourProfile = () => {
       }
       //we get the textS from the account
       useEffect(() => {
-              replyComments()
+        return () => {
+          replyComments()
+        }
+              
       }, [])
 //       const GetUsers = async () => {
 //         const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
