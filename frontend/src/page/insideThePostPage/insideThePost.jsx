@@ -58,8 +58,8 @@
                     
                 }, [])
             const usersOfTheFollwoingFunction = async (e) => {
-                const oks =  thePost !== null ? await thePost?.comments?.toReversed()?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`) :
-                await theProfilePostReply?.comments?.toReversed()?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`)
+                const oks =  thePost !== null ? await thePost?.comments?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`) :
+                await theProfilePostReply?.comments?.map(res => `${process.env.REACT_APP_APi_LINK}/clone/replying/getreplyingComments/${res}`)
 
                 const fetchTodo = async (url) => {
                 const res = await fetch(url);
@@ -71,7 +71,7 @@
                 
                 await Promise?.all(oks?.map((item) => fetchTodo(item)))
                 .then((res) => {
-                    setThecomments(res.flat());
+                    setThecomments(res.flat().reverse());
                     // console.log(res)
                 })
                 .catch((err) => console.error(err));
