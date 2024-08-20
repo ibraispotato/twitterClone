@@ -253,7 +253,7 @@ useEffect(() => {
     <Link className='linkTweet' to={`/tweet/${res?._id}`}>
       
         <div>
-          {GetMyLikes&&GetMyLikes?.map((resProfiles,theIndex) => (
+          {GetMyLikes&&GetMyLikes?.toReversed()?.map((resProfiles,theIndex) => (
         <div key={idx} className='twitterPostAll'>
           <div className='motherOfAccountNameTwitterPost'>
                 <div className='accountNameTwitterPost'>
