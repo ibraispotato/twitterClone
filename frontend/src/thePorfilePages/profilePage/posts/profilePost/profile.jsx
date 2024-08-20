@@ -35,6 +35,7 @@ const YourProfile = () => {
     // console.log(json)
       }//get ur user from the id paramas
       useEffect(() => {
+        
           funLogin()
         
                         
@@ -109,7 +110,7 @@ const YourProfile = () => {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
-    const oks = await json.idOfThePost?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${ress}`)
+    const oks = await json.idOfThePost.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/GetOneText/${ress}`)
       
       const fetchTodo = async (url) => {
         const res = await fetch(url);
@@ -130,9 +131,7 @@ const YourProfile = () => {
       }
       //we get the textS from the account
       useEffect(() => {
-          replyComments()
-        
-              
+              replyComments()
       }, [])
       const GetUsers = async () => {
         const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
