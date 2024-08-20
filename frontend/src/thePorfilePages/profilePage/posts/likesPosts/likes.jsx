@@ -55,7 +55,6 @@ const funLogins = async () => {
       const GetReplyPromis = await Promise?.all(fetchPromisesGetReply)
       const getReplyFetcPromis =  await Promise?.all(GetReplyPromis?.map(response => response.json())).catch(err => console.error(err));
       setMyLikes(getReplyFetcPromis.flat().reverse())
-      console.log(getReplyFetcPromis)
   
   
       ////////////////////////////////////////GET reply FROM comments/////////////////////////////////////////////////////////////////
@@ -67,7 +66,7 @@ const funLogins = async () => {
         response.json(),
         // console.log(true)
       )).catch(err => console.error(err));
-      setMyLikes2(fetcPromis.reverse())
+      setMyLikes2(fetcPromis.flat().reverse())
       console.log(fetcPromis)
       // console.log(fetcPromis)
   
@@ -79,7 +78,7 @@ const funLogins = async () => {
       const promisid = await Promise.all(mapso?.filter((res) => res!==null)?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idOfTheReplyer || ress?.idText}`)?.map(url => fetch(url)))
       const fetcPromisid = await Promise.all(promisid.map(response => response.json())).catch(err => console.error(err));
       setGetMyLikes(fetcPromisid?.flat().reverse())
-      setNoText(fetcPromisid.length===0)
+      setNoText(fetcPromisid.flat().length===0)
       setLoding(fetcPromisid.flat().length > 0)
     }
     useEffect(() => {
@@ -249,10 +248,10 @@ return (
           <div className='borderline profile'></div>
   <div>
   {noText?"" :!loding ?
-                            <div className='moonLoader'>
-                              <MoonLoader color="#01b3ff" size={30}/>
-                              </div>
-                            :maps?.filter((res) => res!==null)?.map((res, idx) => (
+            <div className='moonLoader'>
+              <MoonLoader color="#01b3ff" size={30}/>
+              </div>
+            :maps?.filter((res) => res!==null)?.map((res, idx) => (
                                 <LikesPage res={res} idx={idx} myLikes={myLikes} GetMyLikes={GetMyLikes}
                                 GETREPLYFROMPOST={GETREPLYFROMPOST} myLikes2={myLikes2} maps={maps}
                                     /> 
