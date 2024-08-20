@@ -133,28 +133,28 @@ const YourProfile = () => {
       useEffect(() => {
           replyComments()
       }, [])
-//       const GetUsers = async () => {
-//         const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
-//         const fetchTodo = async (url) => {
-//           const res = await fetch(url);
-//           if (!res.ok) {
-//             throw new Error(`HTTP error! status: ${res.status}`);
-//           }
-//           return res.json();
-//         };
+      const GetUsers = async () => {
+        const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
+        const fetchTodo = async (url) => {
+          const res = await fetch(url);
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        };
         
-//         await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
-//           .then((res) => {
-//             setGetMyLikes(res.flat());
-//             // console.log(res.flat());
+        await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
+          .then((res) => {
+            setGetMyLikes(res.flat());
+            // console.log(res.flat());
           
-//           })
-//           .catch((err) => console.error(err));
+          })
+          .catch((err) => console.error(err));
       
-//       }
-//       useEffect(() => {
-//         GetUsers()
-// }, [])
+      }
+      useEffect(() => {
+        GetUsers()
+}, [])
 return (
     <div className='homePageAll'>
         {/* <div className='TheLeft'> */}
