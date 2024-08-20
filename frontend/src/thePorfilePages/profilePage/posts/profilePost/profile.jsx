@@ -110,7 +110,7 @@ const YourProfile = () => {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
-    const oks = json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+    const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
       
       const fetchTodo = async (url) => {
         const res = await fetch(url);
@@ -134,8 +134,7 @@ const YourProfile = () => {
               replyComments()
       }, [Urprofile])
       const GetUsers = async () => {
-        const oks = replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
-      
+        const oks = await replycomments?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idText}`)      
         const fetchTodo = async (url) => {
           const res = await fetch(url);
           if (!res.ok) {
