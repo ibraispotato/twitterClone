@@ -146,6 +146,8 @@ const YourProfile = () => {
         await Promise.all(oks &&oks.map((item) => fetchTodo(item)))
           .then((res) => {
             setGetMyLikes(res.flat().reverse());
+            setNoText(res?.flat()?.length===0)
+            setLoding(res?.flat()?.length > 0)
             // console.log(res.flat());
           
           })
@@ -244,7 +246,11 @@ return (
                     <div className='borderline profile'></div>
                     <div>
                     <div>
-                    {replycomments?.map((res,idx) => (
+                    {noText?"" :!loding ?
+            <div className='moonLoader'>
+              <MoonLoader color="#01b3ff" size={30}/>
+              </div>
+            :replycomments?.map((res,idx) => (
                         <TextOfThePost res={res} idx={idx}
                             replycomments={replycomments}
                             replyComments={replyComments}

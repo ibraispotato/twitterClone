@@ -50,11 +50,11 @@ const funLogins = async () => {
       }
       
       ////////////////////////////////////////GET COMMENTS FROM REPLY/////////////////////////////////////////////////////////////////
-      const oks = json?.myLikes?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+      const oks = json?.myLikes?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
       const fetchPromisesGetReply =  await oks?.map(url => fetch(url));
       const GetReplyPromis = await Promise?.all(fetchPromisesGetReply)
       const getReplyFetcPromis =  await Promise?.all(GetReplyPromis?.map(response => response.json())).catch(err => console.error(err));
-      setMyLikes(getReplyFetcPromis)
+      setMyLikes(getReplyFetcPromis.reverse())
       // console.log(getReplyFetcPromis)
   
   
@@ -67,7 +67,7 @@ const funLogins = async () => {
         response.json(),
         // console.log(true)
       )).catch(err => console.error(err));
-      setMyLikes2(fetcPromis)
+      setMyLikes2(fetcPromis.reverse())
       // console.log(getReplyFetcPromis)
       // console.log(fetcPromis)
   
@@ -78,7 +78,7 @@ const funLogins = async () => {
       ////////////////////////////////////////GET users FROM comments/////////////////////////////////////////////////////////////////
       const promisid = await Promise.all(mapso?.filter((res) => res!==null)?.map(ress => `${process.env.REACT_APP_APi_LINK}/clone/getuserers/${ress?.idOfTheReplyer || ress?.idText}`)?.map(url => fetch(url)))
       const fetcPromisid = await Promise.all(promisid.map(response => response.json())).catch(err => console.error(err));
-      setGetMyLikes(fetcPromisid?.flat())
+      setGetMyLikes(fetcPromisid?.flat().reverse())
       setNoText(fetcPromisid.length===0)
       setLoding(fetcPromisid.flat().length > 0)
     }
