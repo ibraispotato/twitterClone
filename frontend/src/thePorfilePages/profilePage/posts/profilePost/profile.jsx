@@ -244,7 +244,7 @@ return (
                     <div className='borderline profile'></div>
                     <div>
                     <div>
-                    {replycomments?.toReversed()?.map((res,idx) => (
+                    {replycomments?.map((res,idx) => (
                         <TextOfThePost res={res} idx={idx}
                             replycomments={replycomments}
                             replyComments={replyComments}
