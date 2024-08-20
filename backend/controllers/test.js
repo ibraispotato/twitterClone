@@ -243,7 +243,7 @@ const { _id } = jwt.verify(token, process.env.KEY)
 }
 const getReply= async (req, res) => {
     const { id } = req.params
-    const GetText = await Texts.findOne({ _id: id }).sort({ createdAt: -1 })
+    const GetText = await Texts.find({ _id: id }).sort({ createdAt: -1 })
     // const GetReplies = await replyingComments.findOne({ _id: id }).sort({ createdAt: -1 })
     // console.log()
     res.status(200).json(GetText)

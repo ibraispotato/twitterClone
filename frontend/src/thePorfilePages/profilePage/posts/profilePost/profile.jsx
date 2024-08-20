@@ -110,7 +110,7 @@ const YourProfile = () => {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const response = await fetch(`${process.env.REACT_APP_APi_LINK}/clone/getuser/${id}`)
     const json = await response.json()
-    const oks = await json?.idOfThePost?.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
+    const oks = await json.idOfThePost.toReversed()?.map(ress =>`${process.env.REACT_APP_APi_LINK}/clone/texts/getReplies/${ress}`)
       
       const fetchTodo = async (url) => {
         const res = await fetch(url);
